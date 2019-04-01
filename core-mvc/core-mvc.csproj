@@ -14,10 +14,4 @@
     <PackageReference Include="Newtonsoft.Json" Version="12.0.1" />
   </ItemGroup>
 
-
-  <ItemGroup>
-    <ProjectReference Include="..\CEticoLib\CEticoLib.vbproj" />
-    <ProjectReference Include="..\Memcached\Memcached.vbproj" />
-  </ItemGroup>
-
 </Project>
