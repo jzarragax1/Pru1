@@ -1,0 +1,3970 @@
+﻿<?xml version="1.0"?>
+<doc>
+<assembly>
+<name>
+SABLib
+</name>
+</assembly>
+<members>
+<member name="T:SabLib.My.Resources.Resources">
+<summary>
+  Clase de recurso fuertemente tipado, para buscar cadenas traducidas, etc.
+</summary>
+</member>
+<member name="P:SabLib.My.Resources.Resources.ResourceManager">
+<summary>
+  Devuelve la instancia de ResourceManager almacenada en caché utilizada por esta clase.
+</summary>
+</member>
+<member name="P:SabLib.My.Resources.Resources.Culture">
+<summary>
+  Reemplaza la propiedad CurrentUICulture del subproceso actual para todas las
+  búsquedas de recursos mediante esta clase de recurso fuertemente tipado.
+</summary>
+</member>
+<member name="M:SabLib.DAL.UsuariosDAL.#ctor">
+ <summary>
+ Constructor
+ </summary>        
+</member>
+<member name="M:SabLib.DAL.UsuariosDAL.consultar(SabLib.ELL.Usuario,System.Boolean,Oracle.DataAccess.Client.OracleConnection)">
+ <summary>
+ Obtiene los datos del usuario
+ </summary>
+ <param name="oUser">Objeto usuario</param>
+ <param name="vigentes">True si solo se quiere el vigente, false en caso contrario</param>
+ <returns></returns>
+</member>
+<member name="M:SabLib.DAL.UsuariosDAL.consultarListado(SabLib.ELL.Usuario,System.Boolean,System.String)">
+ <summary>
+ Obtiene los usuarios que cumplen las condiciones
+ </summary>
+ <param name="oUser">Objeto usuario</param>
+ <param name="vigentes">True si solo se quiere el vigente, false en caso contrario</param>
+ <param name="sortField">Campo para ordenar</param>
+ <returns></returns>
+</member>
+<member name="M:SabLib.DAL.UsuariosDAL.consultarListadoUsuariosEmpresa(System.Int32,System.Boolean)">
+ <summary>
+ Obtiene los usuarios de una empresa
+ </summary>
+ <param name="idEmpresa">Id de la emrpesa</param>  
+ <param name="vigentes"></param>       
+ <returns></returns>
+</member>
+<member name="M:SabLib.DAL.UsuariosDAL.consultarListado(System.Collections.Generic.List{System.Int32},System.Boolean)">
+ <summary>
+ Obtiene los usuarios activos, que pertenezcan a alguna planta de las de la lista
+ </summary>
+ <param name="lPlantas">Plantas a las que debe pertenecer un usuario</param>
+ <param name="vigentes">Parametro opcional para mostrar solo los vigentes o todos</param>
+ <returns>Lista de usuarios</returns>        
+</member>
+<member name="M:SabLib.DAL.UsuariosDAL.consultarListadoPorNombre(System.String)">
+ <summary>
+ Obtiene la informacion de todos los usuarios buscados por nombre
+ </summary>
+ <param name="nombre">Nombre de la persona a buscar</param>
+ <returns></returns>
+</member>
+<member name="M:SabLib.DAL.UsuariosDAL.consultarListadoPlanta(SabLib.ELL.Usuario,System.Boolean,System.Boolean,System.Boolean)">
+ <summary>
+ Obtiene los usuarios activos que cumplan las condiciones del objeto y que pertenezcan a alguna planta de las de la lista
+ </summary>
+ <param name="oUser">Objeto usuario con las condiciones</param>
+ <param name="vigentes">Parametro opcional para obtener solo los usuarios vigentes</param>
+ <param name="operatorAND">Por defecto sera AND. Si es false, sera un OR</param>
+ <param name="bUsuariosConDichaPlantaGestion">Indica si hay que buscar entre las plantas de gestion que tiene asignadas el usuario o no</param>
+ <returns>Lista de usuarios</returns>        
+</member>
+<member name="M:SabLib.DAL.UsuariosDAL.consultarGruposUsuarios(System.Int32,System.String,Oracle.DataAccess.Client.OracleConnection)">
+ <summary>
+ Obtiene los grupos de un usuario y una cultura
+ </summary>
+ <param name="idUsuario">Identificador del usuario</param>
+ <param name="idCultura">Identificador de la cultura</param>
+</member>
+<member name="M:SabLib.DAL.UsuariosDAL.consultarGruposUsuariosAll(System.Int32,System.String)">
+ <summary>
+ Obtiene los grupos de un usuario y una cultura de todos los usuarios, aunque esten dados de baja
+ </summary>
+ <param name="idUsuario">Identificador del usuario</param>
+ <param name="idCultura">Identificador de la cultura</param>
+</member>
+<member name="M:SabLib.DAL.UsuariosDAL.consultarListadoPlantas(System.Int32,Oracle.DataAccess.Client.OracleConnection)">
+ <summary>
+ Devuelve las plantas en las que esta asociado un usuario
+ </summary>
+ <param name="idUsuario">Identificador del usuario</param>
+</member>
+<member name="M:SabLib.DAL.UsuariosDAL.GetUsuariosConRecurso(System.Int32,System.Boolean,System.Int32)">
+ <summary>
+ Realiza una busqueda de usuarios que tengan acceso a un recurso
+ </summary>
+ <param name="idRecurso">Recurso</param>
+ <param name="vigentes">Indica si se listaran todos o solo los vigentes</param>
+ <param name="idPlanta">Id de la planta</param>
+</member>
+<member name="M:SabLib.DAL.UsuariosDAL.GetPlantaActiva(System.Int32)">
+ <summary>
+ Obtiene el id de la planta activa del usuario        
+ </summary>
+ <param name="idUser">Id del usuario</param>
+ <returns>Id del usuario</returns>		
+</member>
+<member name="M:SabLib.DAL.UsuariosDAL.GetColaboradores(System.Int32,System.Int32)">
+ <summary>
+ Obtiene la lista de colaboradores vigentes de un usuario de Izaro
+ </summary>
+ <param name="idResp">Id del responsable</param>
+ <param name="idEmp">Id de la empresa</param>
+ <returns></returns>		
+</member>
+<member name="M:SabLib.DAL.UsuariosDAL.GetColaboradoresKEM(System.Int32)">
+ <summary>
+ Obtiene la lista de colaboradores vigentes de un usuario de las plantas de KEM		
+ </summary>
+ <param name="idResp">Id del responsable</param>
+ <returns></returns>		
+</member>
+<member name="M:SabLib.DAL.UsuariosDAL.GetProveedoresConRecurso(System.Int32)">
+ <summary>
+ Devuelve los usuarios con el recurso idRecurso y que no pertenezca a Batz
+ </summary>
+ <param name="idRecurso">Id del recurso</param>
+ <returns></returns>
+</member>
+<member name="M:SabLib.DAL.UsuariosDAL.GetResponsableSAB(System.Int32)">
+ <summary>
+ Obtiene responsable del usuario cuya informacion esta guardada en SAB
+ </summary>
+ <param name="idUser">Id del usuario</param>
+ <returns>Id del usuario</returns>		
+</member>
+<member name="M:SabLib.DAL.UsuariosDAL.GetResponsableIzaro(System.Int32,System.Int32)">
+ <summary>
+ Obtiene responsable de Izaro
+ </summary>
+ <param name="numTra">Numero de trabajador</param>
+ <param name="idEmpresaIzaro">Id de la empresa de Izaro</param>        
+ <returns>Numero de trabajador</returns>		
+</member>
+<member name="M:SabLib.DAL.UsuariosDAL.GetGerentePlanta(System.Int32)">
+ <summary>
+ Obtiene el gerente de la planta
+ </summary>
+ <param name="idPlanta">Id de la planta</param>
+ <returns></returns>        
+</member>
+<member name="M:SabLib.DAL.UsuariosDAL.getDatosIzaro(System.Int32,System.Int32)">
+ <summary>
+ Obtiene los datos de izaro
+ </summary>
+ <param name="codPersona">CodPersona</param>
+ <param name="idEmpresaIzaro">Id de la empresa de Izaro</param>
+ <returns></returns>        
+</member>
+<member name="M:SabLib.DAL.UsuariosDAL.getIdUsuariosDptos(System.Collections.Generic.List{System.String},System.Boolean)">
+ <summary>
+ Obtiene los ids de los usuario que pertenecen a un listado de grupos
+ </summary>
+ <param name="lDptos">Dptos a los que pertenece un usuario</param>
+ <param name="vigentes">Parametro opcional para mostrar solo los vigentes o todos</param>
+ <returns>Lista de ids de usuarios</returns>        
+</member>
+<member name="M:SabLib.DAL.UsuariosDAL.Save(SabLib.ELL.Usuario,Oracle.DataAccess.Client.OracleConnection)">
+ <summary>
+ Guarda un usuario
+ </summary>
+ <param name="oUser">Info del usuario</param>      
+ <param name="con">Si no es nothing, sera la conexion a utilizar</param>
+ <returns>Devuelve el id del usuario</returns>
+</member>
+<member name="M:SabLib.DAL.UsuariosDAL.SaveResponsableKEM(System.Int32,System.Int32,Oracle.DataAccess.Client.OracleConnection)">
+ <summary>
+ Inserta o actualiza el responsable del usuario del usuario de KEM (solo para los que no tienen idIzaro ni idEpsilon)
+ </summary>
+ <param name="idUser">Id del usuario</param>
+ <param name="IdResponsable">Id del responsable</param>			
+ <param name="con">Si la conexion no es nula, estara dentro de una transaccion</param>
+</member>
+<member name="M:SabLib.DAL.UsuariosDAL.GenerarCodPersona(System.Int32)">
+ <summary>
+ Genera un codigo de la persona, dependiendo de la planta. Para igorre, no se aplicara.
+ Si no encuentra ninguno, se le asigna el primero de la serie
+ </summary>
+ <param name="idPlanta">Id de la planta</param>
+</member>
+<member name="M:SabLib.DAL.UsuariosDAL.AddPlanta(System.Int32,System.Int32,Oracle.DataAccess.Client.OracleConnection)">
+ <summary>
+ Añade la planta al usuario
+ </summary>        
+ <param name="idUsuario">Id del usuario</param>
+ <param name="idPlanta">Id de la planta</param>
+ <param name="con">Conexion a utilizar sino es nothing</param>
+</member>
+<member name="M:SabLib.DAL.UsuariosDAL.Delete(System.Int32)">
+ <summary>
+ Elimina un usuario
+ </summary>
+ <param name="id">Id del usuario</param>      
+</member>
+<member name="M:SabLib.DAL.UsuariosDAL.DeletePlanta(System.String,System.Int32)">
+ <summary>
+ Elimina la planta al usuario
+ </summary>        
+ <param name="idUsuario">Id del usuario</param>
+ <param name="idPlanta">Id de la planta</param>   
+</member>
+<member name="M:SabLib.DAL.UsuariosDAL.UpdateEmailEpsilon(System.String,System.String)">
+ <summary>
+ Actualiza el email del trabajador de EPSILON del usuario
+ </summary>        
+ <param name="email">Email del usuario</param>        
+ <param name="nif">Nif de la persona</param>            
+</member>
+<member name="M:SabLib.DAL.UsuariosDAL.UpdateUserADData(System.Int32,System.String,System.String,System.String)">
+ <summary>
+ Actualiza los campos de usuario como el nombre de usuario,email e iddirectorioactivo
+ </summary>
+ <param name="idUser">Id del usuario</param>
+ <param name="userName">Nombre de usuario</param>
+ <param name="idDirectorioActivo">Id del directorio activo</param>
+ <param name="email">Email</param>        
+</member>
+<member name="M:SabLib.DAL.UsuariosDAL.getSocios(System.String)">
+ <summary>
+ Devuelve una lista de usuarios que puede ser socios (Vivos, con codigo de trabajador distinto de 99)
+ </summary>
+ <param name="idEpsilon">Id de Epsilon</param>
+ <returns>Lista de usuarios</returns>		
+</member>
+<member name="M:SabLib.DAL.UsuariosDAL.findUsersEpsilon(SabLib.ELL.Usuario,System.String)">
+ <summary>
+ Dadas unas condiciones, busca si en Epsilon existe algun usuario
+ </summary>
+ <param name="oUser">Condiciones</param>
+ <param name="idEpsilon">Id de Epsilon</param>
+ <returns></returns>        
+</member>
+<member name="M:SabLib.DAL.UsuariosDAL.findUsersIzaro(SabLib.ELL.Usuario,System.Int32)">
+ <summary>
+ Dadas unas condiciones, busca si en Izaro existe algun usuario
+ </summary>
+ <param name="oUser">Condiciones</param>
+ <param name="idIzaro">Id de Izaro</param>
+ <returns></returns>
+</member>
+<member name="M:SabLib.DAL.UsuariosDAL.findUsersAdok(SabLib.ELL.Usuario)">
+ <summary>
+ Dadas unas condiciones, busca si en Adok existe algun usuario
+ Ademas, tambien buscara en Izaro para ver si tiene el numero de tarjeta
+ </summary>
+ <param name="oUser">Condiciones</param>
+ <returns></returns>        
+</member>
+<member name="M:SabLib.DAL.UsuariosDAL.getNextNumTarjeta_SinTarjeta">
+ <summary>
+ Devuelve el siguiente numero de tarjeta de aquellos usuarios que no tienen numero de tarjeta pero hace falta para traspasar a SAB
+ </summary>
+ <returns></returns>        
+</member>
+<member name="M:SabLib.DAL.RecursosDAL.#ctor">
+ <summary>
+ Constructor
+ </summary>        
+</member>
+<member name="M:SabLib.DAL.RecursosDAL.consultar(System.String)">
+ <summary>
+ Obtiene los datos del recurso
+ </summary>
+ <param name="id">Identificador del recurso</param>
+ <returns></returns>
+</member>
+<member name="M:SabLib.DAL.RecursosDAL.consultarRecursosCultura(SabLib.ELL.recurso)">
+ <summary>
+ Obtiene el listado de recursos de una cultura
+ </summary>
+ <param name="oRecurso">Condiciones</param>        
+ <returns></returns>
+</member>
+<member name="M:SabLib.DAL.RecursosDAL.consultarRecursosCulturas(System.Int32,System.String)">
+ <summary>
+ Obtiene todos los recursos de una cultura asignados a un grupo
+ </summary>
+ <param name="idGrupo">Grupo al que estan asignados</param>
+ <param name="IdCultura">Identificador de la cultura</param>
+ <returns></returns>
+</member>
+<member name="M:SabLib.DAL.RecursosDAL.consultarRecursosCulturasUsuario(System.Int32,System.String)">
+ <summary>
+ Obtiene todos los recursos culturizados de un usuario
+ </summary>
+ <param name="idUser">Id del usuario</param>
+ <param name="IdCultura">Cultura en la que ha que mostrar los grupos</param>
+ <returns></returns>
+</member>
+<member name="M:SabLib.DAL.RecursosDAL.consultarRecursosLimitUser(System.String,System.String)">
+ <summary>
+ Obtiene los recursos asociados a un ordenador
+ </summary>
+ <param name="machineUserName">Nombre del usuario</param>
+ <param name="idCultura">Id de la cultura</param>
+ <returns></returns>
+</member>
+<member name="M:SabLib.DAL.RecursosDAL.GetListadoLimitacionRecUser(System.String)">
+ <summary>
+ Obtiene el listado de usuarios con limitacion de recursos
+ </summary>
+ <param name="userName">Nombre del usuario a buscar</param>
+ <returns></returns>        
+</member>
+<member name="M:SabLib.DAL.RecursosDAL.Add(Oracle.DataAccess.Client.OracleConnection)">
+ <summary>
+ Añade un grupo
+ </summary>  
+ <param name="con">Se puede pasar la conexion para las transacciones</param>
+ <returns>Devuelve el ultimo id insertado</returns>
+</member>
+<member name="M:SabLib.DAL.RecursosDAL.AddUsuario(System.Int32,System.Int32)">
+ <summary>
+ Añade un usuario al grupo
+ </summary>  
+ <param name="idGrupo">Identificador del grupo</param>
+ <param name="idUsuario">Identificador del usuario</param>        
+</member>
+<member name="M:SabLib.DAL.RecursosDAL.AddRecurso(System.Int32,System.Int32)">
+ <summary>
+ Añade un recurso al grupo
+ </summary>  
+ <param name="idGrupo">Identificador del grupo</param>
+ <param name="idRecurso">Identificador del recurso</param>        
+</member>
+<member name="M:SabLib.DAL.RecursosDAL.Save(SabLib.ELL.recurso,Oracle.DataAccess.Client.OracleConnection)">
+ <summary>
+ Inserta o modifica el recurso
+ </summary>
+ <param name="oRecurso">Recurso</param>
+ <param name="con">Se puede pasar la conexion para las transacciones</param> 
+ <returns>Id del recurso insertado</returns>
+</member>
+<member name="M:SabLib.DAL.RecursosDAL.SaveRecursoCultura(SabLib.ELL.recurso,System.Boolean,Oracle.DataAccess.Client.OracleConnection)">
+ <summary>
+ Inserta o modifica el termino del recurso en la cultura especificada
+ </summary>
+ <param name="oRecurso">Recurso</param>
+ <param name="bnuevo">Indica si hay que insertar o modificar</param>
+ <param name="con">Se puede pasar la conexion para las transacciones</param>  
+</member>
+<member name="M:SabLib.DAL.RecursosDAL.SavePlantas(System.Int32,System.Collections.Generic.List{SabLib.ELL.Planta},Oracle.DataAccess.Client.OracleConnection)">
+ <summary>
+ Inserta o modifica las plantas del grupo
+ </summary>
+ <param name="idGrupo">Identificador del grupo</param>
+ <param name="lPlantas">Listado de plantas</param>
+ <param name="conTrans">Se puede pasar la conexion para las transacciones</param>
+</member>
+<member name="M:SabLib.DAL.RecursosDAL.SaveLimitUser(System.Int32,System.Int32)">
+ <summary>
+ Actualiza el usuario
+ </summary>
+ <param name="idUserOld">Indica el usuario antiguo</param>
+ <param name="idUserNew">Indica el usuario nuevo</param> 
+</member>
+<member name="M:SabLib.DAL.RecursosDAL.SaveLimitRecUser(System.Int32,System.Int32)">
+ <summary>
+ Guarda un recurso
+ </summary>
+ <param name="idUser">Id del usuario</param>
+ <param name="idRecurso">Id del recurso a registrar</param>
+</member>
+<member name="M:SabLib.DAL.RecursosDAL.Delete(System.String)">
+ <summary>
+ Marca como obsoleto el recurso especificado
+ </summary>
+ <param name="id">Identificador del recurso</param>     
+</member>
+<member name="M:SabLib.DAL.RecursosDAL.DeleteImage(System.String)">
+ <summary>
+ Elimina la imagen de un recurso
+ </summary>
+ <param name="id">Identificador del recurso</param>     
+</member>
+<member name="M:SabLib.DAL.RecursosDAL.DeleteFichero(System.String)">
+ <summary>
+ Elimina el fichero de un recurso
+ </summary>
+ <param name="id">Identificador del recurso</param>     
+</member>
+<member name="M:SabLib.DAL.RecursosDAL.DeleteImageCatalogo(System.String)">
+ <summary>
+ Elimina la imagen del catalogo
+ </summary>
+ <param name="id">Identificador del recurso</param>     
+</member>
+<member name="M:SabLib.DAL.RecursosDAL.DeleteLimitUser(System.Int32)">
+ <summary>
+ Elimna el usuario y sus recursos
+ </summary>
+ <param name="idUser">Id del usuario</param>
+</member>
+<member name="M:SabLib.DAL.RecursosDAL.DeleteLimitRecUser(System.Int32,System.Int32)">
+ <summary>
+ Elimina un recurso de un usuario
+ </summary>
+ <param name="idUser">Id del usuario</param>
+ <param name="idRecurso">Id del recurso a registrar</param>
+</member>
+<member name="M:SabLib.DAL.PlantasDAL.#ctor">
+ <summary>
+ Constructor
+ </summary>        
+</member>
+<member name="M:SabLib.DAL.PlantasDAL.consultar(System.Int32,Oracle.DataAccess.Client.OracleConnection)">
+ <summary>
+ Obtiene los datos de la planta
+ </summary>
+ <param name="id">Identificador de la planta</param>
+ <returns></returns>
+</member>
+<member name="M:SabLib.DAL.PlantasDAL.consultarByCif(System.String)">
+ <summary>
+ Obtiene los datos de la planta
+ </summary>
+ <param name="cif">CIF de la planta</param>
+ <returns></returns>
+</member>
+<member name="M:SabLib.DAL.PlantasDAL.consultarByIdBRAIN(System.String)">
+ <summary>
+ Devuelve la informacion de la planta
+ </summary>
+ <param name="idBrain">Id planta en BRAIN </param>        
+ <returns>Objeto planta</returns>       
+</member>
+<member name="M:SabLib.DAL.PlantasDAL.consultarByIdEpsilon(System.String)">
+ <summary>
+ Devuelve la informacion de la planta
+ </summary>
+ <param name="idEpsilon">Id planta en Epsilon</param>        
+ <returns></returns>
+</member>
+<member name="M:SabLib.DAL.PlantasDAL.consultarListado(System.Boolean,System.Nullable{System.Boolean},System.Nullable{System.Boolean},System.Nullable{System.Boolean})">
+ <summary>
+ Obtiene el listado de plantas
+ </summary>        
+ <param name="vigentes">True las vigentes y false todas</param>
+ <param name="bMostrarReloj">Indica si se quieren todos (nothing), los que se muestren en el reloj true o los que no</param>
+ <param name="bConPlantaIzaro">Indica si se quieren solo las que tengan informada la planta izaro, las que no o todas</param>
+ <param name="bConPlantaEpsilon">Indica si se quieren solo las que tengan informada la planta epsilon, las que no o todas</param>
+ <returns>Devuelve un listado de arrays de plantas</returns>        
+</member>
+<member name="M:SabLib.DAL.PlantasDAL.consultarListado2(System.Boolean,System.Nullable{System.Boolean})">
+ <summary>
+ Obtiene el listado de plantas
+ </summary>        
+ <param name="vigentes">True las vigentes y false todas</param>
+ <param name="bMostrarReloj">Indica si se quieren todos (nothing), los que se muestren en el reloj true o los que no</param>
+ <returns>Devuelve un listado de arrays de plantas</returns>        
+</member>
+<member name="M:SabLib.DAL.PlantasDAL.consultarListado(System.Int32)">
+ <summary>
+ Obtiene el listado de plantas de un usuario
+ </summary>        
+ <param name="idUsuario">Id del usuario</param>
+ <returns>Devuelve un listado de arrays de id de plantas</returns>        
+</member>
+<member name="M:SabLib.DAL.PlantasDAL.consultarListadoBRAIN">
+ <summary>
+ Devuelve las plantas con Id BRAIN
+ </summary>        
+ <returns>Devuelve un listado de arrays de id de plantas</returns>
+</member>
+<member name="M:SabLib.DAL.PlantasDAL.getGruposDefectoPlanta(System.Int32,Oracle.DataAccess.Client.OracleConnection)">
+ <summary>
+ Obtiene la lista de grupos por defecto de una planta
+ </summary>
+ <param name="idPlanta">Id de la planta</param>
+ <returns></returns>
+</member>
+<member name="M:SabLib.DAL.PlantasDAL.ExistePlantaEpsilonIzaro(SabLib.ELL.Planta)">
+ <summary>
+ Comprueba si existe alguna planta con el IdEpsilon o IdIzaro
+ </summary>
+ <param name="oPlanta"></param>
+ <returns></returns>
+</member>
+<member name="M:SabLib.DAL.PlantasDAL.Save(SabLib.ELL.Planta)">
+ <summary>
+ Guarda una planta
+ </summary>
+ <param name="oPlant">Info a guardar</param>      
+ <returns>Id de la planta</returns>
+</member>
+<member name="M:SabLib.DAL.PlantasDAL.AddGrupo(System.Int32,System.Int32)">
+ <summary>
+ Inserta un grupo a una planta
+ </summary>
+ <param name="idPlanta">Id de la planta</param>
+ <param name="idGrupo">Id del grupo</param>
+ <returns>Booleano</returns>
+</member>
+<member name="M:SabLib.DAL.PlantasDAL.ChangePasswordUserLDAP(System.Int32,System.String)">
+ <summary>
+ Cambia la password del usuario LDAP
+ </summary>
+ <param name="idPlanta">Id de la planta</param>
+ <param name="newPassword">Nueva password</param>
+ <returns></returns>        
+</member>
+<member name="M:SabLib.DAL.PlantasDAL.Delete(System.String)">
+ <summary>
+ Marca como obsoleta una
+ </summary>
+ <param name="id">Id de la planta</param>      
+</member>
+<member name="M:SabLib.DAL.PlantasDAL.DeleteGrupo(System.String)">
+ <summary>
+ Elimina un grupo de una planta
+ </summary>
+ <param name="id">Id del grupo</param>      
+</member>
+<member name="M:SabLib.DAL.PlantasDAL.IsEmailZimbra(System.String)">
+ <summary>
+ Indica si el email es de zimbra o no
+ </summary>
+ <param name="email">Email a chequear</param>
+ <returns></returns>        
+</member>
+<member name="M:SabLib.DAL.PlantasDAL.GetCuentaZimbra(System.Int32)">
+ <summary>
+ Devuelve la informacion de la cuenta de zimbra
+ </summary>
+ <param name="idPlanta">Identificador de la planta </param>        
+ <returns>Objeto planta</returns>        
+</member>
+<member name="M:SabLib.DAL.PlantasDAL.GetCuentasZimbra">
+ <summary>
+ Devuelve las cuentas de Zimbra existentes
+ </summary>
+ <returns>Lista de plantas</returns>        
+</member>
+<member name="M:SabLib.DAL.PlantasDAL.getObjectCuentaZimbra(System.String,System.Collections.Generic.List{Oracle.DataAccess.Client.OracleParameter})">
+ <summary>
+ Dada una consulta, devuelve una lista de objetos
+ </summary>
+ <param name="query">Consulta</param>
+ <param name="lParameters">Parametros</param>
+ <returns></returns>        
+</member>
+<member name="M:SabLib.DAL.PlantasDAL.SaveCuentaZimbra(SabLib.ELL.CuentaZimbra,System.Boolean)">
+ <summary>
+ Inserta o modifica la cuenta
+ </summary>
+ <param name="oCuenta">Cuenta a guardar o modificar</param>        
+ <param name="bNew">Indica si es nuevo</param>
+</member>
+<member name="M:SabLib.DAL.PlantasDAL.DeleteCuentaZimbra(System.Int32)">
+ <summary>
+ Elimina la cuenta Zimbra
+ </summary>
+ <param name="idPlant">Identificador de la planta</param>
+ <returns>Booleano que indica si se ha eliminado o no</returns>        
+</member>
+<member name="M:SabLib.DAL.PerfilesDAL.#ctor">
+ <summary>
+ Constructor
+ </summary>        
+</member>
+<member name="M:SabLib.DAL.PerfilesDAL.GetPerfil(System.Int32)">
+ <summary>
+ Carga los datos del perfil
+ </summary>
+ <param name="id">Identificador del usuario</param>
+</member>
+<member name="M:SabLib.DAL.PerfilesDAL.SetPerfil(SabLib.ELL.Perfil,System.Boolean)">
+ <summary>
+ Guarda un perfil. Si no existe, lo crea
+ </summary>
+ <param name="oPerfil">Info a guardar</param>      
+ <param name="bNuevo">Indica si es nuevo o no</param>
+</member>
+<member name="M:SabLib.DAL.ParametrosDAL.#ctor">
+ <summary>
+ Constructor
+ </summary>        
+</member>
+<member name="M:SabLib.DAL.ParametrosDAL.consultar">
+ <summary>
+ Obtiene los parametros globales
+ </summary>
+</member>
+<member name="M:SabLib.DAL.ParametrosDAL.Save(SabLib.ELL.Parametros,System.Boolean)">
+ <summary>
+ Guarda los parametros
+ </summary>
+ <param name="oParam">Parametros</param>      
+ <param name="bInsertar">True si se hace un insert y false para hacer un update</param>        
+</member>
+<member name="M:SabLib.DAL.ParametrosDAL.ChangePasswordUserZimbra(System.String)">
+ <summary>
+ Cambia la password del usuario Zimbra
+ </summary>        
+ <param name="newPassword">Nueva password</param>
+ <returns></returns>        
+</member>
+<member name="M:SabLib.DAL.ParametrosDAL.consultarWifi(System.Int32)">
+ <summary>
+ Obtiene los parametros wifi
+ </summary>
+ <param name="IdPlanta">Id de la planta</param>
+</member>
+<member name="M:SabLib.DAL.ParametrosDAL.consultarListadoWifi">
+ <summary>
+ Obtiene todos los parametros de todas las plantas
+ </summary>
+</member>
+<member name="M:SabLib.DAL.ParametrosDAL.SaveWifi(SabLib.ELL.ParametrosWifi,System.Boolean)">
+ <summary>
+ Guarda los parametros wifi
+ </summary>
+ <param name="oParam">Parametros</param>      
+ <param name="bInsertar">True si se hace un insert y false para hacer un update</param>        
+</member>
+<member name="M:SabLib.DAL.loginDAL.#ctor">
+ <summary>
+ Constructor
+ </summary>        
+</member>
+<member name="M:SabLib.DAL.loginDAL.consultarUsuarioTicket(System.String)">
+ <summary>
+ Recupera el usuario del ticket
+ </summary>
+ <param name="IdSession">Id de la session</param>        
+ <returns>Id usuario</returns>        
+</member>
+<member name="M:SabLib.DAL.loginDAL.RecursosUsuario(System.Int32,System.String)">
+ <summary>
+ Obtiene los recursos a los que tiene acceso un usuario
+ </summary>
+ <param name="idUsuario">Id del usuario</param>
+ <param name="idCultura">Cultura</param>
+ <returns></returns>        
+</member>
+<member name="M:SabLib.DAL.loginDAL.AddTicket(System.String,System.Int32)">
+ <summary>
+ Añade un ticket a la base de datos
+ </summary>        
+ <param name="idSession">Id de la session</param>
+ <param name="idUsuario">Id del usuario</param>        
+</member>
+<member name="M:SabLib.DAL.loginDAL.DeleteTicket(System.String)">
+ <summary>
+ Elimina un ticket
+ </summary>
+ <param name="id">Id de la session</param>      
+</member>
+<member name="M:SabLib.DAL.loginDAL.DeleteTicketAll">
+ <summary>
+ Elimina todos los tickets
+ </summary>        
+</member>
+<member name="M:SabLib.DAL.GruposDAL.#ctor">
+ <summary>
+ Constructor
+ </summary>        
+</member>
+<member name="M:SabLib.DAL.GruposDAL.consultarListado(SabLib.ELL.grupo)">
+ <summary>
+ Obtiene el listado de grupos
+ </summary>
+ <param name="oGrupo">Condiciones</param>        
+ <returns></returns>
+</member>
+<member name="M:SabLib.DAL.GruposDAL.consultarListado(System.Int32,System.String)">
+ <summary>
+ Obtiene todos los grupos de una cultura asignados a un recurso
+ </summary>
+ <param name="idRecurso">recurso al que estan asignados</param>
+ <param name="IdCultura">Identificador de la cultura</param>
+ <returns></returns>
+</member>
+<member name="M:SabLib.DAL.GruposDAL.consultarListado(System.Collections.Generic.List{System.Int32},System.String)">
+ <summary>
+ Obtiene los grupos, que pertenezcan a alguna planta de las de la lista
+ </summary>
+ <param name="lPlantas">Plantas a las que debe pertenecer un grupo</param>
+ <param name="IdCultura">Cultura en la que ha que mostrar los grupos</param>
+ <returns></returns>
+</member>
+<member name="M:SabLib.DAL.GruposDAL.consultarListadoUsuarios(System.Int32)">
+ <summary>
+ Devuelve los usuarios que pertenecen a un grupo
+ </summary>
+ <param name="idGrupo">Id del grupo</param>
+ <returns></returns>        
+</member>
+<member name="M:SabLib.DAL.GruposDAL.consultarListadoPlantas(System.Int32)">
+ <summary>
+ Devuelve las plantas en las que esta asociado un grupo
+ </summary>
+ <param name="idGrupo">Id del grupo</param>
+ <returns></returns>        
+</member>
+<member name="M:SabLib.DAL.GruposDAL.Add(Oracle.DataAccess.Client.OracleConnection)">
+ <summary>
+ Añade un grupo
+ </summary>  
+ <param name="con">Se puede pasar la conexion para las transacciones</param>
+ <returns>Devuelve el ultimo id insertado</returns>
+</member>
+<member name="M:SabLib.DAL.GruposDAL.AddUsuario(System.Int32,System.Int32,Oracle.DataAccess.Client.OracleConnection)">
+ <summary>
+ Añade un usuario al grupo
+ </summary>  
+ <param name="idGrupo">Identificador del grupo</param>
+ <param name="idUsuario">Identificador del usuario</param>        
+</member>
+<member name="M:SabLib.DAL.GruposDAL.AddRecurso(System.Int32,System.Int32)">
+ <summary>
+ Añade un recurso al grupo
+ </summary>  
+ <param name="idGrupo">Identificador del grupo</param>
+ <param name="idRecurso">Identificador del recurso</param>        
+</member>
+<member name="M:SabLib.DAL.GruposDAL.SaveGrupoCultura(SabLib.ELL.grupo,System.Boolean,Oracle.DataAccess.Client.OracleConnection)">
+ <summary>
+ Inserta o modifica el termino del grupo en la cultura especificada
+ </summary>
+ <param name="oGrupo">Grupo</param>
+ <param name="bnuevo">Indica si hay que insertar o modificar</param> 
+ <param name="con">Se puede pasar la conexion para las transacciones</param>  
+</member>
+<member name="M:SabLib.DAL.GruposDAL.SavePlantas(System.Int32,System.Collections.Generic.List{SabLib.ELL.Planta},Oracle.DataAccess.Client.OracleConnection)">
+ <summary>
+ Inserta o modifica las plantas del grupo
+ </summary>
+ <param name="idGrupo">Identificador del grupo</param>
+ <param name="lPlantas">Listado de plantas</param>
+ <param name="conTrans">Se puede pasar la conexion para las transacciones</param>
+</member>
+<member name="M:SabLib.DAL.GruposDAL.Delete(System.String)">
+ <summary>
+ Elimina un grupo
+ </summary>
+ <param name="id">Id del grupo</param>      
+</member>
+<member name="M:SabLib.DAL.GruposDAL.DeleteUsuario(System.Int32,System.Int32)">
+ <summary>
+ Elimina un usuario de un grupo
+ </summary>
+ <param name="idGrupo">Identificador del grupo</param>
+ <param name="idUsuario">Identificador del usuario</param>    
+</member>
+<member name="M:SabLib.DAL.GruposDAL.DeleteRecurso(System.Int32,System.Int32)">
+ <summary>
+ Elimina el recurso de un grupo
+ </summary>
+ <param name="idGrupo">Identificador del grupo</param>
+ <param name="idRecurso">Identificador del recurso</param>    
+</member>
+<member name="M:SabLib.DAL.EmpresasDAL.#ctor">
+ <summary>
+ Constructor
+ </summary>        
+</member>
+<member name="M:SabLib.DAL.EmpresasDAL.consultar(SabLib.ELL.Empresa)">
+ <summary>
+ Obtiene los datos de la empresa
+ </summary>
+ <param name="oEmpr">Filtro de la empresa</param>
+ <returns></returns>
+</member>
+<member name="M:SabLib.DAL.EmpresasDAL.consultarListado(System.Boolean)">
+ <summary>
+ Obtiene el listado de empresas
+ </summary>
+ <param name="activa">Indica si solo quiere las activas o no</param>        
+ <returns>Devuelve un listado de arrays de empresas</returns>        
+</member>
+<member name="M:SabLib.DAL.EmpresasDAL.consultarListado(System.Boolean,System.String)">
+ <summary>
+ Obtiene el listado de empresas
+ </summary>
+ <param name="activa">Indica si solo quiere las activas o no</param>
+ <param name="queryName">Indica parte del nombre de la empresa</param>         
+ <returns>Devuelve un listado de arrays de empresas</returns>        
+</member>
+<member name="M:SabLib.DAL.EmpresasDAL.consultarListadoActivasSinTroqueleriaSistemas">
+ <summary>
+ Carga las empresas activas que no tienen IdTroqueleria ni IdSistemas
+ </summary>       
+ <returns>Devuelve un listado de arrays de empresas</returns>        
+</member>
+<member name="M:SabLib.DAL.EmpresasDAL.BuscarEmpresas(System.String,System.Boolean,System.Boolean)">
+ <summary>
+ Realiza una busqueda de las empresa
+ </summary>
+ <param name="filtro">Filtro a aplicar</param>
+ <param name="bTroqueleria">Flag que implicara buscar empresas de troqueleria</param>
+ <param name="bSistemas">Flag que implicar buscar empresas de sistemas</param>
+</member>
+<member name="M:SabLib.DAL.EmpresasDAL.consultarEmpresasActivas(System.String)">
+ <summary>
+ Obtiene un listado de proveedores de Activos
+ </summary>
+ <param name="filtro">Filtro sobre el nombre</param>
+ <returns></returns>
+ <remarks></remarks>
+</member>
+<member name="M:SabLib.DAL.EmpresasDAL.consultarEmailEmpresa(System.String)">
+ <summary>
+ Obtiene el email de una empresa
+ </summary>
+ <param name="idTroqueleria">IdTroquelería</param>
+ <returns></returns>
+ <remarks></remarks>
+</member>
+<member name="M:SabLib.DAL.EmpresasDAL.consultarEmailEmpresaSistemas(System.String)">
+ <summary>
+ Obtiene el email de una empresa de sistemas
+ </summary>
+ <param name="idSistemas">idSistemas</param>
+ <returns></returns>
+ <remarks></remarks>
+</member>
+<member name="M:SabLib.DAL.EmpresasDAL.consultarEmpresa(System.String)">
+ <summary>
+ Obtiene los datos de la emprsa
+ </summary>
+ <param name="idTroqueleria">Id troquelería</param>
+ <returns></returns>
+</member>
+<member name="M:SabLib.DAL.EmpresasDAL.Save(SabLib.ELL.Empresa,Oracle.DataAccess.Client.OracleConnection)">
+ <summary>
+ Guarda una empresa
+ </summary>
+ <param name="oEmp">Info a guardar</param>  
+ <param name="conn"></param>    
+</member>
+<member name="M:SabLib.DAL.EmpresasDAL.Delete(System.String)">
+ <summary>
+ Elimina una empresa
+ </summary>
+ <param name="id">Id de la empresa</param>      
+</member>
+<member name="M:SabLib.DAL.EjecucionProcDAL.#ctor">
+ <summary>
+ Constructor
+ </summary>        
+</member>
+<member name="M:SabLib.DAL.EjecucionProcDAL.consultar(System.String)">
+ <summary>
+ Obtiene los datos de la ejecucion
+ </summary>
+ <param name="id">Identificador de la ejecucion</param>
+ <returns></returns>
+</member>
+<member name="M:SabLib.DAL.EjecucionProcDAL.consultarListado(SabLib.ELL.EjecucionProc)">
+ <summary>
+ Obtiene el listado de ejecuciones
+ </summary>
+ <param name="oEjec">Objeto con las condiciones</param>
+ <returns></returns>        
+</member>
+<member name="M:SabLib.DAL.EjecucionProcDAL.Insert(SabLib.ELL.EjecucionProc)">
+ <summary>
+ Inserta un registro de ejecucion de un proceso
+ </summary>
+ <param name="oEjec">Info a insertar</param>      
+</member>
+<member name="M:SabLib.DAL.EjecucionProcDAL.Delete(System.String)">
+ <summary>
+ Elimina una empresa
+ </summary>
+ <param name="id">Id de la empresa</param>      
+</member>
+<member name="M:SabLib.DAL.DepartamentosDAL.#ctor">
+ <summary>
+ Constructor
+ </summary>        
+</member>
+<member name="M:SabLib.DAL.DepartamentosDAL.GetDepartamentoSAB(System.String)">
+ <summary>
+ Obtiene el departamento de SAB, perteneciente a las plantas de fuera
+ </summary>
+ <param name="idDepto">Identificador del departamento</param>
+ <returns></returns>
+</member>
+<member name="M:SabLib.DAL.DepartamentosDAL.GetDepartamentoIzaro(System.String,System.Int32)">
+ <summary>
+ Obtiene el departamento de Izaro
+ </summary>
+ <param name="idDepto">Identificador del departamento</param>
+ <param name="idIzaro">Id de izaro</param>
+ <returns></returns>        
+</member>
+<member name="M:SabLib.DAL.DepartamentosDAL.consultarListado(System.Int32,System.String)">
+ <summary>
+ Obtiene el listado de departamentos
+ </summary>
+ <param name="IdPlanta">Id de la planta a consultar. Si no viene informado, de todas</param>
+ <param name="sortField">Campo por el que se ordenara de manera ascendente</param>
+ <returns>Devuelve un listado de departamentos</returns>        
+</member>
+<member name="M:SabLib.DAL.DepartamentosDAL.GetDepartamentosIzaro(System.Int32)">
+ <summary>
+ Devuelve los departamentos de Izaro existentes
+ </summary>
+ <param name="idIzaro">Id de la empresa izaro</param>
+ <returns></returns>        
+</member>
+<member name="M:SabLib.DAL.DepartamentosDAL.GetMaxIdDeptoPlanta(System.Int32)">
+ <summary>
+ Obtiene el maximo id de la tabla de departamentos para esa planta
+ </summary>
+ <param name="idPlanta">Identificador de la planta</param>
+</member>
+<member name="M:SabLib.DAL.DepartamentosDAL.GetDepartamentosBusquedaIzaro(System.String,System.Int32)">
+ <summary>
+ Obtiene el listado de departamentos de Izaro que cumplen las condiciones
+ </summary>
+ <param name="texto">Texto de la busqueda</param>
+ <param name="idIzaro">Id de izaro</param>
+ <returns></returns>        
+</member>
+<member name="M:SabLib.DAL.DepartamentosDAL.GetDepartamentosBusquedaSAB(System.String,System.Int32)">
+ <summary>
+ Obtiene el listado de departamentos de SAB que cumplen las condiciones
+ </summary>
+ <param name="texto">Texto de la busqueda</param>
+ <param name="IdPlanta">Id de la planta a consultar. Si no viene informado, de todas</param>        
+ <returns>Devuelve un listado de departamentos</returns>        
+</member>
+<member name="M:SabLib.DAL.DepartamentosDAL.GetDepartamentosGrupoBatz">
+ <summary>
+ Devuelve los ids de los departamentos que pertenecen al Grupo Batz
+ </summary>        
+ <returns></returns>        
+</member>
+<member name="M:SabLib.DAL.DepartamentosDAL.Save(SabLib.ELL.Departamento,System.Boolean)">
+ <summary>
+ Guarda un departamento de SAB
+ </summary>
+ <param name="oDepto">Info a guardar</param>      
+ <param name="bNuevo">Indica si hay que insertar o actualizarlo</param>
+</member>
+<member name="M:SabLib.DAL.DepartamentosDAL.Delete(System.String)">
+ <summary>
+ Elimina un departamento
+ </summary>
+ <param name="id">Id del departamento</param>      
+</member>
+<member name="M:SabLib.DAL.CulturasDAL.#ctor">
+ <summary>
+ Constructor
+ </summary>        
+</member>
+<member name="M:SabLib.DAL.CulturasDAL.consultarListado">
+ <summary>
+ Obtiene el listado de culturas
+ </summary>
+ <returns>Devuelve un listado de culturas</returns>        
+</member>
+<member name="M:SabLib.DAL.CulturasDAL.RangoKultura(System.String)">
+ <summary>
+ Dada una cultura, devuelve el rango de culturas que segun una prioridad, se utilizara para intentar traducir un termino
+ Estaran ordenados de mayor orden a menor
+ </summary>
+ <param name="cultura">Cultura base</param>
+ <returns></returns>        
+</member>
+<member name="M:SabLib.DAL.CabIntranetDAL.#ctor">
+ <summary>
+ Constructor
+ </summary>        
+</member>
+<member name="M:SabLib.DAL.CabIntranetDAL.consultarImagen(System.Int32)">
+ <summary>
+ Obtiene un objeto cabecera dados unos parametros
+ </summary>
+ <param name="idCab">Cabecera</param>        
+ <returns></returns>
+</member>
+<member name="M:SabLib.DAL.CabIntranetDAL.consultar(SabLib.ELL.CabIntranet)">
+ <summary>
+ Obtiene el objeto de cabecera 
+ </summary>
+ <returns>Devuelve un listado de culturas</returns>        
+</member>
+<member name="M:SabLib.DAL.CabIntranetDAL.consultarListado(System.DateTime,System.String)">
+ <summary>
+ Obtiene el listado de cabeceras
+ </summary>
+ <returns>Devuelve un listado de culturas</returns>        
+</member>
+<member name="M:SabLib.DAL.CabIntranetDAL.consultarExcepciones(System.Int32)">
+ <summary>
+ Obtiene la lista de fechas de excepciones
+ </summary>
+ <param name="idCab">Cabecera</param>      
+</member>
+<member name="M:SabLib.DAL.CabIntranetDAL.Save(SabLib.ELL.CabIntranet)">
+ <summary>
+ Guarda las modificaciones de la cabecera
+ </summary>
+ <param name="oCab">Info a guardar</param>      
+</member>
+<member name="M:SabLib.DAL.CabIntranetDAL.AddExcept(System.String[])">
+ <summary>
+ Añade un rango de excepcion
+ </summary>
+ <param name="except">Excepcion</param>        
+</member>
+<member name="M:SabLib.DAL.CabIntranetDAL.Delete(System.Int32)">
+ <summary>
+ Elimina la cabecera
+ </summary>
+ <param name="id">Identificador de la cabecera</param>        
+</member>
+<member name="M:SabLib.DAL.CabIntranetDAL.DeleteExcept(System.String[])">
+ <summary>
+ Borra el rango de excepcion
+ </summary>
+ <param name="except">Excepcion</param>        
+</member>
+<member name="M:SabLib.DAL.XBATDAL.#ctor">
+ <summary>
+ Constructor
+ </summary>        
+</member>
+<member name="M:SabLib.DAL.XBATDAL.GetMoneda(System.Int32)">
+ <summary>
+ Carga la informacion de la moneda
+ </summary>        
+</member>
+<member name="M:SabLib.DAL.XBATDAL.GetMonedas">
+ <summary>
+ Carga las monedas activas
+ </summary>        
+</member>
+<member name="M:SabLib.DAL.AccessDAL.#ctor">
+ <summary>
+ Constructor
+ </summary>        
+</member>
+<member name="M:SabLib.DAL.AccessDAL.ListadoCognos(System.String,System.Collections.Generic.List{System.Int32})">
+ <summary>
+ Inserta en una tabla intermedia, los ids que se quieren mostrar en Cognos
+ La funcion eliminara los del mismo IdSession y los de dias anteriores
+ </summary>
+ <param name="sessionId">Id de la session de la aplicacion</param>
+ <param name="lIds">Lista de los identificadores que se mostraran en el listado</param>        
+</member>
+<member name="M:SabLib.DAL.EpsilonDAL.#ctor">
+ <summary>
+ Constructor con la conexion de Epsilon
+ </summary>
+</member>
+<member name="M:SabLib.DAL.EpsilonDAL.GetDepartamentosBusquedaEpsilon(System.String,System.String)">
+ <summary>
+ Devuelve toda la informacion de un departamento.
+ 0=Id_nivel,1=descripcion,2=profuncidad nivel,3=fecha inabilitacion,4=Primer nivel,5=segundo nivel,6=tercer nivel,...
+ </summary>
+ <param name="texto">Texto con el nombre del departamento</param>
+ <param name="idEpsilon">Id de epsilon</param>
+ <returns></returns>
+</member>
+<member name="M:SabLib.DAL.EpsilonDAL.GetOrganigrama(System.String)">
+ <summary>
+ Devuelve el organigrama completo de Batz
+ </summary>
+ <param name="idEpsilon">Id de epsilon</param>
+ <returns></returns>
+</member>
+<member name="M:SabLib.DAL.EpsilonDAL.GetDepartamentoEpsilon(System.String,System.String)">
+ <summary>
+ Obtiene el departamento de Epsilon
+ </summary>
+ <param name="idDepto">Id del departamento</param>
+ <param name="idEpsilon">Id de Epsilon</param>
+ <returns></returns>        
+</member>
+<member name="M:SabLib.DAL.EpsilonDAL.GetOrganigramaNegocio(System.String,System.String)">
+ <summary>
+ Devuelve la informacion de un departamento
+ 0=Id_nivel,1=descripción departamento,2=descripción negocio, 3=id negocio
+ </summary>
+ <param name="IdDep">Identificador del departamento</param>
+ <param name="idEpsilon">Id de epsilon</param>
+ <returns></returns>
+</member>
+<member name="M:SabLib.DAL.EpsilonDAL.GetResponsable(System.String,System.String)">
+ <summary>
+ Obtiene el numero de trabajador del responsable
+ </summary>
+ <param name="dni">DNI</param>
+ <param name="idEpsilon">Id de Epsilon</param>
+ <returns></returns>        
+</member>
+<member name="M:SabLib.DAL.EpsilonDAL.GetFoto(System.String)">
+ <summary>
+ Busca la foto de la persona
+ </summary>
+ <param name="dni">DNI</param>
+ <returns></returns>        
+</member>
+<member name="M:SabLib.DAL.EpsilonDAL.getInfoNegocioOrganigDepartamento(System.String,System.String)">
+ <summary>
+ Obtiene la informacion de negocio y organizacion de un departamento
+ </summary>
+ <param name="idDepto">Id del departamento</param>
+ <param name="idEpsilon">Id de la empresa de Epsilon</param>
+ <returns></returns>        
+</member>
+<member name="M:SabLib.BLL.UsuariosComponent.GetUsuario(SabLib.ELL.Usuario,System.Boolean,System.Boolean,Oracle.DataAccess.Client.OracleConnection)">
+ <summary>
+ Devuelve el usuario que cumpla las condiciones del objeto
+ </summary>
+ <param name="oUser">Objeto que representa al usuario</param>
+ <param name="SoloVigentes">Indicamos si la busqueda se hace solo sobre los vigentes (por defecto) o sobre todos los usuarios.</param>
+ <param name="obtenerFoto">Indicamos si queremos obtener la foto del Usuario.</param>
+ <returns></returns>        
+</member>
+<member name="M:SabLib.BLL.UsuariosComponent.GetUsuarios(SabLib.ELL.Usuario,System.Boolean,System.String)">
+ <summary>
+ Obtiene los usuarios que cumplan las condiciones del objeto ordenados por un campo
+ </summary>
+ <param name="oUser">Objeto usuario</param>
+ <param name="vigentes">Parametro opcional para mostrar todos los usuarios o solo vigentes</param>
+ <param name="sortField">Campo a ordenar</param>
+ <returns>Lista de usuarios</returns>         
+</member>
+<member name="M:SabLib.BLL.UsuariosComponent.GetUsuarios(System.Collections.Generic.List{System.Int32},System.Boolean)">
+ <summary>
+ Obtiene los usuarios activos, que pertenezcan a alguna planta de las de la lista
+ </summary>
+ <param name="lPlantas">Plantas a las que debe pertenecer un usuario</param>
+ <param name="vigentes">Parametro opcional para mostrar solo los vigentes o todos</param>
+ <returns>Lista de usuarios</returns>                
+</member>
+<member name="M:SabLib.BLL.UsuariosComponent.GetUsuariosPlanta(SabLib.ELL.Usuario,System.Boolean,System.Boolean,System.Boolean)">
+ <summary>
+ Obtiene los usuarios activos que cumplan las condiciones del objeto y que pertenezcan a alguna planta de las de la lista
+ </summary>
+ <param name="oUser">Objeto usuario con las condiciones</param>
+ <param name="vigentes">Parametro opcional para obtener solo los usuarios vigentes</param>
+ <param name="operatorAND">Por defecto sera AND. Si es false, sera un OR</param>  ''' 
+ <param name="bUsuariosConDichaPlantaGestion">Indica si hay que buscar entre las plantas de gestion que tiene asignadas el usuario o no</param>
+ <returns>Lista de usuarios</returns>         
+</member>
+<member name="M:SabLib.BLL.UsuariosComponent.GetUsuariosBusquedaSAB(System.String)">
+ <summary>
+ Realiza una busqueda de usuarios a partir de un texto en la aplicacion de SAB con un algoritmo mas eficaz      
+ </summary>
+ <param name="texto">Texto a buscar</param>
+ <returns>Lista de usuarios</returns>       
+</member>
+<member name="M:SabLib.BLL.UsuariosComponent.GetUsuariosBusquedaSAB2(System.String,System.Int32,System.Boolean)">
+ <summary>
+ Realiza una busqueda de usuarios a partir de un texto en la aplicacion de SAB.Si no se indica nada en el texto, no obtiene ninguno
+ </summary>
+ <param name="texto">Texto a buscar</param>
+ <param name="recurso">Parametro opcional indicando el recurso.Si se indica el recurso, la lista de usuarios que se obtiene para la busqueda, sera la de usuarios que pertenecen a ese recurso</param>
+ <param name="bGetTodosSiTextoVacio">Parametro opcional para indicar que si el texto que se manda es vacio, obtenga todos los usuarios encontrados</param>
+ <returns>Lista de usuarios</returns>          
+</member>
+<member name="M:SabLib.BLL.UsuariosComponent.GetUsuariosBusquedaSAB_Optimizado(System.String,System.Int32,System.Boolean,System.Boolean,System.Int32)">
+ <summary>
+ Realiza una busqueda de usuarios a partir de un texto en la aplicacion de SAB.Si no se indica nada en el texto, no obtiene ninguno
+ Si vienen comillas, sera para separar porque puede que haya nombres compuestos
+ </summary>
+ <param name="texto">Texto a buscar</param>
+ <param name="recurso">Parametro opcional indicando el recurso.Si se indica el recurso, la lista de usuarios que se obtiene para la busqueda, sera la de usuarios que pertenecen a ese recurso</param>
+ <param name="bGetTodosSiTextoVacio">Parametro opcional para indicar que si el texto que se manda es vacio, obtenga todos los usuarios encontrados</param>
+ <param name="conDirectorioActivo">True: sólo los que tengan directorio activo. False: todos</param>
+ <param name="idPlanta">Id de la planta</param>
+ <returns>Lista de usuarios</returns>            
+</member>
+<member name="M:SabLib.BLL.UsuariosComponent.GetUsuariosBusquedaSAB_Optimizado2(System.String,System.Int32,System.Boolean,System.Boolean)">
+ <summary>
+ Realiza una busqueda de usuarios a partir de un texto en la aplicacion de SAB.Si no se indica nada en el texto, no obtiene ninguno
+ Si vienen comillas, sera para separar porque puede que haya nombres compuestos
+ </summary>
+ <param name="texto">Texto a buscar</param>
+ <param name="recurso">Parametro opcional indicando el recurso.Si se indica el recurso, la lista de usuarios que se obtiene para la busqueda, sera la de usuarios que pertenecen a ese recurso</param>
+ <param name="bGetTodosSiTextoVacio">Parametro opcional para indicar que si el texto que se manda es vacio, obtenga todos los usuarios encontrados</param>
+ <param name="conDirectorioActivo">True: sólo los que tengan directorio activo. False: todos</param>
+ <returns>Lista de usuarios</returns>            
+</member>
+<member name="M:SabLib.BLL.UsuariosComponent.cargarListaMemCached_SABOpt(System.String,System.Collections.Generic.List{Oracle.DataAccess.Client.OracleParameter},System.Int32)">
+ <summary>
+ Ejecuta la consulta con las query y los parametros dados de getBusquedaSAB_Optimizado. Si tiene idRecurso, se cogeran solo los de ese recurso
+ </summary>
+ <param name="query"></param>
+ <param name="lParametros"></param>
+ <param name="idRecurso"></param>
+ <returns></returns>        
+</member>
+<member name="M:SabLib.BLL.UsuariosComponent.GetUsuariosBusquedaSAB(System.String,System.Nullable{System.Boolean},System.Nullable{System.Boolean},System.Nullable{System.Boolean},System.Boolean,System.Int32,System.Int32,System.Int32)">
+ <summary>
+ Realiza una busqueda de usuarios a partir de varias condiciones. Es para utilizarlo con el nuevo control de seleccion de usuarios
+ </summary>
+ <param name="texto">Texto a buscar</param>
+ <param name="bConIdDirectorioActivo">Indica si tendra que tener IdDirectorioActivo o no</param>
+ <param name="bConEmail">Indica si debe tener email</param>
+ <param name="bConCodPersona">Indica si debe tener codigo de persona</param>
+ <param name="bVigentes">Indica si se quieren solo los vigentes, o todos</param>
+ <param name="idEmpresa">Se puede indicar el id de la empresa</param>		
+ <param name="idPlanta">Id de la planta a la que se quiere que pertenezcan</param>
+ <param name="idRecurso">Id del recurso al que se quiere que pertenezcan</param>
+ <returns>Lista de usuarios</returns>        
+</member>
+<member name="M:SabLib.BLL.UsuariosComponent.GetUsuariosBusquedaMultipleSAB(System.String,System.Nullable{System.Boolean},System.Nullable{System.Boolean},System.Nullable{System.Boolean},System.Boolean,System.Int32,System.Int32,System.Int32)">
+ <summary>
+ Realiza una busqueda de varios usuarios a partir de varias condiciones. Es para utilizarlo con el nuevo control de seleccion de usuarios
+ </summary>
+ <param name="textosABuscar">Diferentes usuarios a buscar separados por comas</param>
+ <param name="bConIdDirectorioActivo">Indica si tendra que tener IdDirectorioActivo o no</param>
+ <param name="bConEmail">Indica si debe tener email</param>
+ <param name="bConCodPersona">Indica si debe tener codigo de persona</param>
+ <param name="bVigentes">Indica si se quieren solo los vigentes, o todos</param>
+ <param name="idEmpresa">Se puede indicar el id de la empresa</param>		
+ <param name="idPlanta">Id de la planta a la que se quiere que pertenezcan</param>
+ <param name="idRecurso">Id del recurso al que se quiere que pertenezcan</param>
+ <returns>Lista de usuarios</returns>        
+</member>
+<member name="M:SabLib.BLL.UsuariosComponent.cargarListaMemCached_SABMult(System.String,System.Collections.Generic.List{Oracle.DataAccess.Client.OracleParameter},System.Nullable{System.Boolean},System.Nullable{System.Boolean},System.Nullable{System.Boolean},System.Boolean,System.Int32,System.Int32)">
+ <summary>
+ Ejecuta la consulta con las query y los parametros dados de BusquedaSAB_Multiple
+ </summary>
+ <param name="query"></param>
+ <param name="lParametros"></param>
+ <returns></returns>        
+</member>
+<member name="M:SabLib.BLL.UsuariosComponent.GetGruposUsuario(System.Int32,System.String,Oracle.DataAccess.Client.OracleConnection)">
+ <summary>
+ Obtiene los grupos de un usuario y una cultura
+ Si estamos utilizando los usuarios nuevos, esta funcion servira para obtener la info de usuarios dados de baja y que tengan otro usuario activo ya que este usuario no estaria en la tabla USUARIOS_INTRANET
+ </summary>
+ <param name="idUsuario">Identificador del usuario</param>
+ <param name="idCultura">Identificador de la cultura</param>
+ <param name="con">Conexion por si viene de una transaccion</param>
+ <returns>Lista de grupos</returns>
+</member>
+<member name="M:SabLib.BLL.UsuariosComponent.GetGruposUsuarioAll(System.Int32,System.String)">
+ <summary>
+ Obtiene los grupos de un usuario y una cultura de todos los usuarios, aunque esten dados de baja
+ Si estamos utilizando los usuarios nuevos, esta funcion servira para obtener la info de usuarios dados de baja y que tengan otro usuario activo ya que este usuario no estaria en la tabla USUARIOS_INTRANET
+ </summary>
+ <param name="idUsuario">Identificador del usuario</param>
+ <param name="idCultura">Identificador de la cultura</param>		
+ <returns>Lista de grupos</returns>
+</member>
+<member name="M:SabLib.BLL.UsuariosComponent.getObject(System.String[],System.Boolean,System.Boolean)">
+ <summary>
+ A partir de un array de string, devuelve un objeto usuario
+ </summary>
+ <param name="sUser"></param>
+ <returns></returns>
+</member>
+<member name="M:SabLib.BLL.UsuariosComponent.GetResponsable(System.Int32,System.Int32)">
+ <summary>
+ Devuelve el responsable del usuario. Si se esta utllizando los usuarios nuevos, se utilizara para saber el responsable de un usuario dado de baja que ahora tenga un usuario activo
+ Si el usuario pertenece a una planta y esta no se encuentra en la tabla PLANTAS_RESP_IZARO, lo obtiene de Izaro, sino de RESPONSABLES_PLANTAS
+ </summary>
+ <param name="idUser">Identificador del usuario</param>
+ <param name="codTrab">Codigo de trabajador opcional</param>
+ <returns></returns>        
+</member>
+<member name="M:SabLib.BLL.UsuariosComponent.GetResponsable(SabLib.ELL.Usuario)">
+ <summary>
+ Devuelve el responsable del usuario
+ </summary>
+ <param name="oUser">Usuario</param>        
+ <returns></returns>
+</member>
+<member name="M:SabLib.BLL.UsuariosComponent.GetGerentePlanta(System.Int32)">
+ <summary>
+ Obtiene el gerente de la planta
+ </summary>
+ <param name="idPlanta">Id de la planta</param>
+ <returns></returns>        
+</member>
+<member name="M:SabLib.BLL.UsuariosComponent.GetPlantaActiva(System.Int32)">
+ <summary>
+ ANTIGUA:Obtiene el id de la planta activa del usuario
+ De momento, la planta sera la del id minimo que tenga. Es decir, si tiene mas de una y una de ellas es la de Igorre(1), esta sera la activa
+ </summary>
+ <param name="idUser">Id del usuario</param>
+ <returns></returns>        
+</member>
+<member name="M:SabLib.BLL.UsuariosComponent.GetPlantaActiva(SabLib.ELL.Usuario)">
+ <summary>
+ NUEVA:Obtiene la planta activa del usuario. Se debe utilizar esta en vez de la antigua
+ </summary>
+ <param name="oUser">Objeto usuario. Se puede mandar informado solo el idUsuario sino se tiene el objeto</param>
+ <returns>Id de la planta activa</returns>         
+</member>
+<member name="M:SabLib.BLL.UsuariosComponent.EsValidador(System.Int32)">
+ <summary>
+ Indica si un usuario es valido. Este funcion es utilizada para las plantas de fuera, que no sean de Igorre
+ Si se quiere saber si un usuario de Igorre es validador, habra que usar rrhhlib.esValidador
+ Si se intenta conocer si un usuario es validador y su planta es Igorre, lanzara una excepcion
+ </summary>
+ <param name="idUser">Id del usuario</param>
+ <returns></returns>        
+</member>
+<member name="M:SabLib.BLL.UsuariosComponent.GetColaboradores(System.Int32)">
+ <summary>
+ Obtiene la lista de colaboradores vigentes de un usuario		
+ </summary>
+ <param name="idUser">Id del usuario</param>
+ <returns></returns>        
+</member>
+<member name="M:SabLib.BLL.UsuariosComponent.GetPlantas(System.Int32,Oracle.DataAccess.Client.OracleConnection)">
+ <summary>
+ Devuelve las plantas en las que esta asociado un usuario
+ </summary>
+ <param name="idUser">Identificador del usuario</param>
+ <param name="con">Por si viene de una transaccion</param>
+ <returns>Lista de plantas</returns>        
+</member>
+<member name="M:SabLib.BLL.UsuariosComponent.GetUsuariosConRecurso(System.Int32,System.Boolean,System.Int32)">
+ <summary>
+ Realiza una busqueda de usuarios que tengan acceso a un recurso
+ </summary>
+ <param name="idRecurso">Recurso</param>
+ <param name="vigentes">Indica si se listaran todos o solo los vigentes</param>
+ <param name="idPlanta">Id de la planta</param>
+ <returns>Lista de usuarios</returns>        
+</member>
+<member name="M:SabLib.BLL.UsuariosComponent.GetFoto(SabLib.ELL.Usuario)">
+ <summary>
+ Obtiene la foto del usuario vigente
+ </summary>
+ <param name="oUser"></param>
+ <returns></returns>        
+</member>
+<member name="M:SabLib.BLL.UsuariosComponent.GetProveedoresConRecurso(System.Int32)">
+ <summary>
+ Devuelve los usuarios con el recurso idRecurso y que no pertenezca a Batz
+ </summary>
+ <param name="idRecurso">Id del recurso</param>
+ <returns></returns>
+</member>
+<member name="M:SabLib.BLL.UsuariosComponent.GetIdUsuariosDptos(System.Collections.Generic.List{System.String},System.Boolean)">
+ <summary>
+ Obtiene los ids de los usuario que pertenecen a un listado de grupos
+ </summary>
+ <param name="lDptos">Dptos a los que pertenece un usuario</param>
+ <param name="vigentes">Parametro opcional para mostrar solo los vigentes o todos</param>
+ <returns>Lista de ids de usuarios (sólo se informan los campos Id e IdDepartamento)</returns>          
+</member>
+<member name="M:SabLib.BLL.UsuariosComponent.getSocios(System.String)">
+ <summary>
+ Devuelve una lista usuarios socios
+ </summary>
+ <returns>Lista de usuarios</returns>
+</member>
+<member name="M:SabLib.BLL.UsuariosComponent.findUsersEpsilon(SabLib.ELL.Usuario,System.String)">
+ <summary>
+ Dadas unas condiciones, busca si en Epsilon existe algun usuario
+ </summary>
+ <param name="oUser">Condiciones</param>
+ <param name="idEpsilon">Id de epsilon</param>
+ <returns></returns>
+</member>
+<member name="M:SabLib.BLL.UsuariosComponent.findUsersIzaro(SabLib.ELL.Usuario,System.Int32)">
+ <summary>
+ Dadas unas condiciones, busca si en Izaro existe algun usuario
+ </summary>
+ <param name="oUser">Condiciones</param>
+ <param name="idIzaro">Id de Izaro</param>
+ <returns></returns>
+</member>
+<member name="M:SabLib.BLL.UsuariosComponent.findUsersAdok(SabLib.ELL.Usuario,System.String@)">
+ <summary>
+ Dadas unas condiciones, busca si en Adok existe algun usuario
+ Ademas, tambien buscara en Izaro para ver si tiene el numero de tarjeta
+ </summary>
+ <param name="oUser">Condiciones</param>
+ <param name="nextNumTarjeta">Devuelve el siguiente numero de tarjeta a registrar, para que en caso de que no exista en Izaro, sepa el numero que le tiene que dar</param>
+ <returns></returns>        
+</member>
+<member name="M:SabLib.BLL.UsuariosComponent.GetUsuariosFromFactory(System.Int32,System.Boolean)">
+ <summary>
+ Obtiene los usuarios de una empresa
+ </summary>
+ <param name="idEmpresa">Id de la emrpesa</param>    
+ <param name="vigentes"></param> 
+ <returns></returns>      
+</member>
+<member name="M:SabLib.BLL.UsuariosComponent.Delete(System.Int32)">
+ <summary>
+ Borra el usuario
+ </summary>
+ <param name="idUsuario">Identificador del usuario</param>
+ <returns>Booleano indicando si se ha borrado correctamente</returns>        
+</member>
+<member name="M:SabLib.BLL.UsuariosComponent.DeletePlanta(System.Int32,System.Int32)">
+ <summary>
+ Elimina la planta al usuario
+ </summary>        
+ <param name="idUsuario">Id del usuario</param>
+ <param name="idPlanta">Id de la planta</param>
+ <returns>Booleano que indica si se ha borrado correctamente</returns>        
+</member>
+<member name="M:SabLib.BLL.UsuariosComponent.Save(SabLib.ELL.Usuario,Oracle.DataAccess.Client.OracleConnection)">
+ <summary>
+ Guarda los datos del usuario y la planta en el caso en que sea nuevo
+ </summary>        
+ <param name="objUsuario">Objeto usuario a guardar</param>
+ <param name="con">Parametro opcional. Si se le pasa la conexion estara dentro de una transaccion</param>
+ <returns>Booleano que indica si se ha guardado correctamente</returns>        
+</member>
+<member name="M:SabLib.BLL.UsuariosComponent.UpdateUserADData(System.Int32,System.String,System.String,System.String)">
+ <summary>
+ Actualiza los campos de usuario como el nombre de usuario,email e iddirectorioactivo
+ </summary>
+ <param name="idUser">Id del usuario</param>
+ <param name="userName">Nombre de usuario</param>
+ <param name="idDirectorioActivo">Id del directorio activo</param>
+ <param name="email">Email</param>        
+</member>
+<member name="M:SabLib.BLL.UsuariosComponent.SaveEmailSABEpsilon(SabLib.ELL.Usuario)">
+ <summary>
+ Guarda el email en SAB y solo cuando este en live en Epsilon
+ </summary>        
+ <param name="oUser">Objeto usuario</param>                
+ <returns>Booleano que indica si se ha guardado correctamente</returns>
+</member>
+<member name="M:SabLib.BLL.UsuariosComponent.SavePassword(System.Int32,System.String)">
+ <summary>
+ Guarda la password encriptada
+ </summary>        
+ <param name="idUser">Id del usuario</param>
+ <param name="password">Password</param>
+ <returns>Booleano que indica si se ha guardado correctamente</returns>        
+</member>
+<member name="M:SabLib.BLL.UsuariosComponent.SaveFoto(System.Int32,System.Byte[])">
+ <summary>
+ Guarda la foto
+ </summary>        
+ <param name="idUser">Id del usuario</param>
+ <param name="foto">Foto</param>
+ <returns>Booleano que indica si se ha guardado correctamente</returns>        
+</member>
+<member name="M:SabLib.BLL.UsuariosComponent.SaveNikEuskaraz(System.Int32,System.Boolean)">
+ <summary>
+ Guarda si quiere la informacion en euskera o no
+ </summary>        
+ <param name="idUser">Id del usuario</param>
+ <param name="nikEuskaraz">Indica si quiere euskara o no</param>
+ <returns>Booleano que indica si se ha guardado correctamente</returns>        
+</member>
+<member name="M:SabLib.BLL.UsuariosComponent.updateKEM(SabLib.ELL.Usuario,Oracle.DataAccess.Client.OracleConnection)">
+ <summary>
+ Actualiza los datos necesarios en la creacion de usuarios en KEM
+ </summary>        
+ <param name="objUsuario">Objeto usuario a guardar</param> 
+<returns>-1:Error,0:Todo ok,1:No se puede porque existe algun colaborador con dicho usuario como responsable</returns>
+</member>
+<member name="M:SabLib.BLL.UsuariosComponent.SaveResponsableKEM(System.Int32,System.Int32,Oracle.DataAccess.Client.OracleConnection)">
+ <summary>
+ Inserta o actualiza el responsable del usuario de KEM (solo para los que no tienen idIzaro ni idEpsilon)
+ </summary>
+ <param name="idUser">Id del usuario</param>
+ <param name="IdResponsable">Id del responsable</param>			
+ <param name="con">Parametro opcional. Si se le pasa la conexion estara dentro de una transaccion</param>        
+</member>
+<member name="M:SabLib.BLL.UsuariosComponent.SaveBajaResponsableConColaboradores(System.Int32,System.DateTime,System.Collections.Generic.List{System.Int32[]})">
+ <summary>
+ Da de baja a un usuario, cambiando antes el responsable de sus colaboradores
+ </summary>
+ <param name="idUserBaja">Id del usuario a dar de baja</param>
+ <param name="fBaja">Fecha de baja a ponerle</param>
+ <param name="lColaboradoresResp">Lista de colaboradores.0:IdUser,1:Id del nuevo responsable</param>        
+</member>
+<member name="M:SabLib.BLL.UsuariosComponent.AddPlanta(System.Int32,System.Int32,Oracle.DataAccess.Client.OracleConnection)">
+ <summary>
+ Añade la planta al usuario
+ </summary>        
+ <param name="idUsuario">Id del usuario</param>
+ <param name="idPlanta">Id de la planta</param>
+ <param name="con">Si la conexion no es nula, estara dentro de una transaccion</param>
+ <returns>Booleano que indica si se ha guardado correctamente</returns>                
+</member>
+<member name="M:SabLib.BLL.UsuariosComponent.ChangePasswordLDAP(System.String,System.String,System.String,System.String,System.String,System.String,System.String,System.String@)">
+ <summary>
+ Cambia la password del usuario en LDAP (Itxina)
+ De momento, solo es para usuarios con el email BatzCoop
+ </summary>
+ <param name="idDirectorioActivo">Id del directorio activo</param>
+ <param name="email">Email</param>
+ <param name="currentPassword">Password actual</param>
+ <param name="newPassword">Nueva contraseña</param>		
+ <param name="pathLDAP">Ruta del directorio LDAP</param>
+ <param name="userLDAP">Usuario para operar contra el AD</param>
+ <param name="passwordLDAP">Password del usuario</param>
+ <param name="mensaje">Mensaje de salida</param>
+</member>
+<member name="M:SabLib.BLL.UsuariosComponent.GenerarCodPersona(System.Int32)">
+ <summary>
+ Genera un codigo de persona, dependiendo de la planta externa en la que se encuentre
+ Para la planta 1, no se generara
+ </summary>
+ <param name="idPlanta">Identificador de la planta</param>
+ <returns>Codigo de persona</returns>        
+</member>
+<member name="M:SabLib.BLL.UsuariosComponent.ImportarDatos(System.Int32,System.Int32,System.String[],Oracle.DataAccess.Client.OracleConnection)">
+ <summary>
+ Importa los datos seleccionados (se indican el nombre del campo a actualizar) del usuario origen al destino
+ </summary>
+ <param name="idUserOrigen">Id del usuario origen. Del que se importan</param>
+ <param name="idUserDestino">Id del usuario destino. Al que se importan</param>
+ <param name="datos">Array con los nombres de las columnas. Indica los campos a copiar</param>
+ <returns></returns>        
+</member>
+<member name="M:SabLib.BLL.UsuariosComponent.getDatosIzaro(System.Int32,System.Int32)">
+ <summary>
+ Obtiene los datos de izaro
+ </summary>
+ <param name="codPersona">CodPersona</param>
+ <param name="idIzaro">Id de Izaro</param>
+ <returns></returns>                
+</member>
+<member name="M:SabLib.BLL.RecursosComponent.GetRecurso(System.Int32)">
+ <summary>
+ Obtiene el recurso asociado
+ </summary>
+ <param name="idRecurso">Identificador del recurso</param>
+ <returns>Objeto recursos</returns>
+</member>
+<member name="M:SabLib.BLL.RecursosComponent.GetRecursoCultura(System.Int32,System.String)">
+ <summary>
+ Obtiene un recurso para una cultura dada
+ </summary>
+ <param name="idRecurso">Identificador del recurso</param>
+ <param name="idCultura">Identificador de la cultura</param>
+ <returns>Devuelve una lista con los grupos que cumplen la condicion</returns>
+</member>
+<member name="M:SabLib.BLL.RecursosComponent.GetRecursosCultura(SabLib.ELL.recurso,System.Boolean)">
+ <summary>
+ Obtiene los recursos que cumplan las condiciones
+ </summary>
+ <param name="oRecurso">Recurso</param>
+ <param name="bConIcono">Indicara si tiene que devolver el conjunto de bytes del icono</param>
+ <returns>Devuelve una lista con los recurso que cumplen la condicion</returns>
+</member>
+<member name="M:SabLib.BLL.RecursosComponent.GetRecursosCultura(System.Int32,System.String)">
+ <summary>
+ Obtiene todos los recursos de una cultura asignados a un grupo
+ </summary>
+ <param name="idGrupo">Grupo al que estan asignados</param>
+ <param name="IdCultura">Identificador de la cultura</param>
+ <returns>Lista de recursos</returns>
+</member>
+<member name="M:SabLib.BLL.RecursosComponent.GetRecursosCulturaAll(System.Int32,System.String)">
+ <summary>
+ Obtiene todos los recursos culturizados de un usuario
+ </summary>
+ <param name="idUser">Id del usuario</param>
+ <param name="idCultura">Cultura</param>
+ <returns>Devuelve una lista con los recurso que cumplen la condicion</returns>
+</member>
+<member name="M:SabLib.BLL.RecursosComponent.GetRecursosLimitUser(System.String,System.String)">
+ <summary>
+ Obtiene los recursos asociados a un usuario
+ </summary>
+ <param name="MachineUserName">Nombre del usuario</param>
+ <param name="idCultura">Id de la cultura</param>
+ <returns>Objeto recursos</returns>
+</member>
+<member name="M:SabLib.BLL.RecursosComponent.GetListadoLimitacionRecUser(System.String)">
+ <summary>
+ Obtiene el listado de usuarios con limitacion de recursos
+ </summary>
+ <param name="userName">Nombre del usuario a buscar</param>
+ <returns></returns>        
+</member>
+<member name="M:SabLib.BLL.RecursosComponent.getObject(System.String[],System.Boolean,System.Boolean)">
+ <summary>
+ A partir de un string(), devuelve un objeto recurso
+ </summary>
+ <param name="sRec">Info del recurso</param>
+ <param name="bLoadFile">Indica si cargara los objetos blob (fichero y imgCatalogo)</param>
+ <param name="bConCultura">Indica si se cargara la informacion del nombre y descripcion</param>
+ <returns></returns>        
+</member>
+<member name="M:SabLib.BLL.RecursosComponent.AddRecurso(System.String,SabLib.ELL.recurso)">
+ <summary>
+ Añade recurso para todas las culturas existentes
+ Devuelve el id del recurso añadido. Devuelve -1 si ha habido algun error
+ </summary>
+ <param name="nombreRecurso">Nombre del recurso</param>
+ <param name="objRecurso">Objeto recurso que contiene los datos</param>
+ <returns>Identificador del nuevo recurso</returns>
+</member>
+<member name="M:SabLib.BLL.RecursosComponent.AddUsuario(System.Int32,System.Int32,Oracle.DataAccess.Client.OracleConnection)">
+ <summary>
+ Agregamos un usuario a un recurso, solo si el recurso esta asignado a un solo grupo.
+ </summary>
+ <param name="idUser">Id del usuario al que se le añade un recurso</param>
+ <param name="idRecurso">Id del recurso añadido</param>
+ <param name="con"></param> 
+</member>
+<member name="M:SabLib.BLL.RecursosComponent.Delete(System.Int32)">
+ <summary>
+ Elimina el recurso especificado
+ </summary>
+ <param name="idRecurso">Identificador del recurso</param>
+ <returns>Booleano que indica si se ha eliminado correctamente</returns>
+</member>
+<member name="M:SabLib.BLL.RecursosComponent.DeleteImageRecurso(System.Int32)">
+ <summary>
+ Elimina la imagen de un recurso
+ </summary>        
+ <param name="idRecurso">Identificador del recurso</param>        
+ <returns>Booleano que indica si se ha borrado la imagen correctatemente</returns>
+</member>
+<member name="M:SabLib.BLL.RecursosComponent.DeleteImageCatalogoRecurso(System.Int32)">
+ <summary>
+ Elimina la imagen del catalogo de un recurso
+ </summary>        
+ <param name="idRecurso">Identificador del recurso</param>        
+ <returns>Booleano que indica si se ha borrado la imagen del catalogo correctatemente</returns>
+</member>
+<member name="M:SabLib.BLL.RecursosComponent.DeleteFicheroRecurso(System.Int32)">
+ <summary>
+ Elimina el fichero de un recurso
+ </summary>        
+ <param name="idRecurso">Identificador del recurso</param>        
+ <returns>Booleano que indica si se ha borrado la imagen correctatemente</returns>
+</member>
+<member name="M:SabLib.BLL.RecursosComponent.DeleteLimitUser(System.Int32)">
+ <summary>
+ Elimna el usuario y sus recursos
+ </summary>
+ <param name="idUser">Id del usuario</param>
+ <returns></returns>
+</member>
+<member name="M:SabLib.BLL.RecursosComponent.DeleteLimitRecUser(System.Int32,System.Int32)">
+ <summary>
+ Elimina un recurso de un usuario
+ </summary>
+ <param name="idUser">Id del usuario</param>
+ <param name="idRecurso">Id del recurso a registrar</param>
+ <returns></returns>
+</member>
+<member name="M:SabLib.BLL.RecursosComponent.DeleteUsuario(System.Int32,System.Int32)">
+ <summary>
+ Eliminamos el usuario de un recurso, solo si el recurso esta asignado a un solo grupo.
+ </summary>
+ <param name="idUser"></param>
+ <param name="idRecurso"></param>
+</member>
+<member name="M:SabLib.BLL.RecursosComponent.SaveRecurso(SabLib.ELL.recurso,Oracle.DataAccess.Client.OracleConnection)">
+ <summary>
+ Guarda un recurso
+ </summary>
+ <param name="objRecurso">Objeto recurso que tiene los datos</param>
+ <param name="con">Conexion si es porque esta dentro de una transaccion</param>
+ <returns>Entero con el id del recurso</returns>
+</member>
+<member name="M:SabLib.BLL.RecursosComponent.SaveRecursoCultura(SabLib.ELL.recurso,System.Boolean,Oracle.DataAccess.Client.OracleConnection)">
+ <summary>
+ Inserta o modifica el termino del recurso en la cultura especificada
+ </summary>
+ <param name="oRecurso">Recurso</param>
+ <param name="bnuevo">Indica si hay que insertar o modificar</param>
+ <param name="con">Conexion si es porque esta dentro de una transaccion</param>
+ <returns>Booleano</returns>
+</member>
+<member name="M:SabLib.BLL.RecursosComponent.SaveLimitUser(System.Int32,System.Int32)">
+ <summary>
+ Actualiza el usuario
+ </summary>
+ <param name="idUserOld">Indica el usuario antiguo</param>
+ <param name="idUserNew">Indica el usuario nuevo</param>
+ <returns></returns>        
+</member>
+<member name="M:SabLib.BLL.RecursosComponent.SaveLimitRecUser(System.Int32,System.Int32)">
+ <summary>
+ Guarda un recurso
+ </summary>
+ <param name="idUser">Id del usuario</param>
+ <param name="idRecurso">Id del recurso a registrar</param>
+ <returns></returns>
+</member>
+<member name="M:SabLib.BLL.RecursosComponent.ActualizarRecursosCultura(System.Collections.Generic.List{SabLib.ELL.recurso},SabLib.ELL.recurso)">
+ <summary>
+ Guarda las traducciones de las distintas culturas de un recurso y el resto de datos
+ Si viene informado una traduccion y no existe se inserta, sino, se actualiza
+ </summary>
+ <param name="lRecursos">Lista de recursos a modificar</param>
+ <param name="oRecurso">Recurso con los datos</param>
+ <returns>Devuelve el idGrupo</returns>  
+</member>
+<member name="M:SabLib.BLL.PlantasComponent.GetPlanta(System.Int32,System.Boolean,Oracle.DataAccess.Client.OracleConnection)">
+ <summary>
+ Devuelve la informacion de la planta
+ </summary>
+ <param name="idPlanta">Identificador de la planta </param>
+ <param name="getGruposDefecto">Indica si se obtendran por defecto los grupos de las plantas</param>
+ <returns>Objeto planta</returns>        
+</member>
+<member name="M:SabLib.BLL.PlantasComponent.GetPlantaByCif(System.String)">
+ <summary>
+ Devuelve la informacion de la planta
+ </summary>
+ <param name="cif">Cif de la planta </param>        
+ <returns>Objeto planta</returns>        
+</member>
+<member name="M:SabLib.BLL.PlantasComponent.GetPlantaByIdBRAIN(System.String)">
+ <summary>
+ Devuelve la informacion de la planta
+ </summary>
+ <param name="idBrain">Id planta en BRAIN </param>        
+ <returns>Objeto planta</returns>        
+</member>
+<member name="M:SabLib.BLL.PlantasComponent.GetPlantaByIdEpsilon(System.String)">
+ <summary>
+ Devuelve la informacion de la planta
+ </summary>
+ <param name="idEpsilon">Id planta en Epsilon</param>        
+ <returns></returns>
+</member>
+<member name="M:SabLib.BLL.PlantasComponent.GetPlantas(System.Boolean,System.Nullable{System.Boolean},System.Nullable{System.Boolean},System.Nullable{System.Boolean})">
+ <summary>
+ Devuelve las plantas existentes
+ </summary>
+ <param name="vigentes">Plantas vigentes o todas</param>
+ <param name="bMostrarReloj">Indica si se quieren todos (nothing), los que se muestren en el reloj true o los que no</param>
+ <param name="bConPlantaIzaro">Indica si se quieren todos (nothing),los que tengan planta izaro informada o los que no</param>
+ <param name="bConPlantaEpsilon">Indica si se quieren solo las que tengan informada la planta epsilon, las que no o todas</param>
+ <returns>Lista de plantas</returns>        
+</member>
+<member name="M:SabLib.BLL.PlantasComponent.GetPlantasTotal(System.Boolean,System.Nullable{System.Boolean})">
+ <summary>
+ Devuelve las plantas existentes
+ </summary>
+ <param name="vigentes">Plantas vigentes o todas</param>
+ <param name="bMostrarReloj">Indica si se quieren todos (nothing), los que se muestren en el reloj true o los que no</param>
+ <returns>Lista de plantas</returns>        
+</member>
+<member name="M:SabLib.BLL.PlantasComponent.GetPlantasBRAIN">
+ <summary>
+ Devuelve las plantas con Id BRAIN
+ </summary>        
+ <returns>Lista de plantas</returns>        
+</member>
+<member name="M:SabLib.BLL.PlantasComponent.GetPlantasUsuario(System.Int32,System.Boolean)">
+ <summary>
+ Devuelve las plantas en las que esta asociado un usuario
+ </summary>
+ <param name="idUsuario">Identificador del usuario</param>
+ <param name="getGruposDefecto">Indica si se obtendran por defecto los grupos de las plantas</param>
+ <returns>Lista de plantas</returns>        
+</member>
+<member name="M:SabLib.BLL.PlantasComponent.getObject(System.String[],System.Boolean,Oracle.DataAccess.Client.OracleConnection)">
+ <summary>
+ A partir de un objeto mygeneration, devuelve un objeto planta
+ </summary>
+ <param name="sPlant"></param>
+ <param name="getGruposDefecto">Indica si se obtendran por defecto los grupos de las plantas</param>
+ <returns></returns>        
+</member>
+<member name="M:SabLib.BLL.PlantasComponent.getGruposDefectoPlanta(System.Int32,Oracle.DataAccess.Client.OracleConnection)">
+ <summary>
+ Obtiene la lista de grupos por defecto de una planta
+ </summary>
+ <param name="idPlanta">Id de la planta</param>
+ <returns></returns>        
+</member>
+<member name="M:SabLib.BLL.PlantasComponent.ExistePlantaEpsilonIzaro(SabLib.ELL.Planta)">
+ <summary>
+ Comprueba si existe alguna planta con el IdEpsilon o IdIzaro
+ </summary>
+ <param name="oPlanta"></param>
+ <returns></returns>
+</member>
+<member name="M:SabLib.BLL.PlantasComponent.Save(SabLib.ELL.Planta)">
+ <summary>
+ Inserta o modifica la planta
+ </summary>
+ <param name="oPlanta">Planta a guardar o modificar</param>        
+ <returns>Id de la planta</returns>
+</member>
+<member name="M:SabLib.BLL.PlantasComponent.AddGrupo(System.Int32,System.Int32)">
+ <summary>
+ Inserta un grupo a una planta
+ </summary>
+ <param name="idPlanta">Id de la planta</param>
+ <param name="idGrupo">Id del grupo</param>
+ <returns>Booleano</returns>
+</member>
+<member name="M:SabLib.BLL.PlantasComponent.ChangePasswordUserLDAP(System.Int32,System.String)">
+ <summary>
+ Cambia la password del usuario LDAP
+ </summary>
+ <param name="idPlanta">Id de la planta</param>
+ <param name="newPassword">Nueva password</param>
+ <returns></returns>        
+</member>
+<member name="M:SabLib.BLL.PlantasComponent.Delete(System.Int32)">
+ <summary>
+ Marca como obsoleto la planta
+ </summary>
+ <param name="idPlant">Identificador de la planta</param>
+ <returns>Booleano que indica si se ha eliminado o no</returns>        
+</member>
+<member name="M:SabLib.BLL.PlantasComponent.DeleteGrupo(System.Int32)">
+ <summary>
+ Elimina el grupo por defecto
+ </summary>
+ <param name="idGrup">Identificador del grupo</param>
+ <returns>Booleano que indica si se ha eliminado o no</returns>        
+</member>
+<member name="M:SabLib.BLL.PlantasComponent.IsEmailZimbra(System.String)">
+ <summary>
+ Indica si el email es de zimbra o no
+ </summary>
+ <param name="email">Email a chequear</param>
+ <returns></returns>        
+</member>
+<member name="M:SabLib.BLL.PlantasComponent.GetCuentaZimbra(System.Int32)">
+ <summary>
+ Devuelve la informacion de la cuenta de zimbra
+ </summary>
+ <param name="idPlanta">Identificador de la planta </param>        
+ <returns>Objeto planta</returns>        
+</member>
+<member name="M:SabLib.BLL.PlantasComponent.GetCuentasZimbra">
+ <summary>
+ Devuelve las cuentas de Zimbra existentes
+ </summary>
+ <returns>Lista de plantas</returns>        
+</member>
+<member name="M:SabLib.BLL.PlantasComponent.SaveCuentaZimbra(SabLib.ELL.CuentaZimbra,System.Boolean)">
+ <summary>
+ Inserta o modifica la cuenta
+ </summary>
+ <param name="oCuenta">Cuenta a guardar o modificar</param>        
+ <param name="bNew">Indica si es nuevo</param>        
+</member>
+<member name="M:SabLib.BLL.PlantasComponent.DeleteCuentaZimbra(System.Int32)">
+ <summary>
+ Elimina la cuenta Zimbra
+ </summary>
+ <param name="idPlant">Identificador de la planta</param>
+ <returns>Booleano que indica si se ha eliminado o no</returns>        
+</member>
+<member name="M:SabLib.BLL.ParametrosBLL.consultar">
+ <summary>
+ Obtiene los parametros globales
+ </summary>
+</member>
+<member name="M:SabLib.BLL.ParametrosBLL.Save(SabLib.ELL.Parametros)">
+ <summary>
+ Inserta o modifica los parametros
+ </summary>
+ <param name="oParam">Parametros a modificar</param>                
+</member>
+<member name="M:SabLib.BLL.ParametrosBLL.ChangePasswordUserZimbra(System.String)">
+ <summary>
+ Cambia la password del usuario de Zimbra
+ </summary>        
+ <param name="newPassword">Nueva password</param>
+ <returns></returns>        
+</member>
+<member name="M:SabLib.BLL.ParametrosBLL.consultarWifi(System.Int32)">
+ <summary>
+ Obtiene los parametros wifi de una planta
+ </summary>
+ <param name="IdPlanta">Id de la planta</param>
+</member>
+<member name="M:SabLib.BLL.ParametrosBLL.consultarListadoWifi">
+ <summary>
+ Obtiene todos los parametros de todas las plantas
+ </summary>
+</member>
+<member name="M:SabLib.BLL.ParametrosBLL.SaveWifi(SabLib.ELL.ParametrosWifi)">
+ <summary>
+ Inserta o modifica los parametros wifi
+ </summary>
+ <param name="oParam">Parametros a modificar</param>                
+</member>
+<member name="M:SabLib.BLL.PerfilesComponent.GetPerfil(System.Int32)">
+ <summary>
+ Carga los datos del perfil
+ </summary>
+ <param name="id">Identificador del usuario</param>
+</member>
+<member name="M:SabLib.BLL.PerfilesComponent.SetPerfil(SabLib.ELL.Perfil)">
+ <summary>
+ Guarda los datos del perfil
+ </summary>
+ <param name="oPerfil">Objeto perfil a guardar</param>        
+ <returns>Booleano que indica si se ha guardado correctamente</returns>
+</member>
+<member name="M:SabLib.BLL.LoginComponent.Login(System.String,System.String)">
+ <summary>
+ Realiza el login con el nombre de usuario y password y devuelve el ticket del usuario. Login externo
+ </summary>
+ <param name="username">Nombre de usuario</param>
+ <param name="Password">password</param>
+ <returns>Ticket</returns>        
+</member>
+<member name="M:SabLib.BLL.LoginComponent.Login(System.String)">
+ <summary>
+ Realiza un login con el nombre de usuario precedido por el dominio. Login Interno
+ </summary>
+ <param name="directLoginId">Directorio activo</param>
+ <returns>Ticket</returns>        
+</member>
+<member name="M:SabLib.BLL.LoginComponent.Login(System.Int32,System.String,System.Int32)">
+ <summary>
+ Realiza el login con el idTrabajador y con su password
+ </summary>
+ <param name="idTrabajador">Id del trabajador</param>
+ <param name="Password">Password</param>
+ <param name="idPlanta">Id de la planta a la que pertenece el trabajador que se va a logear. Hara falta para chequear que el idTrabajador y el idPlanta son los informados</param>
+ <returns>Ticket</returns>        
+</member>
+<member name="M:SabLib.BLL.LoginComponent.Login(SabLib.ELL.Usuario)">
+ <summary>
+ Se logea y obtiene el ticket
+ </summary>
+ <param name="oUser">Objeto usuario</param>        
+</member>
+<member name="M:SabLib.BLL.LoginComponent.GetObjectTicket(SabLib.ELL.Usuario)">
+ <summary>
+ A partir de un objeto usuario, rellena un objeto ticket
+ </summary>
+ <param name="oUser"></param>
+ <returns></returns>
+</member>
+<member name="M:SabLib.BLL.LoginComponent.getTicket(System.String,System.Boolean)">
+ <summary>
+ Recupera un ticket de base de datos y lo borra
+ </summary>
+ <param name="IdSession"></param>
+ <returns></returns>
+</member>
+<member name="M:SabLib.BLL.LoginComponent.AccesoRecursoValido(SabLib.ELL.Ticket,System.Int32)">
+ <summary>
+ Comprueba si el usuario,tiene acceso al recurso
+ </summary>
+ <param name="ticket">Ticket con los datos del usuario</param>
+ <param name="recurso">Recurso al que se quiere acceder</param>
+ <returns>Booleano</returns>        
+</member>
+<member name="M:SabLib.BLL.LoginComponent.SetTicketEnBD(SabLib.ELL.Ticket)">
+ <summary>
+ Guarda en base de datos, el nuevo ticket
+ </summary>
+ <param name="ticket"></param>
+ <returns></returns>
+</member>
+<member name="M:SabLib.BLL.GruposComponent.GetGrupoCultura(System.Int32,System.String)">
+ <summary>
+ Obtiene un grupo para una cultura dada
+ </summary>
+ <param name="idGrupo">Identificador del grupo</param>
+ <param name="idCultura">Identificador de la cultura</param>
+ <returns>Devuelve una lista con los grupos que cumplen la condicion</returns>
+</member>
+<member name="M:SabLib.BLL.GruposComponent.GetGruposCultura(SabLib.ELL.grupo)">
+ <summary>
+ Obtiene los grupos que cumplan las condiciones
+ </summary>
+ <param name="oGrupo">Grupo</param>
+ <returns>Devuelve una lista con los grupos que cumplen la condicion</returns>
+</member>
+<member name="M:SabLib.BLL.GruposComponent.GetGruposCultura(System.Int32,System.String)">
+ <summary>
+ Obtiene todos los grupos de una cultura asignados a un recurso
+ </summary>
+ <param name="idRecurso">recurso al que estan asignados</param>
+ <param name="IdCultura">Identificador de la cultura</param>
+ <returns>Lista de grupos</returns>
+</member>
+<member name="M:SabLib.BLL.GruposComponent.GetGruposCultura(System.Collections.Generic.List{System.Int32},System.String)">
+ <summary>
+ Obtiene los grupos, que pertenezcan a alguna planta de las de la lista
+ </summary>
+ <param name="lPlantas">Plantas a las que debe pertenecer un grupo</param>
+ <param name="IdCultura">Cultura en la que ha que mostrar los grupos</param>
+ <returns>Lista de usuarios</returns>                
+</member>
+<member name="M:SabLib.BLL.GruposComponent.GetUsuariosGrupo(System.Int32)">
+ <summary>
+ Obtiene los usuarios de un grupo
+ </summary>
+ <param name="idGrupo">Identificador del grupo</param>
+ <returns>Lista de usuarios</returns>        
+</member>
+<member name="M:SabLib.BLL.GruposComponent.GetPlantas(System.Int32)">
+ <summary>
+ Devuelve las plantas en las que esta asociado un grupo
+ </summary>
+ <param name="idGrupo">Identificador del grupo</param>
+ <returns>Lista de plantas</returns>
+ <remarks></remarks>
+</member>
+<member name="M:SabLib.BLL.GruposComponent.getObject(System.String[])">
+ <summary>
+ A partir de un string(), devuelve un objeto grupo
+ </summary>
+ <param name="sGrup">Array con los datos del grupo</param>
+ <returns></returns>
+</member>
+<member name="M:SabLib.BLL.GruposComponent.AddGrupo(Oracle.DataAccess.Client.OracleConnection)">
+ <summary>
+ Añade un grupo
+ </summary>        
+ <param name="con">Conexion si es porque esta dentro de una transaccion</param>
+ <returns>Identificador del nuevo grupo</returns>
+</member>
+<member name="M:SabLib.BLL.GruposComponent.AddUsuario(System.Int32,System.Int32,Oracle.DataAccess.Client.OracleConnection)">
+ <summary>
+ Añade un usuario a un grupo
+ </summary>
+ <param name="idUsuario">Identificador del usuario</param>
+ <param name="idGrupo">Identificador del grupo</param>
+ <param name="con">Conexion si es porque esta dentro de una transaccion</param>
+</member>
+<member name="M:SabLib.BLL.GruposComponent.AddRecurso(System.Int32,System.Int32)">
+ <summary>
+ Añade un recurso a un grupo
+ </summary>
+ <param name="IdGrupo">Identificador del grupo</param>
+ <param name="idRecurso">Identificador del recurso</param>
+ <remarks>Booleano que indica si ha añadido correctamente</remarks>
+</member>
+<member name="M:SabLib.BLL.GruposComponent.Delete(System.Int32)">
+ <summary>
+ Borra el grupo
+ </summary>
+ <param name="idGrupo">Identificador del Grupo</param>
+ <returns>Booleano indicando si se ha borrado correctamente</returns>
+</member>
+<member name="M:SabLib.BLL.GruposComponent.DeleteUsuario(System.Int32,System.Int32)">
+ <summary>
+ Borra un usuario de un grupo
+ </summary>
+ <param name="idGrupo">Identificador del grupo</param>
+ <param name="idUsuario">Identificador del usuario</param>
+ <returns>Booleano indicando si se ha borrado correctamente</returns>
+</member>
+<member name="M:SabLib.BLL.GruposComponent.DeleteRecurso(System.Int32,System.String)">
+ <summary>
+ Borra el recurso del grupo
+ </summary>
+ <param name="idGrupo">Identificador del Grupo</param>
+ <param name="idRecurso">Identificador del recurso</param>
+ <returns>Booleano indicando si se ha borrado correctamente</returns>
+</member>
+<member name="M:SabLib.BLL.GruposComponent.SaveGrupoCultura(SabLib.ELL.grupo,System.Boolean,Oracle.DataAccess.Client.OracleConnection)">
+ <summary>
+ Inserta o modifica el termino del grupo en la cultura especificada
+ </summary>
+ <param name="oGrupo">Grupo</param>
+ <param name="bnuevo">Indica si hay que insertar o modificar</param>
+ <param name="con">Conexion si es porque esta dentro de una transaccion</param>
+ <returns>Booleano</returns>
+</member>
+<member name="M:SabLib.BLL.GruposComponent.SavePlantas(System.Int32,System.Collections.Generic.List{SabLib.ELL.Planta},Oracle.DataAccess.Client.OracleConnection)">
+ <summary>
+ Inserta o modifica las plantas del grupo
+ </summary>
+ <param name="idGrupo">Identificador del grupo</param>
+ <param name="lPlantas">Listado de plantas</param>
+ <param name="con">Conexion si es porque esta dentro de una transaccion</param>
+ <returns>Booleano</returns>
+</member>
+<member name="M:SabLib.BLL.GruposComponent.ActualizarGruposCultura(System.Collections.Generic.List{SabLib.ELL.grupo},System.Collections.Generic.List{SabLib.ELL.Planta},System.Boolean)">
+ <summary>
+ Guarda las traducciones de las distintas culturas de un grupo y la info de un grupo
+ Si viene informado una traduccion y no existe se inserta, sino, se actualiza
+ </summary>
+ <param name="lGrupos">Lista de grupos a modificar</param>
+ <param name="lPlantas">Listado de plantas a guardar</param>
+ <param name="bnuevo">Indica si es un nuevo grupo</param>        
+ <returns>Devuelve el idGrupo</returns>  
+</member>
+<member name="M:SabLib.BLL.EmpresasComponent.GetEmpresa(SabLib.ELL.Empresa)">
+ <summary>
+ Obtiene los datos de la empresa
+ </summary>
+ <param name="oEmpr">Filtro de la empresa</param>
+ <returns></returns>
+</member>
+<member name="M:SabLib.BLL.EmpresasComponent.GetEmpresas(System.Boolean,System.String)">
+ <summary>
+ Carga las empresas activas o no obsoletas
+ </summary>
+ <param name="bActivas">Indicara si solo quiere las activas o no</param>
+</member>
+<member name="M:SabLib.BLL.EmpresasComponent.GetEmpresasActivasSinTroqueleriaSistemas">
+ <summary>
+ Carga las empresas activas que no tienen IdTroqueleria ni IdSistemas
+ </summary>
+</member>
+<member name="M:SabLib.BLL.EmpresasComponent.CargarListaEmpresas(System.Collections.Generic.List{System.String[]})">
+ <summary>
+ Carga una lista con las empresas del objeto
+ </summary>
+ <param name="lEmp">Objeto donde se localizan las empresas</param>
+ <returns>Lista con todas las empresas del objeto</returns>
+</member>
+<member name="M:SabLib.BLL.EmpresasComponent.getObject(System.String[])">
+ <summary>
+ A partir de un string(), devuelve un objeto empresa
+ </summary>
+ <param name="sEmp">Array con los datos de la empresa</param>
+ <returns></returns>
+</member>
+<member name="M:SabLib.BLL.EmpresasComponent.BuscarEmpresas(System.String,System.Boolean,System.Boolean)">
+ <summary>
+ Realiza una busqueda de las empresa
+ </summary>
+ <param name="filtro">Filtro a aplicar</param>
+ <param name="bTroqueleria">Flag que implicara buscar empresas de troqueleria</param>
+ <param name="bSistemas">Flag que implicar buscar empresas de sistemas</param>
+</member>
+<member name="M:SabLib.BLL.EmpresasComponent.BuscarEmpresasActivas(System.String)">
+ <summary>
+ Obtiene un listado de proveedores de Activos
+ </summary>
+ <param name="filtro">Filtro sobre el nombre</param>
+ <returns></returns>
+ <remarks></remarks>
+</member>
+<member name="M:SabLib.BLL.EmpresasComponent.BuscarEmailEmpresa(System.String)">
+ <summary>
+ Obtiene el email de una empresa
+ </summary>
+ <param name="idTroqueleria">IdTroquelería</param>
+ <returns></returns>
+ <remarks></remarks>
+</member>
+<member name="M:SabLib.BLL.EmpresasComponent.BuscarEmailEmpresaSistemas(System.String)">
+ <summary>
+ Obtiene el email de una empresa de sistemas
+ </summary>
+ <param name="idSistemas">IdSistemas</param>
+ <returns></returns>
+ <remarks></remarks>
+</member>
+<member name="M:SabLib.BLL.EmpresasComponent.GetEmpresaByIdTroqueleria(System.String)">
+ <summary>
+ Obtiene los datos de la emprsa
+ </summary>
+ <param name="idTroqueleria">Id troquelería</param>
+ <returns></returns>
+</member>
+<member name="M:SabLib.BLL.EmpresasComponent.Save(SabLib.ELL.Empresa,Oracle.DataAccess.Client.OracleConnection)">
+ <summary>
+ Guarda los datos de la empresa
+ </summary>
+ <param name="oEmpresa">Objeto empresa a guardar</param>        
+ <param name="conn"></param> 
+ <returns>Booleano que indica si se ha guardado correctamente</returns>
+</member>
+<member name="M:SabLib.BLL.EmpresasComponent.Delete(System.Int32)">
+ <summary>
+ Borra la empresa
+ </summary>
+ <param name="idEmpresa">Identificador de la empresa</param>
+ <returns>Booleano indicando si se ha borrado correctamente</returns>
+</member>
+<member name="M:SabLib.BLL.EjecucionProcComponent.consultar(System.Int32)">
+ <summary>
+ Consulta los datos de una ejecucion
+ </summary>
+ <param name="id">Identificador de la ejecucion</param>
+</member>
+<member name="M:SabLib.BLL.EjecucionProcComponent.consultarListado(SabLib.ELL.EjecucionProc)">
+ <summary>
+ Consulta el listado de ejecuciones
+ </summary>
+ <param name="oEjec">Objeto donde se localizan los parametros</param>
+ <returns></returns>
+</member>
+<member name="M:SabLib.BLL.EjecucionProcComponent.getObject(System.String[])">
+ <summary>
+ A partir de un objeto mygeneration, devuelve un objeto EjecucionProc
+ </summary>
+ <param name="sEjecProc">Informacion de la ejecucion</param>
+ <returns></returns>
+</member>
+<member name="M:SabLib.BLL.EjecucionProcComponent.Insert(SabLib.ELL.EjecucionProc)">
+ <summary>
+ Inserta los datos de la ejecucion
+ </summary>
+ <param name="oEjec">Objeto ejecucion a guardar</param>        
+ <returns>Booleano que indica si se ha guardado correctamente</returns>
+</member>
+<member name="M:SabLib.BLL.EjecucionProcComponent.Delete(System.Int32)">
+ <summary>
+ Borra la ejecucion
+ </summary>
+ <param name="idEjec">Identificador de la ejecucion</param>
+ <returns>Booleano indicando si se ha borrado correctamente</returns>
+</member>
+<member name="M:SabLib.BLL.DepartamentosComponent.#ctor">
+ <summary>
+ Constructor con la conexion de Epsilon
+ </summary>
+ <remarks></remarks>
+</member>
+<member name="M:SabLib.BLL.DepartamentosComponent.GetDepartamento(SabLib.ELL.Departamento)">
+ <summary>
+ Devuelve la informacion del departamento
+ </summary>
+ <param name="oDepto">Departamento</param>
+ <returns>Objeto departamento</returns>
+</member>
+<member name="M:SabLib.BLL.DepartamentosComponent.GetDepartamentoEpsilon(System.String,System.String)">
+ <summary>
+ Obtiene el departamento de Epsilon, perteneciente a la planta de SAB
+ </summary>
+ <param name="idDepto">Identificador del departamento</param>
+ <param name="idEpsilon">Id de Epsilon</param>
+ <returns></returns>
+</member>
+<member name="M:SabLib.BLL.DepartamentosComponent.GetDepartamentoIzaro(System.String,System.Int32)">
+ <summary>
+ Obtiene el departamento de Izaro
+ </summary>
+ <param name="idDepto">Identificador del departamento</param>
+ <param name="idIzaro">Id de izaro</param>
+ <returns></returns>        
+</member>
+<member name="M:SabLib.BLL.DepartamentosComponent.GetDepartamentoSAB(System.String)">
+ <summary>
+ Obtiene el departamento de SAB, perteneciente a las plantas de fuera
+ </summary>
+ <param name="idDepto">Identificador del departamento</param>
+ <returns></returns>
+</member>
+<member name="M:SabLib.BLL.DepartamentosComponent.GetDepartamentoNegocioEpsilon(System.String,System.Int32)">
+ <summary>
+ Obtiene el departamento de Epsilon junto con su descripción de negocio, perteneciente a la planta de SAB
+ </summary>
+ <param name="idDepto">Identificador del departamento</param>
+ <param name="idPlanta">Id de la planta</param>
+ <returns></returns>
+</member>
+<member name="M:SabLib.BLL.DepartamentosComponent.GetDepartamentos(SabLib.BLL.Interface.IDepartamentosComponent.EDepartamentos,System.Int32)">
+ <summary>
+ Obtiene todos los departamentos 
+ </summary>
+ <param name="eDepart">Se indicara que departamentos se obtendran</param>
+ <returns></returns>
+</member>
+<member name="M:SabLib.BLL.DepartamentosComponent.getDepartamentosBusqueda(System.String,System.Int32)">
+ <summary>
+ Realiza una busqueda de departamentos, dependiendo de la planta
+ </summary>
+ <param name="texto">Id o nombre del departamento</param>
+ <param name="idPlanta">Id de la planta</param>
+ <returns></returns>
+</member>
+<member name="M:SabLib.BLL.DepartamentosComponent.GetDepartamentos(SabLib.ELL.Departamento,System.String)">
+ <summary>
+ Devuelve los departamentos de SAB que cumplan las caracteristicas
+ </summary>
+ <param name="oDepartamento">Departamento a consultar</param>
+ <param name="sortField">Parametro opcional para ordenar por un campo</param>
+ <returns>Lista de departamentos</returns>                
+</member>
+<member name="M:SabLib.BLL.DepartamentosComponent.GetDepartamentosIzaro(System.Int32)">
+ <summary>
+ Devuelve los departamentos de Izaro existentes
+ </summary>
+ <param name="idIzaro">Id de la empresa izaro</param>
+ <returns></returns>        
+</member>
+<member name="M:SabLib.BLL.DepartamentosComponent.GetDepartamentosPlanta(System.Int32)">
+ <summary>
+ Devuelve los departamentos de SAB existentes en una planta
+ </summary>
+ <param name="idPlanta">Identificador de la planta</param>
+ <returns>Lista de departamentos</returns>                
+</member>
+<member name="M:SabLib.BLL.DepartamentosComponent.GenerarIdDepto(System.Int32)">
+ <summary>
+ Obtiene el maximo id de la tabla de departamentos para esa planta
+ </summary>
+ <param name="idPlanta">Identificador de la planta</param>
+</member>
+<member name="M:SabLib.BLL.DepartamentosComponent.getNumeroNombreDepart(SabLib.ELL.Departamento)">
+ <summary>
+ Devuelve el numero del departamento. No el codigo, sino el numerico que va delante del nombre del departamento
+ </summary>
+ <param name="oDept"></param>
+ <returns></returns>        
+</member>
+<member name="M:SabLib.BLL.DepartamentosComponent.getInfoNegocioOrganigDepartamento(System.String,System.String)">
+ <summary>
+ Obtiene la informacion de negocio y organizacion de un departamento
+ </summary>
+ <param name="idDepto">Id del departamento</param>
+ <param name="idEpsilon">Id de la empresa de Epsilon</param>
+ <returns></returns>
+</member>
+<member name="M:SabLib.BLL.DepartamentosComponent.GetDepartamentosGrupoBatz">
+ <summary>
+ Devuelve los ids de los departamentos que pertenecen al Grupo Batz
+ </summary>        
+ <returns></returns>        
+</member>
+<member name="M:SabLib.BLL.DepartamentosComponent.Save(SabLib.ELL.Departamento,System.Boolean)">
+ <summary>
+ Guarda un departamento en SAB. Son aquellos departamentos de las plantas que no tienen Izaro ni Epsilon
+ </summary>
+ <param name="oDepto">Objeto de departamento</param>
+</member>
+<member name="M:SabLib.BLL.DepartamentosComponent.Delete(System.String)">
+ <summary>
+ Elimina un departamento. Son aquellos departamentos de las plantas que no tienen Izaro ni Epsilon
+ </summary>
+ <param name="idDepto">Identificador del departamento</param>
+</member>
+<member name="M:SabLib.BLL.CulturasComponent.GetCulturas">
+ <summary>
+ Obtiene todas las culturas
+ </summary>
+</member>
+<member name="M:SabLib.BLL.CulturasComponent.RangoKultura(System.String)">
+ <summary>
+ Dada una cultura, devuelve el rango de culturas que segun una prioridad, se utilizara para intentar traducir un termino
+ Estaran ordenados de mayor orden a menor
+ </summary>
+ <param name="cultura">Cultura base</param>
+ <returns></returns>        
+</member>
+<member name="M:SabLib.BLL.CabIntranetComponent.consultar(SabLib.ELL.CabIntranet)">
+ <summary>
+ Obtiene un objeto cabecera dados unos parametros
+ </summary>
+ <param name="oCab">Cabecera</param>        
+ <returns></returns>
+</member>
+<member name="M:SabLib.BLL.CabIntranetComponent.consultarImagen(System.Int32)">
+ <summary>
+ Obtiene un objeto cabecera dados unos parametros
+ </summary>
+ <param name="idCab">Cabecera</param>        
+ <returns></returns>
+</member>
+<member name="M:SabLib.BLL.CabIntranetComponent.consultarListado(System.DateTime,System.String)">
+ <summary>
+ Obtiene una lista de objetos dados unos parametros
+ </summary>
+ <param name="fecha">Fecha en la que se quieren las imagenes activas</param>        
+ <param name="keyword">Palabra clave</param>
+ <returns></returns>
+</member>
+<member name="M:SabLib.BLL.CabIntranetComponent.consultarExcepciones(System.Int32)">
+ <summary>
+ Obtiene la lista de fechas de excepciones
+ </summary>
+ <param name="idCab">Cabecera</param>        
+ <returns></returns>
+</member>
+<member name="M:SabLib.BLL.CabIntranetComponent.Save(SabLib.ELL.CabIntranet)">
+ <summary>
+ Guarda un objeto cabecera
+ Si es nuevo, tendra que subir la imagen
+ </summary>
+ <param name="oCab">Cabecera</param>
+ <returns></returns>        
+</member>
+<member name="M:SabLib.BLL.CabIntranetComponent.AddExcept(System.String[])">
+ <summary>
+ Añade un rango de excepcion
+ </summary>
+ <param name="except">Excepcion</param>
+ <returns></returns>        
+</member>
+<member name="M:SabLib.BLL.CabIntranetComponent.Delete(System.Int32)">
+ <summary>
+ Borra la imagen
+ </summary>
+ <param name="idCab">Id de la cabecera</param>
+ <returns></returns>        
+</member>
+<member name="M:SabLib.BLL.CabIntranetComponent.DeleteExcept(System.String[])">
+ <summary>
+ Borra el rango de excepcion
+ </summary>
+ <param name="except">Excepcion</param>
+ <returns></returns>        
+</member>
+<member name="T:SabLib.BLL.LDAP.BusquedaLDAP">
+ <summary>
+ Tipos de termino por los que se podra buscar
+ </summary>        
+</member>
+<member name="T:SabLib.BLL.LDAP.CamposActualizablesLDAP">
+ <summary>
+ Campos que se podran actualizar
+ </summary>        
+</member>
+<member name="T:SabLib.BLL.LDAP.tipoLDAP">
+ <summary>
+ Diferencia entre las distintas directorios
+ </summary>        
+</member>
+<member name="M:SabLib.BLL.LDAP.BuscarUsuarioLDAP(System.String,SabLib.BLL.LDAP.BusquedaLDAP,System.String,System.String,System.String,System.Int32,System.String@)">
+ <summary>
+ Busca al usuario en el directorio activo.Se podra buscar por nombre de usuario o por email
+ Esta funcion se usara a partir de ahora.
+ </summary>
+ <param name="sBusqueda">Filtro a aplicar: nombreUsuario,email,dni,...</param>
+ <param name="tipoBusqueda">Indicara si se buscara por email o por nombre de usuario</param>
+ <param name="_pathLDAP">LDAP donde se buscara el usuario</param>
+ <param name="userLDAP">Usuario para operar contra LDAP</param>
+ <param name="passLDAP">Password del usuario</param>
+ <param name="idPlanta">Identificador de la planta de donde se va a buscar</param>        
+ <param name="groupBatzValue">Deja en esta variable lo que tenga el usuario en el directorio activo en el atributo Grupo Batz</param>
+</member>
+<member name="M:SabLib.BLL.LDAP.DisableAccountZimbra(System.Collections.Generic.List{SabLib.ELL.Usuario},SabLib.ELL.Planta,SabLib.ELL.CuentaZimbra,System.String@,System.Int32@,System.Int32@)">
+ <summary>
+ Deshabilita la cuenta del directorio activo de Zimbra
+ Itxina: En el usuario userAccountControl poner H2 y en msExchHideFromAddressLists poner TRUE        
+ </summary>
+ <param name="lUsuarios">Lista de usuarios origen</param>
+ <param name="oPlanta">Informacion de la planta</param>        
+ <param name="oCuentaZimbra">Objeto con los datos de Zimbra si la cuenta a deshabilitar fuera de zimbra</param>
+ <param name="textoMensa">Parametro por referencia:Texto del mensaje resultante</param>
+ <param name="numItemsTotal">Parametro por referencia:Nº total de items</param>
+ <param name="numItemsOk">Parametro por referencia:Nº de items ok</param>  
+ <returns>Boleano</returns>		
+</member>
+<member name="M:SabLib.BLL.LDAP.SetAttributes(System.Collections.Generic.List{SabLib.ELL.Usuario},SabLib.BLL.LDAP.CamposActualizablesLDAP,System.String,System.String,System.String,System.String@,System.Int32@,System.Int32@,System.String)">
+ <summary>
+ Asigna a los usuarios especificados la lista de atributos pasada
+ </summary>
+ <param name="lUsuarios">Lista de usuarios origen</param>    
+ <param name="campoActualizar">Campo a actualizar</param>
+ <param name="pathLDAP">Ruta del directorio activo de itxina</param>
+ <param name="userLDAP">Usuario para operar contra el directorio activo</param>
+ <param name="passwordLDAP">Password del mismo</param>
+ <param name="textoMensa">Parametro por referencia:Texto del mensaje resultante</param>
+ <param name="numItemsTotal">Parametro por referencia:Nº total de items</param>
+ <param name="numItemsOk">Parametro por referencia:Nº de items ok</param>  
+ <param name="valueUpdate">Se utiliza cuando el campo a actualizar no es un campo que este en el objeto usuario</param>
+ <returns>Boleano</returns>		
+</member>
+<member name="M:SabLib.BLL.LDAP.SetDatosItxina(System.String,System.String,System.String,System.String,System.String,System.String)">
+ <summary>
+ En Itxina, le asigna al atributo especificado un valor
+ </summary>
+ <param name="dni">DNI del usuario</param>   
+ <param name="pathLDAP">Ruta del directorio activo</param>
+ <param name="userLDAP">Usuario para operar contra el directorio activo</param>
+ <param name="passwordLDAP">Password del mismo</param>     
+ <param name="attributeName">Nombre del atributo a modificar</param>
+ <param name="value">Valor</param>
+</member>
+<member name="M:SabLib.BLL.Utils.GetDepartamentoInicial(System.Int32)">
+ <summary>
+ Obtiene el primer numero de departamento de una planta que no tiene ni IdIzaro ni IdEpsilon
+ </summary>
+ <param name="idPlanta">Identificador de la planta</param>
+ <returns></returns>
+</member>
+<member name="M:SabLib.BLL.Utils.GetUsuarioHipotetico(System.String)">
+ <summary>
+ Obtiene el nombre de usuario hipotetico dado un nombre
+ </summary>
+ <param name="nombre">Nom bre de la persona</param>
+ <returns>Nombre de usuario</returns>
+</member>
+<member name="M:SabLib.BLL.Utils.EncriptarPassword(System.String)">
+ <summary>
+ Encripta un password plano y lo devuelve.
+ </summary>
+ <param name="password">Password que se va a encriptar</param>
+ <returns></returns>
+</member>
+<member name="M:SabLib.BLL.Utils.ConvertRelativeUrlToAbsoluteUrl(System.String)">
+ <summary>
+ Convierte una url relativa una url absoluta
+ </summary>
+ <remarks></remarks>
+</member>
+<member name="M:SabLib.BLL.Utils.GetAbsoluteUrl(System.String@)">
+ <summary>
+ Obtenemos la direccion absoluta de una aplicacion.
+ Ejemplo:
+ <para>- GetAbsoluteUrl("~/Mantenimiento/Default.aspx") --> http(s)://wwww.SitoWeb.es/Aplicacion/Mantenimiento/Default.aspx</para>
+ </summary>
+ <param name="URL_Relativa">~/Mantenimiento/Default.aspx</param>
+ <returns>http(s)://wwww.SitoWeb.es/Aplicacion/Mantenimiento/Default.aspx</returns>
+</member>
+<member name="M:SabLib.BLL.Utils.CopiarPropiedades(System.Object,System.Object)">
+ <summary>
+ Proceso para el copiado de los valores de las propiedades de un objeto en otro.
+ Cargamos los datos de los campos coincidentes del objeto Origen al Destino.
+ </summary>
+ <param name="Origen">Objeto donde 'OBTENEMOS' los valores.</param>
+ <param name="Destino">Objeto donde 'CARGAMOS' los valores.</param>
+ <remarks></remarks>
+</member>
+<member name="M:SabLib.BLL.Utils.RemoveAccents(System.String)">
+ <summary>
+ Elimina los acentos de una cadena
+ </summary>
+ <param name="text">Texto del que se eliminaran los acentos</param>
+ <returns></returns>        
+</member>
+<member name="M:SabLib.BLL.Utils.ConsultaPooling">
+ <summary>
+ Realiza unas consultas a la base de datos ya que el pooling se quedaba colgado y la primera vez del dia, daba fallo
+ </summary>
+ <remarks></remarks>
+</member>
+<member name="M:SabLib.BLL.Utils.stringNull(System.Object)">
+ <summary>
+ Dado un objeto, devuelve un valor string
+ Si es nulo, devuelve vacio, sino su valor
+ </summary>
+ <param name="o"></param>
+ <returns></returns>     
+</member>
+<member name="M:SabLib.BLL.Utils.OracleStringDBNull(System.String)">
+ <summary>
+ Devuelve el string si no es vacio y dbNull en caso contrario
+ </summary>
+ <param name="o"></param>
+</member>
+<member name="M:SabLib.BLL.Utils.integerNull(System.Object,System.Int32)">
+ <summary>
+ Dado un objeto, devuelve un valor integer
+ Si es nulo, devuelve el defaultValue, sino su valor
+ </summary>
+ <param name="o">Objeto</param>
+ <param name="defaultValue">Valor por defecto que se le dara si el objeto es nulo</param>
+ <returns></returns>        
+</member>
+<member name="M:SabLib.BLL.Utils.OracleIntegerDBNull(System.Int32)">
+ <summary>
+ Devuelve el integer si mayor que 0 y dbNull en caso contrario
+ </summary>
+ <param name="o"></param>
+</member>
+<member name="M:SabLib.BLL.Utils.decimalNull(System.Object,System.Decimal)">
+ <summary>
+ Dado un objeto, devuelve un valor decimal
+ Si es nulo, devuelve el defaultValue, sino su valor
+ </summary>
+ <param name="o"></param>
+ <returns></returns>        
+</member>
+<member name="M:SabLib.BLL.Utils.OracleDecimalDBNull(System.Decimal,System.Decimal)">
+ <summary>
+ Devuelve el decimal si mayor que 0 y dbNull en caso contrario
+ </summary>
+ <param name="o">Decimal</param>
+ <param name="minValueCompare">Valor con el que se comparara para saber si tiene que meter un null o el valor</param>
+</member>
+<member name="M:SabLib.BLL.Utils.dateTimeNull(System.Object)">
+ <summary>
+ Dado un objeto, devuelve un valor fecha
+ Si es nulo, devuelve Datetime.MinValue, sino su valor
+ </summary>
+ <param name="o"></param>
+ <returns></returns>        
+</member>
+<member name="M:SabLib.BLL.Utils.DateNull(System.String)">
+ <summary>
+ Si una fecha es null, devolvera Date.MinValue, sino la fecha en si
+ </summary>
+ <param name="sDate"></param>
+ <returns></returns>        
+</member>
+<member name="M:SabLib.BLL.Utils.OracleDateDBNull(System.DateTime)">
+ <summary>
+ Devuelve la fecha si es distinto de Datetime.minvalue y dbNull en caso contrario
+ </summary>
+ <param name="o"></param>
+</member>
+<member name="M:SabLib.BLL.Utils.booleanNull(System.Object)">
+ <summary>
+ Dado un objeto, devuelve un valor booleano
+ Si es nulo, devuelve false, sino su valor
+ </summary>
+ <param name="o"></param>
+ <returns></returns>     
+</member>
+<member name="M:SabLib.BLL.Utils.booleanNullEmpty(System.Object)">
+ <summary>
+ Dado un objeto, devuelve un valor booleano
+ Si es nulo o vacio, devuelve false, sino su valor
+ </summary>
+ <param name="o"></param>
+ <returns></returns>     
+</member>
+<member name="M:SabLib.BLL.Utils.byteNull(System.Object)">
+ <summary>
+ Dado un objeto, devuelve un valor byte()
+ Si es nulo, devuelve nothing, sino su valor
+ </summary>
+ <param name="o"></param>
+ <returns></returns>     
+</member>
+<member name="M:SabLib.BLL.Utils.OracleByteDBNull(System.Byte[])">
+ <summary>
+ Devuelve el array de bytes si no es vacio y dbNull en caso contrario
+ </summary>
+ <param name="o"></param>
+</member>
+<member name="M:SabLib.BLL.Utils.BooleanToInteger(System.Boolean)">
+ <summary>
+ Dado un booleano, devuelve 1 si es true y 0 en caso contrario
+ </summary>
+ <param name="o"></param>
+ <returns></returns>        
+</member>
+<member name="M:SabLib.BLL.Utils.BooleanToNothing(System.Object)">
+ <summary>
+ Dado un booleano, devuelve 1 si es true, 0 si es false y nothing si no hay ningun valor marcado
+ </summary>
+ <param name="o"></param>
+ <returns></returns>        
+</member>
+<member name="M:SabLib.BLL.Utils.StringToByteArray(System.String)">
+ <summary>
+ Convierte un string en un array de bytes
+ </summary>
+ <param name="str">String a convertir</param>
+ <returns></returns>
+</member>
+<member name="M:SabLib.BLL.Utils.EnviarEmail(System.String,System.String,System.String,System.String,System.String,System.String,System.String,System.String,System.IO.Stream,System.String)">
+ <summary>
+ Envia un email con credenciales
+ </summary>
+ <param name="from">Direccion de envio</param>
+ <param name="_to">Direccion a la que se manda</param>
+ <param name="subject">Asunto</param>
+ <param name="body">Cuerpo</param>				
+ <param name="servidorEmail">Direccion del servidor de correo</param>
+ <param name="usuarioExchange">Usuario de exchange</param>
+ <param name="passwordExchange">Passwor de exchange</param>
+ <param name="_cco">Direcciones a las que se manda en copia oculta</param>
+</member>
+<member name="M:SabLib.BLL.Utils.EnviarEmail(System.String,System.String,System.String,System.String,System.String,System.String,System.Collections.Generic.List{System.Net.Mail.Attachment},System.String,System.String)">
+ <summary>
+ Envia un email
+ </summary>
+ <param name="from">Direccion de envio</param>
+ <param name="_to">Direccion a la que se manda</param>
+ <param name="subject">Asunto</param>
+ <param name="body">Cuerpo</param>
+ <param name="servidorEmail">Direccion del servidor de correo</param>
+ <param name="_cco">Direcciones a las que se manda en copia oculta</param>
+ <param name="lAttachment">Listado de documentos adjuntos (List(Of Net.Mail.Attachment))</param>
+ <param name="usuarioExchange">Usuario de exchange</param>
+ <param name="passwordExchange">Clave de exchange</param>
+</member>
+<member name="M:SabLib.BLL.Utils.IsEmail(System.String)">
+ <summary>
+ 
+ </summary>
+ <param name="email"></param>
+ <returns></returns>
+ <remarks></remarks>
+</member>
+<member name="M:SabLib.BLL.Utils.TextoLike(System.String)">
+ <summary>
+ Función que transforma el texto en una expresion regular para realizar busquedas.
+ </summary>
+ <param name="Texto">Texto a transformar en expresion regular.</param>
+</member>
+<member name="M:SabLib.BLL.Utils.EncriptarBase64(System.String)">
+ <summary>
+ Convierte en base 64 el string
+ </summary>
+ <param name="str"></param>
+ <returns></returns>
+</member>
+<member name="M:SabLib.BLL.Utils.Compress(System.Byte[])">
+ <summary>
+ Método estático de compresión para un aray de bytes. 
+ Se ha añadido principalmente para comprimir el viewstate        ''' 
+ </summary>
+ <param name="data"></param>
+ <returns></returns>
+ <remarks>Viene de http://www.codeproject.com/Articles/14733/ViewState-Compression </remarks>
+</member>
+<member name="M:SabLib.BLL.Utils.Decompress(System.Byte[])">
+ <summary>
+ Método estático de descompresión para un array de bytes
+ Se ha añadido principalmente para descomprimir el viewstate
+ </summary>
+ <param name="data"></param>
+ <returns></returns>
+ <remarks>Viene de http://www.codeproject.com/Articles/14733/ViewState-Compression </remarks>
+</member>
+<member name="M:SabLib.BLL.Utils.ListadoCognos(System.String,System.Collections.Generic.List{System.Int32})">
+ <summary>
+ Inserta en una tabla intermedia, los ids que se quieren mostrar en Cognos
+ La funcion eliminara los del mismo IdSession y los de dias anteriores
+ </summary>
+ <param name="sessionId">Id de la session de la aplicacion</param>
+ <param name="lIds">Lista de los identificadores que se mostraran en el listado</param>        
+</member>
+<member name="M:SabLib.BLL.Utils.SeparadorDecimal(System.String@)">
+ <summary>
+ Funcion para poder usar indistintamente el 'Punto' o la 'Coma' como separador decimal.
+ </summary>
+ <param name="Numero">Valor del numero decimal</param>
+ <returns></returns>
+ <remarks></remarks>
+</member>
+<member name="M:SabLib.BLL.XBATComponent.GetMoneda(System.Int32)">
+ <summary>
+ Carga la informacion de la moneda
+ </summary>        
+</member>
+<member name="M:SabLib.BLL.XBATComponent.GetMonedas">
+ <summary>
+ Carga las monedas activas
+ </summary>        
+</member>
+<member name="T:SabLib.BLL.Interface.IUsuariosComponent.LugarBusquedaResponsable">
+ <summary>
+ Indica el lugar donde se buscara un responsable
+ </summary>		
+</member>
+<member name="M:SabLib.BLL.Interface.IUsuariosComponent.GetUsuario(SabLib.ELL.Usuario,System.Boolean,System.Boolean,Oracle.DataAccess.Client.OracleConnection)">
+ <summary>
+ Devuelve el usuario que cumpla las condiciones del objeto
+ </summary>
+ <param name="oUser"></param>
+ <returns></returns>
+</member>
+<member name="M:SabLib.BLL.Interface.IUsuariosComponent.GetGruposUsuario(System.Int32,System.String,Oracle.DataAccess.Client.OracleConnection)">
+ <summary>
+ Obtiene los grupos de un usuario y una cultura
+ </summary>
+ <param name="idUsuario">Identificador del usuario</param>
+ <param name="idCultura">Identificador de la cultura</param>
+ <returns>Vista con los grupos</returns>        
+</member>
+<member name="M:SabLib.BLL.Interface.IUsuariosComponent.GetGruposUsuarioAll(System.Int32,System.String)">
+ <summary>
+ Obtiene los grupos de un usuario y una cultura de todos los usuarios, aunque esten dados de baja
+ </summary>
+ <param name="idUsuario">Identificador del usuario</param>
+ <param name="idCultura">Identificador de la cultura</param>
+ <returns>Vista con los grupos</returns>        
+</member>
+<member name="M:SabLib.BLL.Interface.IUsuariosComponent.GetUsuarios(SabLib.ELL.Usuario,System.Boolean,System.String)">
+ <summary>
+ Obtiene los usuarios que cumplan las condiciones del objeto ordenados por un campo
+ </summary>
+ <param name="oUser">Objeto usuario</param>
+ <param name="vigentes">Parametro opcional para mostrar todos los usuarios o solo vigentes</param>
+ <param name="sortField">Campo a ordenar</param>
+ <returns>Lista de usuarios</returns> 
+</member>
+<member name="M:SabLib.BLL.Interface.IUsuariosComponent.GetUsuarios(System.Collections.Generic.List{System.Int32},System.Boolean)">
+ <summary>
+ Obtiene los usuarios activos, que pertenezcan a alguna planta de las de la lista
+ </summary>
+ <param name="lPlantas">Plantas a las que debe pertenecer un usuario</param>
+ <param name="vigentes">Parametro opcional para mostrar solo los vigentes o todos</param>
+ <returns>Lista de usuarios</returns>        
+</member>
+<member name="M:SabLib.BLL.Interface.IUsuariosComponent.GetUsuariosPlanta(SabLib.ELL.Usuario,System.Boolean,System.Boolean,System.Boolean)">
+ <summary>
+ Obtiene los usuarios activos que cumplan las condiciones del objeto y que pertenezcan a alguna planta de las de la lista
+ </summary>
+ <param name="oUser">Objeto usuario con las condiciones</param>
+ <param name="vigentes">Parametro opcional para obtener solo los usuarios vigentes</param>
+ <param name="operatorAND">Por defecto sera AND. Si es false, sera un OR</param>  ''' 
+ <param name="bSoloUsuariosPlantaActiva">Indica que solo se van a mostrar los usuarios que tengan esa planta como activa</param>
+ <returns>Lista de usuarios</returns>        
+</member>
+<member name="M:SabLib.BLL.Interface.IUsuariosComponent.GetUsuariosConRecurso(System.Int32,System.Boolean,System.Int32)">
+ <summary>
+ Realiza una busqueda de usuarios que tengan acceso a un recurso
+ </summary>
+ <param name="idRecurso">Recurso</param>
+ <param name="vigentes">Indica si se listaran todos o solo los vigentes</param>
+ <param name="idPlanta">Id de la planta</param>
+ <returns>Lista de usuarios</returns>
+ <remarks></remarks>
+</member>
+<member name="M:SabLib.BLL.Interface.IUsuariosComponent.GetUsuariosBusquedaSAB(System.String)">
+ <summary>
+ Realiza una busqueda de usuarios a partir de un texto en la aplicacion de SAB
+ </summary>
+ <param name="texto">Texto a buscar</param>
+ <returns>Lista de usuarios</returns>
+ <remarks></remarks>
+</member>
+<member name="M:SabLib.BLL.Interface.IUsuariosComponent.GetUsuariosBusquedaSAB(System.String,System.Nullable{System.Boolean},System.Nullable{System.Boolean},System.Nullable{System.Boolean},System.Boolean,System.Int32,System.Int32,System.Int32)">
+ <summary>
+ Realiza una busqueda de usuarios a partir de varias condiciones. Es para utilizarlo con el nuevo control de seleccion de usuarios
+ </summary>
+ <param name="texto">Texto a buscar</param>
+ <param name="bConIdDirectorioActivo">Indica si tendra que tener IdDirectorioActivo o no</param>
+ <param name="bConEmail">Indica si debe tener email</param>
+ <param name="bConCodPersona">Indica si debe tener codigo de persona</param>
+ <param name="bVigentes">Indica si se quieren solo los vigentes, o todos</param>
+ <param name="idEmpresa">Se puede indicar el id de la empresa</param>		
+ <param name="idPlanta">Id de la planta a la que se quiere que pertenezcan</param>
+ <param name="idRecurso">Id del recurso al que se quiere que pertenezcan</param>
+ <returns>Lista de usuarios</returns>      
+</member>
+<member name="M:SabLib.BLL.Interface.IUsuariosComponent.GetUsuariosBusquedaSAB2(System.String,System.Int32,System.Boolean)">
+ <summary>
+ Realiza una busqueda de usuarios a partir de un texto en la aplicacion de SAB con un algoritmo mas eficaz.Si no se indica nada en el texto, no obtiene ninguno todos
+ </summary>
+ <param name="texto">Texto a buscar</param>
+ <param name="recurso">Parametro opcional indicando el recurso.Si se indica el recurso, la lista de usuarios que se obtiene para la busqueda, sera la de usuarios que pertenecen a ese recurso</param>
+ <param name="bGetTodosSiTextoVacio">Parametro opcional para indicar que si el texto que se manda es vacio, obtenga todos los usuarios encontrados</param>
+ <returns>Lista de usuarios</returns>        
+</member>
+<member name="M:SabLib.BLL.Interface.IUsuariosComponent.GetResponsable(System.Int32,System.Int32)">
+ <summary>
+ Devuelve el responsable del usuario
+ Si el usuario pertenece a una planta y esta no se encuentra en la tabla PLANTAS_RESP_IZARO, lo obtiene de Izaro, sino de RESPONSABLES_PLANTAS
+ </summary>
+ <param name="idUser">Identificador del usuario</param>
+ <param name="codTrab">Codigo de trabajador opcional</param>
+ <returns></returns>		
+</member>
+<member name="M:SabLib.BLL.Interface.IUsuariosComponent.GetResponsable(SabLib.ELL.Usuario)">
+ <summary>
+ Devuelve el responsable del usuario
+ </summary>
+ <param name="oUser">Usuario</param>        
+ <returns></returns>
+</member>
+<member name="M:SabLib.BLL.Interface.IUsuariosComponent.GetPlantaActiva(System.Int32)">
+ <summary>
+ Obtiene el id de la planta activa del usuario
+ De momento, la planta sera la del id minimo que tenga. Es decir, si tiene mas de una y una de ellas es la de Igorre(1), esta sera la activa
+ </summary>
+ <param name="idUser">Id del usuario</param>
+ <returns></returns>		
+</member>
+<member name="M:SabLib.BLL.Interface.IUsuariosComponent.GetPlantaActiva(SabLib.ELL.Usuario)">
+ <summary>
+ NUEVA:Obtiene la planta activa del usuario. Se debe utilizar esta en vez de la antigua
+ </summary>
+ <param name="oUser">Objeto usuario. Si se sabe el departamento, informarlo en el objeto. Si no, mandarlo informado solo con el idUsuario</param>
+ <returns>Id de la planta activa</returns>        
+</member>
+<member name="M:SabLib.BLL.Interface.IUsuariosComponent.EsValidador(System.Int32)">
+ <summary>
+ Indica si un usuario es valido. Este funcion es utilizada para las plantas de fuera, que no sean de Igorre
+ Si se quiere saber si un usuario de Igorre es validador, habra que usar rrhhlib.esValidador
+ Si se intenta conocer si un usuario es validador y su planta es Igorre, lanzara una excepcion
+ </summary>
+ <param name="idUser">Id del usuario</param>
+ <returns></returns>		
+</member>
+<member name="M:SabLib.BLL.Interface.IUsuariosComponent.GetColaboradores(System.Int32)">
+ <summary>
+ Obtiene la lista de colaboradores vigentes de un usuario		
+ Si se intentan conocer los colaboradores de un usuario cuya planta es Igorre, lanzara una excepcion
+ </summary>
+ <param name="idUser">Id del usuario</param>
+ <returns></returns>		
+</member>
+<member name="M:SabLib.BLL.Interface.IUsuariosComponent.GetPlantas(System.Int32,Oracle.DataAccess.Client.OracleConnection)">
+ <summary>
+ Devuelve las plantas en las que esta asociado un usuario
+ </summary>
+ <param name="idUser">Identificador del usuario</param>
+ <returns>Lista de plantas</returns>        
+</member>
+<member name="M:SabLib.BLL.Interface.IUsuariosComponent.GetFoto(SabLib.ELL.Usuario)">
+ <summary>
+ Obtiene la foto del usuario vigente
+ </summary>
+ <param name="oUser"></param>
+ <returns></returns>
+</member>
+<member name="M:SabLib.BLL.Interface.IUsuariosComponent.Delete(System.Int32)">
+ <summary>
+ Borra el usuario
+ </summary>
+ <param name="idUsuario">Identificador del usuario</param>
+ <returns>Booleano indicando si se ha borrado correctamente</returns>
+ <remarks></remarks>
+</member>
+<member name="M:SabLib.BLL.Interface.IUsuariosComponent.Save(SabLib.ELL.Usuario,Oracle.DataAccess.Client.OracleConnection)">
+ <summary>
+ Guarda los datos del usuario y la planta en el caso en que sea nuevo
+ </summary>        
+ <param name="objUsuario">Objeto usuario a guardar</param>
+ <param name="con">Parametro opcional. Si se le pasa la conexion estara dentro de una transaccion</param>
+ <returns>Identificador del usuario</returns>
+</member>
+<member name="M:SabLib.BLL.Interface.IUsuariosComponent.SaveResponsableKEM(System.Int32,System.Int32,Oracle.DataAccess.Client.OracleConnection)">
+ <summary>
+ Inserta o actualiza el responsable del usuario de KEM (solo para los que no tienen idIzaro ni idEpsilon)
+ </summary>
+ <param name="idUser">Id del usuario</param>
+ <param name="IdResponsable">Id del responsable</param>			
+ <param name="con">Parametro opcional. Si se le pasa la conexion estara dentro de una transaccion</param>
+</member>
+<member name="M:SabLib.BLL.Interface.IUsuariosComponent.SavePassword(System.Int32,System.String)">
+ <summary>
+ Guarda la password encriptada
+ </summary>        
+ <param name="idUser">Id del usuario</param>
+ <param name="password">Password</param>
+ <returns>Booleano que indica si se ha guardado correctamente</returns>
+</member>
+<member name="M:SabLib.BLL.Interface.IUsuariosComponent.SaveFoto(System.Int32,System.Byte[])">
+ <summary>
+ Guarda la foto
+ </summary>        
+ <param name="idUser">Id del usuario</param>
+ <param name="foto">Foto</param>
+ <returns>Booleano que indica si se ha guardado correctamente</returns>
+</member>
+<member name="M:SabLib.BLL.Interface.IUsuariosComponent.SaveEmailSABEpsilon(SabLib.ELL.Usuario)">
+ <summary>
+ Guarda el email en SAB y solo cuando este en live en Epsilon
+ </summary>        
+ <param name="oUser">Objeto usuario</param>        
+ <returns>Booleano que indica si se ha guardado correctamente</returns>
+</member>
+<member name="M:SabLib.BLL.Interface.IUsuariosComponent.UpdateUserADData(System.Int32,System.String,System.String,System.String)">
+ <summary>
+ Actualiza los campos de usuario como el nombre de usuario,email e iddirectorioactivo
+ </summary>
+ <param name="idUser">Id del usuario</param>
+ <param name="userName">Nombre de usuario</param>
+ <param name="idDirectorioActivo">Id del directorio activo</param>
+ <param name="email">Email</param>        
+</member>
+<member name="M:SabLib.BLL.Interface.IUsuariosComponent.SaveNikEuskaraz(System.Int32,System.Boolean)">
+ <summary>
+ Guarda si quiere la informacion en euskera o no
+ </summary>        
+ <param name="idUser">Id del usuario</param>
+ <param name="nikEuskaraz">Indica si quiere euskara o no</param>
+ <returns>Booleano que indica si se ha guardado correctamente</returns>
+</member>
+<member name="M:SabLib.BLL.Interface.IUsuariosComponent.AddPlanta(System.Int32,System.Int32,Oracle.DataAccess.Client.OracleConnection)">
+ <summary>
+ Añade la planta al usuario
+ </summary>        
+ <param name="idUsuario">Id del usuario</param>
+ <param name="idPlanta">Id de la planta</param>
+ <param name="con">Si la conexion no es nula, estara dentro de una transaccion</param>
+ <returns>Booleano que indica si se ha guardado correctamente</returns>
+</member>
+<member name="M:SabLib.BLL.Interface.IUsuariosComponent.updateKEM(SabLib.ELL.Usuario,Oracle.DataAccess.Client.OracleConnection)">
+ <summary>
+ Actualiza los datos necesarios en la creacion de usuarios en KEM
+ </summary>        
+ <param name="objUsuario">Objeto usuario a guardar</param> 
+<returns>-1:Error,0:Todo ok,1:No se puede porque existe algun colaborador con dicho usuario como responsable</returns>
+</member>
+<member name="M:SabLib.BLL.Interface.IUsuariosComponent.DeletePlanta(System.Int32,System.Int32)">
+ <summary>
+ Elimina la planta al usuario
+ </summary>        
+ <param name="idUsuario">Id del usuario</param>
+ <param name="idPlanta">Id de la planta</param>
+ <returns>Booleano que indica si se ha borrado correctamente</returns>
+</member>
+<member name="M:SabLib.BLL.Interface.IUsuariosComponent.ChangePasswordLDAP(System.String,System.String,System.String,System.String,System.String,System.String,System.String,System.String@)">
+ <summary>
+ Cambia la password del usuario en LDAP (Itxina)
+ </summary>
+ <param name="username">Nombre de usuario</param>
+ <param name="email">Email</param>
+ <param name="currentPassword">Password actual</param>
+ <param name="newPassword">Nueva contraseña</param>	
+ <param name="pathLDAP">Ruta del directorio LDAP</param>
+ <param name="userLDAP">Usuario para operar contra el AD</param>
+ <param name="passwordLDAP">Password del usuario</param> 	
+ <param name="mensaje">Mensaje de salida</param>
+</member>
+<member name="M:SabLib.BLL.Interface.IUsuariosComponent.GetProveedoresConRecurso(System.Int32)">
+ <summary>
+ Devuelve los usuarios con el recurso idRecurso y que no pertenezca a Batz
+ </summary>
+ <param name="idRecurso"></param>
+ <returns></returns>
+ <remarks></remarks>
+</member>
+<member name="M:SabLib.BLL.Interface.IUsuariosComponent.ImportarDatos(System.Int32,System.Int32,System.String[],Oracle.DataAccess.Client.OracleConnection)">
+ <summary>
+ Importa los datos seleccionados (se indican el nombre del campo a actualizar) del usuario origen al destino
+ </summary>
+ <param name="idUserOrigen">Id del usuario origen. Del que se importan</param>
+ <param name="idUserDestino">Id del usuario destino. Al que se importan</param>
+ <param name="datos">Array con los nombres de las columnas. Indica los campos a copiar</param>
+ <returns></returns>		
+</member>
+<member name="M:SabLib.BLL.Interface.IRecursosComponent.GetRecurso(System.Int32)">
+ <summary>
+ Obtiene el recurso asociado
+ </summary>
+ <param name="IdRecurso">Identificador de la cultura</param>
+ <returns>Objeto recursos</returns>
+</member>
+<member name="M:SabLib.BLL.Interface.IRecursosComponent.GetRecursoCultura(System.Int32,System.String)">
+ <summary>
+ Obtiene un recurso para una cultura dada
+ </summary>
+ <param name="idRecurso">Identificador del recurso</param>
+ <param name="idCultura">Identificador de la cultura</param>
+ <returns>Devuelve una lista con los grupos que cumplen la condicion</returns>
+</member>
+<member name="M:SabLib.BLL.Interface.IRecursosComponent.GetRecursosCultura(SabLib.ELL.recurso,System.Boolean)">
+ <summary>
+ Obtiene los recursos que cumplan las condiciones
+ </summary>
+ <param name="oRecurso">Recurso</param>
+ <param name="bConIcono">Indicara si tiene que devolver el conjunto de bytes del icono</param>
+ <returns>Devuelve una lista con los recurso que cumplen la condicion</returns>
+</member>
+<member name="M:SabLib.BLL.Interface.IRecursosComponent.GetRecursosCultura(System.Int32,System.String)">
+ <summary>
+ Obtiene todos los recursos de una cultura asignados a un grupo
+ </summary>
+ <param name="idGrupo">Grupo al que estan asignados</param>
+ <param name="IdCultura">Identificador de la cultura</param>
+ <returns>Lista de recursos</returns>
+</member>
+<member name="M:SabLib.BLL.Interface.IRecursosComponent.GetRecursosCulturaAll(System.Int32,System.String)">
+ <summary>
+ Obtiene todos los recursos culturizados de un usuario
+ </summary>
+ <param name="idUser">Id del usuario</param>
+ <param name="idCultura">Cultura</param>
+ <returns>Devuelve una lista con los recursos que tiene acceso un usuario</returns>
+</member>
+<member name="M:SabLib.BLL.Interface.IRecursosComponent.GetRecursosLimitUser(System.String,System.String)">
+ <summary>
+ Obtiene los recursos asociados a un usuario
+ </summary>
+ <param name="MachineUserName">Nombre del usuario</param>
+ <param name="idCultura">Id de la cultura</param>
+ <returns>Objeto recursos</returns>
+</member>
+<member name="M:SabLib.BLL.Interface.IRecursosComponent.GetListadoLimitacionRecUser(System.String)">
+ <summary>
+ Obtiene el listado de usuarios con limitacion de recursos
+ </summary>
+ <param name="userName">Nombre del usuario a buscar</param>
+ <returns></returns>        
+</member>
+<member name="M:SabLib.BLL.Interface.IRecursosComponent.AddRecurso(System.String,SabLib.ELL.recurso)">
+ <summary>
+ Añade recurso para todas las culturas existentes
+ Devuelve el id del recurso añadido. Devuelve -1 si ha habido algun error
+ </summary>
+ <param name="nombreRecurso">Nombre del recurso</param>
+ <param name="objRecurso">Objeto recurso que contiene los datos</param>
+ <returns>Booleano que indica si ha añadido correctamente</returns>
+</member>
+<member name="M:SabLib.BLL.Interface.IRecursosComponent.Delete(System.Int32)">
+ <summary>
+ Elimina el recurso especificado
+ </summary>
+ <param name="idRecurso">Identificador del recurso</param>
+ <returns>Booleano que indica si se ha eliminado correctamente</returns>
+</member>
+<member name="M:SabLib.BLL.Interface.IRecursosComponent.DeleteImageRecurso(System.Int32)">
+ <summary>
+ Elimina la imagen de un recurso
+ </summary>        
+ <param name="idRecurso">Identificador del recurso</param>        
+ <returns>Booleano que indica si se ha borrado la imagen correctatemente</returns>
+</member>
+<member name="M:SabLib.BLL.Interface.IRecursosComponent.DeleteImageCatalogoRecurso(System.Int32)">
+ <summary>
+ Elimina la imagen del catalogo de un recurso
+ </summary>        
+ <param name="idRecurso">Identificador del recurso</param>        
+ <returns>Booleano que indica si se ha borrado la imagen del catalogo correctatemente</returns>
+</member>
+<member name="M:SabLib.BLL.Interface.IRecursosComponent.DeleteFicheroRecurso(System.Int32)">
+ <summary>
+ Elimina el fichero de un recurso
+ </summary>        
+ <param name="idRecurso">Identificador del recurso</param>        
+ <returns>Booleano que indica si se ha borrado la imagen correctatemente</returns>
+</member>
+<member name="M:SabLib.BLL.Interface.IRecursosComponent.DeleteLimitUser(System.Int32)">
+ <summary>
+ Elimna el usuario y sus recursos de limitacion
+ </summary>
+ <param name="idUser">Id del usuario</param>
+ <returns></returns>
+</member>
+<member name="M:SabLib.BLL.Interface.IRecursosComponent.DeleteLimitRecUser(System.Int32,System.Int32)">
+ <summary>
+ Elimina un recurso de limitacion de un usuario
+ </summary>
+ <param name="idUser">Id del usuario</param>
+ <param name="idRecurso">Id del recurso a registrar</param>
+ <returns></returns>
+</member>
+<member name="M:SabLib.BLL.Interface.IRecursosComponent.SaveLimitRecUser(System.Int32,System.Int32)">
+ <summary>
+ Guarda un recurso
+ </summary>
+ <param name="idUser">Id del usuario</param>
+ <param name="idRecurso">Id del recurso a registrar</param>
+ <returns></returns>
+</member>
+<member name="M:SabLib.BLL.Interface.IRecursosComponent.SaveRecursoCultura(SabLib.ELL.recurso,System.Boolean,Oracle.DataAccess.Client.OracleConnection)">
+ <summary>
+ Inserta o modifica el termino del recurso en la cultura especificada
+ </summary>
+ <param name="oRecurso">Recurso</param>
+ <param name="bnuevo">Indica si hay que insertar o modificar</param>
+ <param name="con">Conexion si es porque esta dentro de una transaccion</param>
+ <returns>Booleano</returns>
+</member>
+<member name="M:SabLib.BLL.Interface.IRecursosComponent.SaveLimitUser(System.Int32,System.Int32)">
+ <summary>
+ Actualiza el usuario
+ </summary>
+ <param name="idUserOld">Indica el usuario antiguo</param>
+ <param name="idUserNew">Indica el usuario nuevo</param>
+ <returns></returns>        
+</member>
+<member name="M:SabLib.BLL.Interface.IRecursosComponent.ActualizarRecursosCultura(System.Collections.Generic.List{SabLib.ELL.recurso},SabLib.ELL.recurso)">
+ <summary>
+ Guarda las traducciones de las distintas culturas de un recurso y el resto de datos
+ Si viene informado una traduccion y no existe se inserta, sino, se actualiza
+ </summary>
+ <param name="lRecursos">Lista de recursos a modificar</param>
+ <param name="oRecurso">Recurso con los datos</param>
+ <returns>Devuelve el idGrupo</returns>  
+</member>
+<member name="M:SabLib.BLL.Interface.IPlantasComponent.GetPlanta(System.Int32,System.Boolean,Oracle.DataAccess.Client.OracleConnection)">
+ <summary>
+ Devuelve la informacion de la planta
+ </summary>
+ <param name="idPlanta">Identificador de la planta </param>
+ <param name="getGruposDefecto">Indica si se obtendran por defecto los grupos de las plantas</param>
+ <returns>Objeto planta</returns>        
+</member>
+<member name="M:SabLib.BLL.Interface.IPlantasComponent.GetPlantas(System.Boolean,System.Nullable{System.Boolean},System.Nullable{System.Boolean},System.Nullable{System.Boolean})">
+ <summary>
+ Devuelve las plantas existentes
+ </summary>
+ <param name="vigentes">Plantas vigentes o todas</param>
+ <param name="bMostrarReloj">Indica si se quieren todos (nothing), los que se muestren en el reloj true o los que no</param>
+ <param name="bConPlantaIzaro">Indica si se quieren todos (nothing),los que tengan planta izaro informada o los que no</param>
+ <param name="bConPlantaEpsilon">Indica si se quieren todos (nothing),los que tengan planta Epsilon informada o los que no</param>
+ <returns>Lista de plantas</returns>        
+</member>
+<member name="M:SabLib.BLL.Interface.IPlantasComponent.GetPlantasUsuario(System.Int32,System.Boolean)">
+ <summary>
+ Devuelve las plantas en las que esta asociado un usuario
+ </summary>
+ <param name="idUsuario">Identificador del usuario</param>
+ <param name="getGruposDefecto">Indica si se obtendran por defecto los grupos de las plantas</param>        
+ <returns>Lista de plantas</returns>        
+</member>
+<member name="M:SabLib.BLL.Interface.IPlantasComponent.ExistePlantaEpsilonIzaro(SabLib.ELL.Planta)">
+ <summary>
+ Comprueba si existe alguna planta con el IdEpsilon o IdIzaro
+ </summary>
+ <param name="oPlanta"></param>
+ <returns></returns>
+</member>
+<member name="M:SabLib.BLL.Interface.IPlantasComponent.Save(SabLib.ELL.Planta)">
+ <summary>
+ Inserta o modifica la planta
+ </summary>
+ <param name="oPlanta">Planta a guardar o modificar</param>        
+ <returns>Id de la planta</returns>
+</member>
+<member name="M:SabLib.BLL.Interface.IPlantasComponent.ChangePasswordUserLDAP(System.Int32,System.String)">
+ <summary>
+ Cambia la password del usuario LDAP
+ </summary>
+ <param name="idPlanta">Id de la planta</param>
+ <param name="newPassword">Nueva password</param>
+ <returns></returns>        
+</member>
+<member name="M:SabLib.BLL.Interface.IPlantasComponent.Delete(System.Int32)">
+ <summary>
+ Marca como obsoleto la planta
+ </summary>
+ <param name="idPlant">Identificador de la planta</param>
+ <returns>Booleano que indica si se ha eliminado o no</returns>        
+</member>
+<member name="M:SabLib.BLL.Interface.IPlantasComponent.getGruposDefectoPlanta(System.Int32,Oracle.DataAccess.Client.OracleConnection)">
+ <summary>
+ Obtiene la lista de grupos por defecto de una planta
+ </summary>
+ <param name="idPlanta">Id de la planta</param>
+ <returns></returns>        
+</member>
+<member name="M:SabLib.BLL.Interface.IPlantasComponent.AddGrupo(System.Int32,System.Int32)">
+ <summary>
+ Inserta un grupo a una planta
+ </summary>
+ <param name="idPlanta">Id de la planta</param>
+ <param name="idGrupo">Id del grupo</param>
+ <returns>Booleano</returns>
+</member>
+<member name="M:SabLib.BLL.Interface.IPlantasComponent.DeleteGrupo(System.Int32)">
+ <summary>
+ Elimina el grupo por defecto
+ </summary>
+ <param name="idGrup">Identificador del grupo</param>
+ <returns>Booleano que indica si se ha eliminado o no</returns>        
+</member>
+<member name="M:SabLib.BLL.Interface.ILoginComponent.Login(System.String,System.String)">
+ <summary>
+ Realiza el login con el nombre de usuario y password y devuelve el ticket del usuario. Login externo
+ </summary>
+ <param name="username">Nombre de usuario</param>
+ <param name="Password">password</param>
+ <returns>Ticket</returns>      
+</member>
+<member name="M:SabLib.BLL.Interface.IGruposComponent.GetGrupoCultura(System.Int32,System.String)">
+ <summary>
+ Obtiene un grupo para una cultura dada
+ </summary>
+ <param name="idGrupo">Identificador del grupo</param>
+ <param name="idCultura">Identificador de la cultura</param>
+ <returns>Devuelve una lista con los grupos que cumplen la condicion</returns>
+</member>
+<member name="M:SabLib.BLL.Interface.IGruposComponent.GetGruposCultura(SabLib.ELL.grupo)">
+ <summary>
+ Obtiene los grupos que cumplan las condiciones
+ </summary>
+ <param name="oGrupo">Grupo</param>
+ <returns>Devuelve una vista con los grupos que cumplen la condicion</returns>
+</member>
+<member name="M:SabLib.BLL.Interface.IGruposComponent.GetGruposCultura(System.Int32,System.String)">
+ <summary>
+ Obtiene todos los grupos de una cultura asignados a un recurso
+ </summary>
+ <param name="idRecurso">recurso al que estan asignados</param>
+ <param name="IdCultura">Identificador de la cultura</param>
+ <returns>Lista de grupos</returns>
+</member>
+<member name="M:SabLib.BLL.Interface.IGruposComponent.GetGruposCultura(System.Collections.Generic.List{System.Int32},System.String)">
+ <summary>
+ Obtiene los grupos, que pertenezcan a alguna planta de las de la lista
+ </summary>
+ <param name="lPlantas">Plantas a las que debe pertenecer un grupo</param>
+ <param name="IdCultura">Cultura en la que ha que mostrar los grupos</param>
+ <returns>Lista de usuarios</returns>        
+</member>
+<member name="M:SabLib.BLL.Interface.IGruposComponent.GetUsuariosGrupo(System.Int32)">
+ <summary>
+ Obtiene los usuarios de un grupo
+ </summary>
+ <param name="idGrupo">Identificador del grupo</param>
+ <returns>Lista de usuarios</returns>        
+</member>
+<member name="M:SabLib.BLL.Interface.IGruposComponent.GetPlantas(System.Int32)">
+ <summary>
+ Devuelve las plantas en las que esta asociado un grupo
+ </summary>
+ <param name="idGrupo">Identificador del grupo</param>
+ <returns>Lista de plantas</returns>
+ <remarks></remarks>
+</member>
+<member name="M:SabLib.BLL.Interface.IGruposComponent.AddGrupo(Oracle.DataAccess.Client.OracleConnection)">
+ <summary>
+ Añade un grupo
+ </summary>
+ <param name="con">Conexion si es porque esta dentro de una transaccion</param>        
+ <returns>Identificador del nuevo grupo</returns>
+</member>
+<member name="M:SabLib.BLL.Interface.IGruposComponent.AddUsuario(System.Int32,System.Int32,Oracle.DataAccess.Client.OracleConnection)">
+ <summary>
+ Añade un usuario a un grupo
+ </summary>
+ <param name="idUsuario">Identificador del usuario</param>
+ <param name="idGrupo">Identificador del grupo</param>
+ <param name="con">Conexion si es porque esta dentro de una transaccion</param>
+</member>
+<member name="M:SabLib.BLL.Interface.IGruposComponent.AddRecurso(System.Int32,System.Int32)">
+ <summary>
+ Añade un recurso al grupo
+ </summary>
+ <param name="IdGrupo">Identificador del grupo</param>
+ <param name="idRecurso">Identificador del recurso</param>
+ <remarks>Booleano que indica si ha añadido correctamente</remarks>
+</member>
+<member name="M:SabLib.BLL.Interface.IGruposComponent.Delete(System.Int32)">
+ <summary>
+ Borra un grupo
+ </summary>
+ <param name="idGrupo">Identificador del Grupo</param>
+ <returns>Booleano indicando si se ha borrado correctamente</returns>
+</member>
+<member name="M:SabLib.BLL.Interface.IGruposComponent.DeleteUsuario(System.Int32,System.Int32)">
+ <summary>
+ Borra un usuario de un grupo
+ </summary>
+ <param name="idGrupo">Identificador del grupo</param>
+ <param name="idUsuario">Identificador del usuario</param>
+ <returns>Booleano indicando si se ha borrado correctamente</returns>
+</member>
+<member name="M:SabLib.BLL.Interface.IGruposComponent.DeleteRecurso(System.Int32,System.String)">
+ <summary>
+ Borra el recurso del grupo
+ </summary>
+ <param name="idGrupo">Identificador del Grupo</param>
+ <param name="idRecurso">Identificador del recurso</param>
+ <returns>Booleano indicando si se ha borrado correctamente</returns>
+</member>
+<member name="M:SabLib.BLL.Interface.IGruposComponent.SaveGrupoCultura(SabLib.ELL.grupo,System.Boolean,Oracle.DataAccess.Client.OracleConnection)">
+ <summary>
+ Inserta o modifica el termino del grupo en la cultura especificada
+ </summary>
+ <param name="oGrupo">Grupo</param>
+ <param name="bnuevo">Indica si hay que insertar o modificar</param>
+ <param name="con">Conexion si es porque esta dentro de una transaccion</param>
+ <returns>Booleano</returns>
+</member>
+<member name="M:SabLib.BLL.Interface.IGruposComponent.ActualizarGruposCultura(System.Collections.Generic.List{SabLib.ELL.grupo},System.Collections.Generic.List{SabLib.ELL.Planta},System.Boolean)">
+ <summary>
+ Guarda las traducciones de las distintas culturas de un grupo
+ </summary>
+ <param name="lGrupos">Lista de grupos a modificar</param>
+ <param name="lPlantas">Listado de plantas a guardar</param>
+ <param name="bnuevo">Indica si es un nuevo grupo</param> 
+ <returns>Identificador del grupo</returns>        
+</member>
+<member name="M:SabLib.BLL.Interface.IEmpresasComponent.GetEmpresa(SabLib.ELL.Empresa)">
+ <summary>
+ Obtiene los datos de la empresa
+ </summary>
+ <param name="oEmpr">Filtro de la empresa</param>
+</member>
+<member name="M:SabLib.BLL.Interface.IEmpresasComponent.GetEmpresas(System.Boolean,System.String)">
+ <summary>
+ Carga las empresas activas u obsoletas
+ </summary>
+ <param name="bActivas">Indicara si solo quiere las activas o no</param>
+</member>
+<member name="M:SabLib.BLL.Interface.IEmpresasComponent.GetEmpresasActivasSinTroqueleriaSistemas">
+ <summary>
+ Carga las empresas activas que no tienen IdTroqueleria ni IdSistemas
+ </summary>
+</member>
+<member name="M:SabLib.BLL.Interface.IEmpresasComponent.BuscarEmpresas(System.String,System.Boolean,System.Boolean)">
+ <summary>
+ Realiza una busqueda de las empresa
+ </summary>
+ <param name="filtro">Filtro a aplicar</param>
+ <param name="bTroqueleria">Flag que implicara buscar empresas de troqueleria</param>
+ <param name="bSistemas">Flag que implicar buscar empresas de sistemas</param>
+</member>
+<member name="M:SabLib.BLL.Interface.IEmpresasComponent.BuscarEmpresasActivas(System.String)">
+ <summary>
+ Obtiene un listado de proveedores de Activos
+ </summary>
+ <param name="filtro">Filtro sobre el nombre</param>
+ <returns></returns>
+ <remarks></remarks>
+</member>
+<member name="M:SabLib.BLL.Interface.IEmpresasComponent.Save(SabLib.ELL.Empresa,Oracle.DataAccess.Client.OracleConnection)">
+ <summary>
+ Guarda los datos de la empresa
+ </summary>
+ <param name="oEmpresa">Objeto empresa a guardar</param>
+ <param name="conn"></param>        
+ <returns>Booleano que indica si se ha guardado correctamente</returns>
+</member>
+<member name="M:SabLib.BLL.Interface.IEmpresasComponent.Delete(System.Int32)">
+ <summary>
+ Borra la empresa
+ </summary>
+ <param name="idEmpresa">Identificador de la empresa</param>
+ <returns>Booleano indicando si se ha borrado correctamente</returns>
+</member>
+<member name="M:SabLib.BLL.Interface.IDepartamentosComponent.GetDepartamento(SabLib.ELL.Departamento)">
+ <summary>
+ Devuelve la informacion del departamento
+ </summary>
+ <param name="oDepto">Departamento</param>
+ <returns>Objeto departamento</returns>        
+</member>
+<member name="M:SabLib.BLL.Interface.IDepartamentosComponent.GetDepartamentos(SabLib.ELL.Departamento,System.String)">
+ <summary>
+ Devuelve los departamentos que cumplan las caracteristicas
+ </summary>
+ <param name="oDepartamento">Departamento a consultar</param>
+ <param name="sortField">Parametro opcional para ordenar por un campo</param>
+ <returns>Lista de departamentos</returns>                
+</member>
+<member name="M:SabLib.BLL.Interface.IDepartamentosComponent.GetDepartamentos(SabLib.BLL.Interface.IDepartamentosComponent.EDepartamentos,System.Int32)">
+ <summary>
+ Obtiene todos los departamentos de epsilon o de sab
+ </summary>
+ <param name="eDepart">Se indicara que departamentos se obtendran</param>
+ <returns></returns>
+</member>
+<member name="M:SabLib.BLL.Interface.IDepartamentosComponent.GetDepartamentosPlanta(System.Int32)">
+ <summary>
+ Devuelve los departamentos existentes en una planta
+ </summary>
+ <param name="idPlanta">Identificador de la planta</param>
+ <returns>Lista de departamentos</returns>        
+</member>
+<member name="M:SabLib.BLL.Interface.IDepartamentosComponent.GenerarIdDepto(System.Int32)">
+ <summary>
+ Obtiene el maximo id de la tabla de departamentos para esa planta
+ </summary>
+ <param name="idPlanta">Identificador de la planta</param>
+</member>
+<member name="M:SabLib.BLL.Interface.IDepartamentosComponent.Save(SabLib.ELL.Departamento,System.Boolean)">
+ <summary>
+ Elimina un departamento
+ </summary>
+ <param name="oDepto">Objeto de departamento</param>
+</member>
+<member name="M:SabLib.BLL.Interface.IDepartamentosComponent.Delete(System.String)">
+ <summary>
+ Elimina un departamento
+ </summary>
+ <param name="idDepto">Identificador del departamento</param>
+</member>
+<member name="M:SabLib.BLL.Interface.ICulturasComponent.GetCulturas">
+ <summary>
+ Obtiene todas las culturas
+ </summary>
+</member>
+<member name="M:SabLib.BLL.Interface.ICulturasComponent.RangoKultura(System.String)">
+ <summary>
+ Dada una cultura, devuelve el rango de culturas que segun una prioridad, se utilizara para intentar traducir un termino
+ Estaran ordenados de mayor orden a menor
+ </summary>
+ <param name="cultura">Cultura base</param>
+ <returns></returns>        
+</member>
+<member name="P:SabLib.ELL.Ticket.UsuarioSAB">
+ <summary>
+ Consulta la informacion del usuario
+ </summary>
+ <value></value>
+ <returns></returns>        
+</member>
+<member name="P:SabLib.ELL.Ticket.IdPlanta">
+ <summary>
+ Id de la planta activa del usuario
+ </summary>
+ <value></value>
+ <returns></returns>        
+</member>
+<member name="F:SabLib.ELL.recurso.SortClass._NombreCampo">
+ <summary>
+ Nombre del campo por el que hay que ordenar
+ </summary>
+</member>
+<member name="F:SabLib.ELL.recurso.SortClass._direccion">
+ <summary>
+ Direccion de ordenamiento
+ </summary>
+ <remarks></remarks>
+</member>
+<member name="M:SabLib.ELL.recurso.SortClass.#ctor(System.String,SabLib.ELL.recurso.SortClass.Direction)">
+ <summary>
+ Constructor que inicializa lka clase
+ </summary>
+ <param name="nombre">Nombre del campo</param>
+ <param name="dir">Direccion del ordenamiento</param>
+</member>
+<member name="T:SabLib.ELL.recurso.SortClass.Direction">
+ <summary>
+ Enumeracion para indicar el tipo de orden que se va a realizar (Ascendente o descendente)
+ </summary>
+</member>
+<member name="M:SabLib.ELL.recurso.SortClass.Compare1(SabLib.ELL.recurso,SabLib.ELL.recurso)">
+ <summary>
+ Funcion de comparacion que se usara al ordenar
+ </summary>
+ <param name="rec1">Objeto 1 a comparar</param>
+ <param name="rec2">Objeto 2 a comparar</param>
+ <returns></returns>
+</member>
+<member name="P:SabLib.ELL.Planta.Ubicacion">
+ <summary>
+ N:Nacional,E:Europa,M:Resto del Mundo
+ </summary>
+ <value></value>
+ <returns></returns>
+</member>
+<member name="P:SabLib.ELL.Planta.De_Epsilon">
+ <summary>
+ Indica si la planta esta relacionada con Epsilon
+ </summary>
+ <value></value>
+ <returns></returns>        
+</member>
+<member name="P:SabLib.ELL.Planta.De_Izaro">
+ <summary>
+ Indica si la planta esta relacionada solo con Izaro
+ </summary>
+ <value></value>
+ <returns></returns>        
+</member>
+<member name="T:SabLib.ELL.Perfil.TipoPerfil">
+ <summary>
+ Indica los posibles tipos de perfil existentes
+ </summary>
+</member>
+<member name="P:SabLib.ELL.Perfil.IdUsuario">
+ <summary>
+ Id del usuario del perfil
+ </summary>
+ <value></value>
+ <returns></returns>		
+</member>
+<member name="P:SabLib.ELL.Perfil.Perfil">
+ <summary>
+ Indica el tipo de perfil
+ </summary>
+ <value></value>
+ <returns></returns>		
+</member>
+<member name="P:SabLib.ELL.Perfil.Sinc_Personal">
+ <summary>
+ Indica si puede acceder a la sincronizacion de personal
+ </summary>
+ <value></value>
+ <returns></returns>		
+</member>
+<member name="P:SabLib.ELL.Perfil.Sinc_Zimbra">
+ <summary>
+ Indica si puede acceder a la sincronizacion de zimbra
+ </summary>
+ <value></value>
+ <returns></returns>		
+</member>
+<member name="P:SabLib.ELL.Parametros.ServidorZimbra">
+ <summary>
+ Direccion del servidor de Zimbra
+ </summary>
+ <value></value>
+ <returns></returns>		
+</member>
+<member name="P:SabLib.ELL.Parametros.UserZimbra">
+ <summary>
+ Usuario para operar contra Zimbra
+ </summary>
+ <value></value>
+ <returns></returns>		
+</member>
+<member name="P:SabLib.ELL.Parametros.PasswordZimbra">
+ <summary>
+ Password del usuario
+ </summary>
+ <value></value>
+ <returns></returns>		
+</member>
+<member name="P:SabLib.ELL.Parametros.ServidorEmail">
+ <summary>
+ Direccion del servidor de email
+ </summary>
+ <value></value>
+ <returns></returns>		
+</member>
+<member name="P:SabLib.ELL.ParametrosWifi.IdPlanta">
+ <summary>
+ Id de la planta
+ </summary>
+ <value></value>
+ <returns></returns>		
+</member>
+<member name="P:SabLib.ELL.ParametrosWifi.ServidorWifi">
+ <summary>
+ Direccion del servidor donde se gestionan las cuentas wifi
+ </summary>
+ <value></value>
+ <returns></returns>		
+</member>
+<member name="P:SabLib.ELL.ParametrosWifi.UserWifi">
+ <summary>
+ Usuario de acceso al servidor
+ </summary>
+ <value></value>
+ <returns></returns>		
+</member>
+<member name="P:SabLib.ELL.ParametrosWifi.PasswordWifi">
+ <summary>
+ Password del usuario de acceso al servidor
+ </summary>
+ <value></value>
+ <returns></returns>		
+</member>
+<member name="P:SabLib.ELL.ParametrosWifi.LanId">
+ <summary>
+ Identificador LAN de la red
+ </summary>
+ <value></value>
+ <returns></returns>		
+</member>
+<member name="P:SabLib.ELL.ParametrosWifi.LanName">
+ <summary>
+ Nombre de la red
+ </summary>
+ <value></value>
+ <returns></returns>		
+</member>
+<member name="P:SabLib.ELL.ParametrosWifi.LongitudUser">
+ <summary>
+ Longitud en caracteres del usuario generado
+ </summary>
+ <value></value>
+ <returns></returns>		
+</member>
+<member name="P:SabLib.ELL.ParametrosWifi.LongitudPassword">
+ <summary>
+ Longitud de caracteres del password generado
+ </summary>
+ <value></value>
+ <returns></returns>		
+</member>
+<member name="P:SabLib.ELL.ParametrosWifi.PrinterName">
+ <summary>
+ Nombre de la impresora donde se imprimiran los tickets wifi generados. Si esta a null, solo se mostraran por pantalla
+ </summary>
+ <value></value>
+ <returns></returns>		
+</member>
+<member name="F:SabLib.ELL.grupo.SortClass._NombreCampo">
+ <summary>
+ Nombre del campo por el que hay que ordenar
+ </summary>
+</member>
+<member name="F:SabLib.ELL.grupo.SortClass._direccion">
+ <summary>
+ Direccion de ordenamiento
+ </summary>
+ <remarks></remarks>
+</member>
+<member name="M:SabLib.ELL.grupo.SortClass.#ctor(System.String,SabLib.ELL.grupo.SortClass.Direction)">
+ <summary>
+ Constructor que inicializa lka clase
+ </summary>
+ <param name="nombre">Nombre del campo</param>
+ <param name="dir">Direccion del ordenamiento</param>
+</member>
+<member name="T:SabLib.ELL.grupo.SortClass.Direction">
+ <summary>
+ Enumeracion para indicar el tipo de orden que se va a realizar (Ascendente o descendente)
+ </summary>
+</member>
+<member name="M:SabLib.ELL.grupo.SortClass.Compare1(SabLib.ELL.grupo,SabLib.ELL.grupo)">
+ <summary>
+ Funcion de comparacion que se usara al ordenar
+ </summary>
+ <param name="grup1">Objeto 1 a comparar</param>
+ <param name="grup2">Objeto 2 a comparar</param>
+ <returns></returns>
+</member>
+<member name="P:SabLib.ELL.CabIntranet.Id">
+ <summary>
+ Identificador
+ </summary>
+ <value></value>
+ <returns></returns>        
+</member>
+<member name="P:SabLib.ELL.CabIntranet.Titulo">
+ <summary>
+ Titulo de la imagen
+ </summary>
+ <value></value>
+ <returns></returns>        
+</member>
+<member name="P:SabLib.ELL.CabIntranet.FechaDesde">
+ <summary>
+ Fecha desde la que se mostrara la imagen
+ </summary>
+ <value></value>
+ <returns></returns>        
+</member>
+<member name="P:SabLib.ELL.CabIntranet.FechaHasta">
+ <summary>
+ Fecha hasta la que se mostrara la imagen
+ Si es date.MinValue, se mostrara siempre
+ </summary>
+ <value></value>
+ <returns></returns>        
+</member>
+<member name="P:SabLib.ELL.CabIntranet.NavigateUrl">
+ <summary>
+ Direccion a la que se navegara al hacer click
+ </summary>
+ <value></value>
+ <returns></returns>        
+</member>
+<member name="P:SabLib.ELL.CabIntranet.AlternateText">
+ <summary>
+ En caso de no encontrarse la imagen, se mostrara este texto
+ </summary>
+ <value></value>
+ <returns></returns>        
+</member>
+<member name="P:SabLib.ELL.CabIntranet.Keyword">
+ <summary>
+ Palabra clave asociada
+ </summary>
+ <value></value>
+ <returns></returns>        
+</member>
+<member name="P:SabLib.ELL.CabIntranet.Imagen">
+ <summary>
+ Identificador
+ </summary>
+ <value></value>
+ <returns></returns>        
+</member>
+<member name="P:SabLib.ELL.CabIntranet.NombreImagen">
+ <summary>
+ Nombre y extension de la imagen
+ </summary>
+ <value></value>
+ <returns></returns>        
+</member>
+<member name="P:SabLib.ELL.CabIntranet.Excepciones">
+ <summary>
+ Excepciones de fechas en las que no se mostrara (0:idCab,1:fecha desde,2:fecha hasta)
+ </summary>
+ <value></value>
+ <returns></returns>        
+</member>
+<member name="P:SabLib.ELL.Usuario.Id">
+ <summary>
+ Identificador del usuario para los usuarios antiguos
+ Si se usa UsuariosIntranet, correspondera con el nuevo id de usuario que no cambia aunque un usuario cambie de numero
+ </summary>
+ <value></value>
+ <returns></returns>        
+</member>
+<member name="P:SabLib.ELL.Usuario.NombreUsuario">
+ <summary>
+ Nombre del usuario
+ </summary>
+ <value></value>
+ <returns></returns>        
+</member>
+<member name="P:SabLib.ELL.Usuario.IdEmpresa">
+ <summary>
+ Id de la empresa
+ </summary>
+ <value></value>
+ <returns></returns>        
+</member>
+<member name="P:SabLib.ELL.Usuario.Cultura">
+ <summary>
+ Cultura del usuario
+ </summary>
+ <value></value>
+ <returns></returns>        
+</member>
+<member name="P:SabLib.ELL.Usuario.CodPersona">
+ <summary>
+ Número de Trabajador de Batz.
+ </summary>
+ <value></value>
+ <returns></returns>
+</member>
+<member name="P:SabLib.ELL.Usuario.Email">
+ <summary>
+ Email
+ </summary>
+ <value></value>
+ <returns></returns>        
+</member>
+<member name="P:SabLib.ELL.Usuario.FechaAlta">
+ <summary>
+ Fecha en la que se le dio de alta
+ </summary>
+ <value></value>
+ <returns></returns>
+</member>
+<member name="P:SabLib.ELL.Usuario.FechaBaja">
+ <summary>
+ Fecha en la que se le dio de baja
+ </summary>
+ <value></value>
+ <returns></returns>        
+</member>
+<member name="P:SabLib.ELL.Usuario.IdDirectorioActivo">
+ <summary>
+ Dominio\nombre de usuario
+ </summary>
+ <value></value>
+ <returns></returns>        
+</member>
+<member name="P:SabLib.ELL.Usuario.PWD">
+ <summary>
+ Password del portal del empleado
+ </summary>
+ <value></value>
+ <returns></returns>        
+</member>
+<member name="P:SabLib.ELL.Usuario.IdDepartamento">
+ <summary>
+ Identificador del departamento
+ </summary>
+ <value></value>
+ <returns></returns>        
+</member>
+<member name="P:SabLib.ELL.Usuario.Nombre">
+ <summary>
+ Nombre de la persona
+ </summary>
+ <value></value>
+ <returns></returns>        
+</member>
+<member name="P:SabLib.ELL.Usuario.Apellido1">
+ <summary>
+ Primer apellido
+ </summary>
+ <value></value>
+ <returns></returns>        
+</member>
+<member name="P:SabLib.ELL.Usuario.Apellido2">
+ <summary>
+ Segundo apellido
+ </summary>
+ <value></value>
+ <returns></returns>        
+</member>
+<member name="P:SabLib.ELL.Usuario.NombreCompleto">
+ <summary>
+ Se forma el nombre con los apellidos
+ </summary>
+ <value></value>
+ <returns></returns>
+</member>
+<member name="P:SabLib.ELL.Usuario.NombreCompletoYCodpersona">
+ <summary>
+ Se forma el nombre con los apellidos. Si tiene código de persona se añade delante entre paréntesis
+ </summary>
+ <value></value>
+ <returns></returns>
+</member>
+<member name="P:SabLib.ELL.Usuario.IdPlanta">
+ <summary>
+ Identificador de la planta activa del usuario
+ </summary>
+ <value></value>
+ <returns></returns>
+</member>
+<member name="P:SabLib.ELL.Usuario.Plantas">
+ <summary>
+ Plantas con las que esta relacionado
+ </summary>
+ <value></value>
+ <returns></returns>        
+</member>
+<member name="P:SabLib.ELL.Usuario.DadoBaja">
+ <summary>
+ Indica si esta dado de baja o no
+ </summary>
+ <value></value>
+ <returns></returns>        
+</member>
+<member name="P:SabLib.ELL.Usuario.Foto">
+ <summary>
+ Foto del usuario
+ </summary>
+ <value></value>
+ <returns></returns>        
+</member>
+<member name="P:SabLib.ELL.Usuario.Dni">
+ <summary>
+ DNI
+ </summary>
+ <value></value>
+ <returns></returns>        
+</member>
+<member name="P:SabLib.ELL.Usuario.IdResponsable">
+ <summary>
+ Identificador del usuario responsable
+ </summary>
+ <value></value>
+ <returns></returns>        
+</member>
+<member name="P:SabLib.ELL.Usuario.NikEuskaraz">
+ <summary>
+ Indica si el usuario preferira comunicarse en euskera
+ </summary>
+ <value></value>
+ <returns></returns>        
+</member>
+<member name="P:SabLib.ELL.Usuario.EsDeSistemasCorporativo">
+ <summary>
+ Indica si el usuario pertenece a Sistemas corporativo o no
+ </summary>
+ <returns></returns>
+</member>
+<member name="P:SabLib.ELL.Usuario.EsDeGrupoBatz">
+ <summary>
+ Indica si el departamento de la persona, pertenece al grupo
+ </summary>
+ <returns></returns>
+</member>
+<member name="P:SabLib.ELL.Usuario.UsuarioEmpresa">
+ <summary>
+ Indica si el usuario es el usuario principal (proveedor)
+ </summary>
+ <value></value>
+ <returns></returns>        
+</member>
+<member name="F:SabLib.BatzException._mensaje">
+ <summary>
+ Este campo se informara en el constructor al llamar a LogError
+ </summary>
+</member>
+<member name="F:SabLib.BatzException._excepcion">
+ <summary>
+ Excepcion original
+ </summary>
+</member>
+<member name="P:SabLib.BatzException.Termino">
+ <summary>
+ Devuelve la traduccion de la key
+ </summary>
+ <value></value>
+ <returns></returns>
+ <remarks></remarks>
+</member>
+<member name="P:SabLib.BatzException.Excepcion">
+ <summary>
+ Devuelve la excepcion que origino la excepcion
+ </summary>
+ <value></value>
+ <returns></returns>
+</member>
+<member name="M:SabLib.BatzException.#ctor(System.String,System.Exception)">
+ <summary>
+ Contructor que instancia el objeto y ejecuta una funcion de log4net
+ </summary>
+ <param name="mensaje"></param>
+ <param name="Excepcion"></param>
+</member>
+<member name="M:SabLib.BatzException.LogError">
+ <summary>
+ Ejecuta la funcion Log.Error del log4net
+ </summary>
+</member>
+</members>
+</doc>
