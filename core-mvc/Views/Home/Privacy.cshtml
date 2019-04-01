@@ -1,0 +1,255 @@
+﻿@{
+    ViewData["Title"] = "Privacy Policy";
+}
+<h1>@ViewData["Title"]</h1>
+
+<p>Use this page to detail your site's privacy policy.</p>
+
+
+
+    <div class="container body-content">
+
+
+
+
+
+
+
+        <span> hola</span>
+
+
+
+
+
+
+        <form id="ninja" runat="server" class="dx-viewport" method="POST" action="a5.aspx">
+
+            <input id="donaldduck" type="hidden" name="donaldduck" value="a">
+            <input id="campo2" type="hidden" name="donaldduck" value="a">
+            <input id="accion" type="hidden" name="donaldduck" value="0">
+
+            <div class="demo-container">
+
+                <%--      <div class="demo-container">
+                    <div id="app" />
+                </div>--%>
+
+
+
+
+
+
+                <div id="gridContainer"></div>
+
+                <div id="events">
+                    <div>
+                        <div class="caption">
+                            Fired events
+                        </div>
+                        <div id="clear"></div>
+                    </div>
+                    <ul></ul>
+                </div>
+            </div>
+
+
+
+        </form>
+
+
+
+
+        <script type="text/javascript">
+
+
+
+
+
+            $(function () {
+                function logEvent(eventName) {
+                    var logList = $("#events ul"),
+                        newItem = $("<li>", { text: eventName });
+
+                    logList.prepend(newItem);
+                }
+
+                $("#gridContainer").dxDataGrid({
+                    dataSource: [{ "Id": -2147483648, "dni": "Seguramente tenemos dolencias comunes y seguro que nos ayuda hablar de ello con personas que sientan lo mismo.", "plantaDesc": "Salud" }, { "Id": -2147483648, "dni": "Quieres compartir tus vivencias, aprender de las de otros y recomendar sitios que merece la pena visitar.", "plantaDesc": "Turismo" }, { "Id": -2147483648, "dni": "Si te afecta y quieres hablar de ello. Cotización, fiscalidad, novedades, empresas. Derechos y obligaciones", "plantaDesc": "Prejubilación anticipada" }, { "Id": -2147483648, "dni": "El deporte rey. Si te gusta y no eres del Madrid apúntate (es broma, tambien puedes)", "plantaDesc": "Fútbol" }, { "Id": -2147483648, "dni": "Aparte del futbol hay otras actividades.", "plantaDesc": "Otros deportes." }, { "Id": -2147483648, "dni": "Si quieres hablar de como son, como te ocupas de ellos y como les va a los demás en tu misma situación.", "plantaDesc": "Nietos" }, { "Id": -2147483648, "dni": "Puedes contarnos como vives y qué cosas bonitas puedes encontrar en él y quieres saber como se viven en otros sitios. Turismo pero sin salir de casa.", "plantaDesc": "Tu pueblo" }],
+                    keyExpr: "dni",
+                    showBorders: true,
+                    paging: {
+                        enabled: false
+                    },
+                    editing: {
+                        mode: "row",
+                        allowUpdating: true,
+                        allowDeleting: true,
+                        allowAdding: true
+                    },
+                    columns: [
+                        {
+                            dataField: "dni",
+                            caption: "Title"
+                        }, "dni",
+                        "plantaDesc", {
+                            dataField: "plantaDesc",
+                            width: 130
+                        },
+                    ],
+                    onEditingStart: function (e) {
+                        logEvent("EditingStart");
+
+                        document.getElementById("donaldduck").value = e.data.dni;
+                        document.getElementById("campo2").value = e.data.plantaDesc;
+                        document.getElementById("accion").value = "1";
+
+
+                        //          donaldduck.setAttribute("value", "666666");
+
+
+                        //document.getElementById("ninja").submit();
+
+                        var parametros = {
+                            "donaldduck": $("#donaldduck").val(),
+                            "campo2": $("#campo2").val(),
+                            "accion": $("#accion").val()
+                        }
+
+
+                        $.ajax({
+                            data: parametros,
+                            url: "http://localhost:62518/Home/Index2",
+                            type: "post",
+                            success: function (response) {
+                                //response contiene la respuesta al llamado de tu archivo
+                                //aqui actualizas los valores de inmediato llamando a sus respectivas id.
+                            }
+                        })
+
+
+
+
+                    },
+                    onInitNewRow: function (e) {
+                        logEvent("InitNewRow");
+                    },
+                    onRowInserting: function (e) {
+                        logEvent("RowInserting");
+                    },
+                    onRowInserted: function (e) {
+                        logEvent("RowInserted");
+                    },
+                    onRowUpdating: function (e) {
+                        logEvent("RowUpdating");
+                    },
+                    onRowUpdated: function (e) {
+                        logEvent("RowUpdated");
+                    },
+                    onRowRemoving: function (e) {
+                        logEvent("RowRemoving");
+                    },
+                    onRowRemoved: function (e) {
+                        logEvent("RowRemoved");
+                    }
+                });
+
+
+                $("#clear").dxButton({
+                    text: "Clear",
+                    onClick: function () {
+                        $("#events ul").empty();
+                    }
+                });
+            });
+
+
+
+
+        </script>
+
+
+
+
+        <style type="text/css">
+
+            #events {
+                background-color: rgba(191, 191, 191, 0.15);
+                padding: 20px;
+                margin-top: 20px;
+            }
+
+
+                #events > div {
+                    padding-bottom: 5px;
+                }
+
+
+                    #events > div:after {
+                        content: "";
+                        display: table;
+                        clear: both;
+                    }
+
+
+                #events #clear {
+                    float: right;
+                }
+
+
+                #events .caption {
+                    float: left;
+                    font-weight: bold;
+                    font-size: 115%;
+                    line-height: 115%;
+                    padding-top: 7px;
+                }
+
+
+                #events ul {
+                    list-style: none;
+                    max-height: 100px;
+                    overflow: auto;
+                    margin: 0;
+                }
+
+
+                    #events ul li {
+                        padding: 7px 0;
+                        border-bottom: 1px solid #dddddd;
+                    }
+
+
+                        #events ul li:last-child {
+                            border-bottom: none;
+                        }
+        </style>
+
+
+
+
+
+        <hr />
+        <footer>
+            <p>&copy; 2019 - Batz Group</p>
+        </footer>
+    </div>
+
+
+
+    <script type="text/javascript">
+        function deleteItem() {
+            var data = confirm("Are you sure? Every child/descendant in the hierarchy will be removed...");
+            if (data == false) {
+                return false;
+            } else {
+                return true;
+            }
+        }
+        $(document).ready(function () {
+            $("#sortableTable").tablesorter({
+                headers: { '.actionColumn': { sorter: false } }
+            });
+        });
+    </script>
+
+

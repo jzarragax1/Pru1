@@ -1,0 +1,72 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 15
+VisualStudioVersion = 15.0.28307.329
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "core-mvc", "core-mvc\core-mvc.csproj", "{4026CF34-A935-472C-9580-7C40BBC63801}"
+EndProject
+Project("{F184B08F-C81C-45F6-A57F-5ABD9991F28F}") = "CEticoLib", "CEticoLib\CEticoLib.vbproj", "{15FD0185-77CC-4BA5-941E-711F60F0ED09}"
+EndProject
+Project("{F184B08F-C81C-45F6-A57F-5ABD9991F28F}") = "Memcached", "Memcached\Memcached.vbproj", "{1F46E55D-906C-4588-99CC-E81C4B4E373E}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug_Extranet|Any CPU = Debug_Extranet|Any CPU
+		Debug|Any CPU = Debug|Any CPU
+		GertakariakMS|Any CPU = GertakariakMS|Any CPU
+		Istriku_Debug|Any CPU = Istriku_Debug|Any CPU
+		Istriku_Release|Any CPU = Istriku_Release|Any CPU
+		Release_Extranet|Any CPU = Release_Extranet|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{4026CF34-A935-472C-9580-7C40BBC63801}.Debug_Extranet|Any CPU.ActiveCfg = Debug|Any CPU
+		{4026CF34-A935-472C-9580-7C40BBC63801}.Debug_Extranet|Any CPU.Build.0 = Debug|Any CPU
+		{4026CF34-A935-472C-9580-7C40BBC63801}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4026CF34-A935-472C-9580-7C40BBC63801}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4026CF34-A935-472C-9580-7C40BBC63801}.GertakariakMS|Any CPU.ActiveCfg = Release|Any CPU
+		{4026CF34-A935-472C-9580-7C40BBC63801}.GertakariakMS|Any CPU.Build.0 = Release|Any CPU
+		{4026CF34-A935-472C-9580-7C40BBC63801}.Istriku_Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4026CF34-A935-472C-9580-7C40BBC63801}.Istriku_Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4026CF34-A935-472C-9580-7C40BBC63801}.Istriku_Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4026CF34-A935-472C-9580-7C40BBC63801}.Istriku_Release|Any CPU.Build.0 = Release|Any CPU
+		{4026CF34-A935-472C-9580-7C40BBC63801}.Release_Extranet|Any CPU.ActiveCfg = Release|Any CPU
+		{4026CF34-A935-472C-9580-7C40BBC63801}.Release_Extranet|Any CPU.Build.0 = Release|Any CPU
+		{4026CF34-A935-472C-9580-7C40BBC63801}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4026CF34-A935-472C-9580-7C40BBC63801}.Release|Any CPU.Build.0 = Release|Any CPU
+		{15FD0185-77CC-4BA5-941E-711F60F0ED09}.Debug_Extranet|Any CPU.ActiveCfg = Debug|Any CPU
+		{15FD0185-77CC-4BA5-941E-711F60F0ED09}.Debug_Extranet|Any CPU.Build.0 = Debug|Any CPU
+		{15FD0185-77CC-4BA5-941E-711F60F0ED09}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{15FD0185-77CC-4BA5-941E-711F60F0ED09}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{15FD0185-77CC-4BA5-941E-711F60F0ED09}.GertakariakMS|Any CPU.ActiveCfg = Release|Any CPU
+		{15FD0185-77CC-4BA5-941E-711F60F0ED09}.GertakariakMS|Any CPU.Build.0 = Release|Any CPU
+		{15FD0185-77CC-4BA5-941E-711F60F0ED09}.Istriku_Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{15FD0185-77CC-4BA5-941E-711F60F0ED09}.Istriku_Debug|Any CPU.Build.0 = Debug|Any CPU
+		{15FD0185-77CC-4BA5-941E-711F60F0ED09}.Istriku_Release|Any CPU.ActiveCfg = Release|Any CPU
+		{15FD0185-77CC-4BA5-941E-711F60F0ED09}.Istriku_Release|Any CPU.Build.0 = Release|Any CPU
+		{15FD0185-77CC-4BA5-941E-711F60F0ED09}.Release_Extranet|Any CPU.ActiveCfg = Release|Any CPU
+		{15FD0185-77CC-4BA5-941E-711F60F0ED09}.Release_Extranet|Any CPU.Build.0 = Release|Any CPU
+		{15FD0185-77CC-4BA5-941E-711F60F0ED09}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{15FD0185-77CC-4BA5-941E-711F60F0ED09}.Release|Any CPU.Build.0 = Release|Any CPU
+		{1F46E55D-906C-4588-99CC-E81C4B4E373E}.Debug_Extranet|Any CPU.ActiveCfg = Debug_Extranet|Any CPU
+		{1F46E55D-906C-4588-99CC-E81C4B4E373E}.Debug_Extranet|Any CPU.Build.0 = Debug_Extranet|Any CPU
+		{1F46E55D-906C-4588-99CC-E81C4B4E373E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1F46E55D-906C-4588-99CC-E81C4B4E373E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1F46E55D-906C-4588-99CC-E81C4B4E373E}.GertakariakMS|Any CPU.ActiveCfg = GertakariakMS|Any CPU
+		{1F46E55D-906C-4588-99CC-E81C4B4E373E}.GertakariakMS|Any CPU.Build.0 = GertakariakMS|Any CPU
+		{1F46E55D-906C-4588-99CC-E81C4B4E373E}.Istriku_Debug|Any CPU.ActiveCfg = Istriku_Debug|Any CPU
+		{1F46E55D-906C-4588-99CC-E81C4B4E373E}.Istriku_Debug|Any CPU.Build.0 = Istriku_Debug|Any CPU
+		{1F46E55D-906C-4588-99CC-E81C4B4E373E}.Istriku_Release|Any CPU.ActiveCfg = Istriku_Release|Any CPU
+		{1F46E55D-906C-4588-99CC-E81C4B4E373E}.Istriku_Release|Any CPU.Build.0 = Istriku_Release|Any CPU
+		{1F46E55D-906C-4588-99CC-E81C4B4E373E}.Release_Extranet|Any CPU.ActiveCfg = Release_Extranet|Any CPU
+		{1F46E55D-906C-4588-99CC-E81C4B4E373E}.Release_Extranet|Any CPU.Build.0 = Release_Extranet|Any CPU
+		{1F46E55D-906C-4588-99CC-E81C4B4E373E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1F46E55D-906C-4588-99CC-E81C4B4E373E}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {AAEE6487-9338-43E4-9E23-912F56FC7C38}
+	EndGlobalSection
+EndGlobal
