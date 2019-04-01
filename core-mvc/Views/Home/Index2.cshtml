@@ -1,310 +1,167 @@
-﻿
-@using System.Net
-@using Newtonsoft.Json
-@using Microsoft.AspNetCore.Html;
+﻿@{
+    ViewData["Title"] = "Privacy Policy";
+}
+<h1>@ViewData["Title"]</h1>
 
-@model List<Index2Model>
+<script src="https://www.gstatic.com/firebasejs/5.9.2/firebase.js"></script>
+<script>
+    // Initialize Firebase
+    var config = {
+        apiKey: "AIzaSyDrkSEs5jOx91krsGizo4p2xAsmgPrHzSc",
+        authDomain: "prueba1-365d2.firebaseapp.com",
+        databaseURL: "https://prueba1-365d2.firebaseio.com",
+        projectId: "prueba1-365d2",
+        storageBucket: "prueba1-365d2.appspot.com",
+        messagingSenderId: "256425404574"
+    };
+    firebase.initializeApp(config);
+</script>
 
-@{
-
-    //COGER DATOS DE UN FORMULARIO, NO PONER PAGE ARRIBA PARA QUE DEVUELVA EL MODELO
-
-    Index2Model   listaType2;
-
-    var oDocBLL2 = new core_mvc.Controllers.HomeController();
-
-    listaType2 = Model.First();
-
-    string accion = listaType2.accion;
-
-
-    int found = 0;
-    found = accion.IndexOf("accion=");
-    if (found > 0)
-    {
-        accion = accion.Substring(found + 7);
-    }
-
-    if (accion == "1")
-    {
-        //Response.Redirect("~/index2.vbhtml");
-    }
-    else
-    {
-        //Response.Redirect("~/index.vbhtml");
-        accion = "0";
-    }
-
-
-    string textoJason = "33";
+fff
 
 
 
-        //para llamar a librerias vb
-        // no puede llamar a json pero si a otras    var oDocBLL = new CEticoLib.BLL.cEtico();
-
-    // textoJason = oDocBLL.JsonSerializer(textoJason);
+<head>
 
 
+    <script type="text/javascript">
 
-    //    HttpWebRequest request = (HttpWebRequest)WebRequest.Create(@"http://weathers.co/api.php?city=Madrid");
+        /**
+         * Function called when clicking the Login/Logout button.
+         */
+        // [START buttoncallback]
+        function toggleSignIn() {
+            if (!firebase.auth().currentUser) {
+                // [START createprovider]
+                var provider = new firebase.auth.GoogleAuthProvider();
+                // [END createprovider]
+                // [START addscopes]
+                provider.addScope('https://www.googleapis.com/auth/contacts.readonly');
+                // [END addscopes]
+                // [START signin]
+                firebase.auth().signInWithPopup(provider).then(function (result) {
+                    // This gives you a Google Access Token. You can use it to access the Google API.
+                    var token = result.credential.accessToken;
+                    // The signed-in user info.
+                    var user = result.user;
+                    // [START_EXCLUDE]
+                    document.getElementById('quickstart-oauthtoken').textContent = token;
+                    // [END_EXCLUDE]
+                }).catch(function (error) {
+                    // Handle Errors here.
+                    var errorCode = error.code;
+                    var errorMessage = error.message;
+                    // The email of the user's account used.
+                    var email = error.email;
+                    // The firebase.auth.AuthCredential type that was used.
+                    var credential = error.credential;
+                    // [START_EXCLUDE]
+                    if (errorCode === 'auth/account-exists-with-different-credential') {
+                        alert('You have already signed up with a different auth provider for that email.');
+                        // If you are using multiple auth providers on your app you should handle linking
+                        // the user's accounts here.
+                    } else {
+                        console.error(error);
+                    }
+                    // [END_EXCLUDE]
+                });
+                // [END signin]
+            } else {
+                // [START signout]
+                firebase.auth().signOut();
+                // [END signout]
+            }
+            // [START_EXCLUDE]
+            document.getElementById('quickstart-sign-in').disabled = true;
+            // [END_EXCLUDE]
+        }
+        // [END buttoncallback]
 
+        /**
+         * initApp handles setting up UI event listeners and registering Firebase auth listeners:
+         *  - firebase.auth().onAuthStateChanged: This listener is called when the user is signed in or
+         *    out, and that is where we update the UI.
+         */
+        function initApp() {
+            // Listening for auth state changes.
+            // [START authstatelistener]
+            firebase.auth().onAuthStateChanged(function (user) {
+                if (user) {
+                    // User is signed in.
+                    var displayName = user.displayName;
+                    var email = user.email;
+                    var emailVerified = user.emailVerified;
+                    var photoURL = user.photoURL;
+                    var isAnonymous = user.isAnonymous;
+                    var uid = user.uid;
+                    var providerData = user.providerData;
+                    // [START_EXCLUDE]
+                    document.getElementById('quickstart-sign-in-status').textContent = 'Signed in';
+                    document.getElementById('quickstart-sign-in').textContent = 'Sign out';
+                    document.getElementById('quickstart-account-details').textContent = JSON.stringify(user, null, '  ');
+                    // [END_EXCLUDE]
+                } else {
+                    // User is signed out.
+                    // [START_EXCLUDE]
+                    document.getElementById('quickstart-sign-in-status').textContent = 'Signed out';
+                    document.getElementById('quickstart-sign-in').textContent = 'Sign in with Google';
+                    document.getElementById('quickstart-account-details').textContent = 'null';
+                    document.getElementById('quickstart-oauthtoken').textContent = 'null';
+                    // [END_EXCLUDE]
+                }
+                // [START_EXCLUDE]
+                document.getElementById('quickstart-sign-in').disabled = false;
+                // [END_EXCLUDE]
+            });
+            // [END authstatelistener]
 
-
-    //var employees = new JsonResult(listaType2);
-
-
-    //        For Each item In Model
-    //    Dim aaaa As String
-    //    aaaa = item.dni
-
-    //Next
-
-
-
-
-
-    //Dim accion As String
-    //Dim donaldduck As String
-
-    //donaldduck = Request.Form("donaldduck")
-    //accion = Request.Form("accion")
-
-
-
-
-
-    //Dim FUN = New HomeController
-
-    //If accion = "1" Then
-    //    listaType2 = DAL.SQLPrueba()
-
-    //    Response.Redirect("~/index.vbhtml", True)
-
-    //Else
-    //    listaType2 = DAL.SQLPrueba()
-    //End If
-    //accion = "0"
-
-
-
-
-
-    //'textoJason = DAL.JsonSerializer(Model)
-    //textoJason = FUN.JsonSerializer(listaType2)
-
-
-
+            document.getElementById('quickstart-sign-in').addEventListener('click', toggleSignIn, false);
         }
 
-
-        <form id="ninja" runat="server" class="dx-viewport" method="POST" action="~/Home/Index">
-
-            <input id="donaldduck" type="hidden" name="donaldduck" value="a">
-            <input id="campo2" type="hidden" name="donaldduck" value="a">
-            <input id="accion" type="hidden" name="donaldduck" value="0">
-
-            <div class="demo-container">
-
-                dd
+        window.onload = function () {
+            initApp();
+        };
+    </script>
+</head>
 
 
 
 
+<div class="demo-layout mdl-layout mdl-js-layout mdl-layout--fixed-header">
 
+    <!-- Header section containing title -->
+    <header class="mdl-layout__header mdl-color-text--white mdl-color--light-blue-700">
+        <div class="mdl-cell mdl-cell--12-col mdl-cell--12-col-tablet mdl-grid">
+            <div class="mdl-layout__header-row mdl-cell mdl-cell--12-col mdl-cell--12-col-tablet mdl-cell--8-col-desktop">
+                <a href="/"><h3>Firebase Authentication</h3></a>
+            </div>
+        </div>
+    </header>
 
-                <div id="gridContainer"></div>
+    <main class="mdl-layout__content mdl-color--grey-100">
+        <div class="mdl-cell mdl-cell--12-col mdl-cell--12-col-tablet mdl-grid">
 
-                <div id="events">
-                    <div>
-                        <div class="caption">
-                            Fired events
-                        </div>
-                        <div id="clear"></div>
+            <!-- Container for the demo -->
+            <div class="mdl-card mdl-shadow--2dp mdl-cell mdl-cell--12-col mdl-cell--12-col-tablet mdl-cell--12-col-desktop">
+                <div class="mdl-card__title mdl-color--light-blue-600 mdl-color-text--white">
+                    <h2 class="mdl-card__title-text">Google Authentication with Popup</h2>
+                </div>
+                <div class="mdl-card__supporting-text mdl-color-text--grey-600">
+                    <p>Sign in with your Google account below.</p>
+
+                    <!-- Button that handles sign-in/sign-out -->
+                    <button disabled class="mdl-button mdl-js-button mdl-button--raised" id="quickstart-sign-in">Sign in with Google</button>
+
+                    <!-- Container where we'll display the user details -->
+                    <div class="quickstart-user-details-container">
+                        Firebase sign-in status: <span id="quickstart-sign-in-status">Unknown</span>
+                        <div>Firebase auth <code>currentUser</code> object value:</div>
+                        <pre><code id="quickstart-account-details">null</code></pre>
+                        <div>Google OAuth Access Token:</div>
+                        <pre><code id="quickstart-oauthtoken">null</code></pre>
                     </div>
-                    <ul></ul>
                 </div>
             </div>
-
-
-
-        </form>
-
-
-        <script type="text/javascript">
-
-
-
-
-
-    $(function () {
-        function logEvent(eventName) {
-            var logList = $("#events ul"),
-                newItem = $("<li>", { text: eventName });
-
-            logList.prepend(newItem);
-        }
-
-        $("#gridContainer").dxDataGrid({
-            dataSource: @Html.Raw(textoJason),
-            keyExpr: "dni",
-            showBorders: true,
-            paging: {
-                enabled: false
-            },
-            editing: {
-                mode: "row",
-                allowUpdating: true,
-                allowDeleting: true,
-                allowAdding: true
-            },
-            columns: [
-                {
-                    dataField: "dni",
-                    caption: "Title"
-                }, "dni",
-                "plantaDesc", {
-                    dataField: "plantaDesc",
-                    width: 130
-                },
-            ],
-            onEditingStart: function (e) {
-                logEvent("EditingStart");
-
-                document.getElementById("donaldduck").value = e.data.dni;
-                document.getElementById("campo2").value = e.data.plantaDesc;
-                document.getElementById("accion").value = "1";
-
-
-                //          donaldduck.setAttribute("value", "666666");
-
-
-                //document.getElementById("ninja").submit();
-
-                var parametros = {
-                    "donaldduck": $("#donaldduck").val(),
-                    "campo2": $("#campo2").val(),
-                    "accion": $("#accion").val()
-                }
-
-
-                $.ajax({
-                    data: parametros,
-                    url: "Index2",
-                    type: "post",
-                    success: function (response) {
-                        //response contiene la respuesta al llamado de tu archivo
-                        //aqui actualizas los valores de inmediato llamando a sus respectivas id.
-
-
-                        var x = document.getElementById("gridContainer").value;
-
-
-                    }
-                })
-
-
-
-
-            },
-            onInitNewRow: function (e) {
-                logEvent("InitNewRow");
-
-                //llamo a otro vbhtml o el mismo con refresco. el anterior sin refresco
-                //document.ninja.action = "index.vbhtml";
-                document.getElementById("ninja").submit();
-
-
-
-            },
-            onRowInserting: function (e) {
-                logEvent("RowInserting");
-            },
-            onRowInserted: function (e) {
-                logEvent("RowInserted");
-            },
-            onRowUpdating: function (e) {
-                logEvent("RowUpdating");
-            },
-            onRowUpdated: function (e) {
-                logEvent("RowUpdated");
-            },
-            onRowRemoving: function (e) {
-                logEvent("RowRemoving");
-            },
-            onRowRemoved: function (e) {
-                logEvent("RowRemoved");
-            }
-        });
-
-
-        $("#clear").dxButton({
-            text: "Clear",
-            onClick: function () {
-                $("#events ul").empty();
-            }
-        });
-    });
-
-
-
-
-        </script>
-
-
-
-
-        <style type="text/css">
-
-            #events {
-                background-color: rgba(191, 191, 191, 0.15);
-                padding: 20px;
-                margin-top: 20px;
-            }
-
-
-                #events > div {
-                    padding-bottom: 5px;
-                }
-
-
-                    #events > div:after {
-                        content: "";
-                        display: table;
-                        clear: both;
-                    }
-
-
-                #events #clear {
-                    float: right;
-                }
-
-
-                #events .caption {
-                    float: left;
-                    font-weight: bold;
-                    font-size: 115%;
-                    line-height: 115%;
-                    padding-top: 7px;
-                }
-
-
-                #events ul {
-                    list-style: none;
-                    max-height: 100px;
-                    overflow: auto;
-                    margin: 0;
-                }
-
-
-                    #events ul li {
-                        padding: 7px 0;
-                        border-bottom: 1px solid #dddddd;
-                    }
-
-
-                        #events ul li:last-child {
-                            border-bottom: none;
-                        }
-        </style>
-
+        </div>
+    </main>
+</div>
